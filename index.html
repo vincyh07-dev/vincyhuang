@@ -14,8 +14,6 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <script>
 document.documentElement.className='js';
-// Gold-line page transition: start covered by the cream panel when arriving from an in-site click.
-(function(){try{var t=+sessionStorage.getItem('vh-nav');sessionStorage.removeItem('vh-nav');if(t&&Date.now()-t<1500&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.className+=' nav-arrive';}}catch(e){}})();
 // Maroon entrance: first homepage visit of the session only, never with reduced motion or a #link.
 (function(){try{var d=document.documentElement;if(!sessionStorage.getItem('vh-visited')&&!location.hash&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.className+=' intro-on';}}catch(e){}})();
 </script>
@@ -57,42 +55,57 @@ document.documentElement.className='js';
 <a class="btn btn-ghost" href="projects.html">View projects</a>
 </div>
 </div>
-<section class="pv" aria-roledescription="carousel" aria-labelledby="pv-title" tabindex="-1">
-<div class="pv-head">
-<h2 class="pv-title" id="pv-title" aria-live="polite">Streamind Health</h2>
-<p class="pv-count" aria-hidden="true"><span class="pv-n">1</span> / 6</p>
-</div>
-<div class="pv-stage">
-<figure class="pv-slide" data-project="Streamind Health" data-index="0">
-<button class="pv-zoom" type="button" aria-label="Enlarge image: The Streamind heart-rate monitor running on a phone."><img src="assets/img/work/streamind-mobile-app.jpg" alt="Streamind Health mobile app showing the Heart Rate Monitor screen with a camera preview and Monitor, History, Breathe and Mood tabs" width="673" height="1400" decoding="async"></button>
-<figcaption>The Streamind heart-rate monitor running on a phone.</figcaption>
-</figure>
-<figure class="pv-slide" data-project="Streamind Health" data-index="1" hidden>
-<button class="pv-zoom" type="button" aria-label="Enlarge image: Guided breathing in the browser app, beside the mobile heart-rate monitor."><img src="assets/img/work/streamind-browser-and-mobile.jpg" alt="Streamind Health browser app on a laptop showing breathing exercises, next to the mobile app&#x27;s heart-rate monitor" width="1400" height="612" loading="lazy" decoding="async"></button>
-<figcaption>Guided breathing in the browser app, beside the mobile heart-rate monitor.</figcaption>
-</figure>
-<figure class="pv-slide" data-project="Streamind Health" data-index="2" hidden>
-<button class="pv-zoom" type="button" aria-label="Enlarge image: From our final presentation: band-pass filtering keeps only frequencies in the human heart-rate range."><img src="assets/img/work/streamind-rppg-bandpass.jpg" alt="Presentation slide on band-pass filtering, showing a heart-rate passband between 0.87 and 3.0 hertz" width="1400" height="787" loading="lazy" decoding="async"></button>
-<figcaption>From our final presentation: band-pass filtering keeps only frequencies in the human heart-rate range.</figcaption>
-</figure>
-<figure class="pv-slide" data-project="Streamind Health" data-index="3" hidden>
-<button class="pv-zoom" type="button" aria-label="Enlarge image: From our final presentation: frequency analysis with parabolic interpolation refines the heart-rate estimate."><img src="assets/img/work/streamind-rppg-frequency.jpg" alt="Presentation slide on frequency analysis with parabolic interpolation, from windowed signal to a refined peak" width="1400" height="787" loading="lazy" decoding="async"></button>
-<figcaption>From our final presentation: frequency analysis with parabolic interpolation refines the heart-rate estimate.</figcaption>
-</figure>
-<figure class="pv-slide" data-project="Jarvis" data-index="4" hidden>
-<button class="pv-zoom" type="button" aria-label="Enlarge image: Jarvis joins Google Meet and keeps a live whiteboard of decisions."><img src="assets/img/work/jarvis-google-meet.jpg" alt="Google Meet call with Jarvis as a participant and a live whiteboard of decided, open and to-do items" width="1400" height="787" loading="lazy" decoding="async"></button>
-<figcaption>Jarvis joins Google Meet and keeps a live whiteboard of decisions.</figcaption>
-</figure>
-<figure class="pv-slide" data-project="Jarvis" data-index="5" hidden>
-<button class="pv-zoom" type="button" aria-label="Enlarge image: A teammate who missed the call asks Jarvis for a recap in Slack."><img src="assets/img/work/jarvis-slack-recap.jpg" alt="Slack conversation on a phone where Jarvis replies with a recap of what was discussed, decided and still open" width="643" height="1400" loading="lazy" decoding="async"></button>
-<figcaption>A teammate who missed the call asks Jarvis for a recap in Slack.</figcaption>
-</figure>
-</div>
-<div class="pv-controls">
-<button class="pv-btn pv-prev" type="button" aria-label="Previous image"><span aria-hidden="true">←</span></button>
-<button class="pv-btn pv-next" type="button" aria-label="Next image"><span aria-hidden="true">→</span></button>
 </div>
 </section>
+
+<section class="books-section" aria-label="Project books">
+<div class="wrap books">
+<article class="book is-open cover-navy" id="book-streamind" aria-labelledby="book-streamind-title">
+<header class="book-head">
+<div>
+<h2 class="book-title" id="book-streamind-title">Streamind Health</h2>
+<p class="book-meta">Software Engineer Intern · Oct 2025 – May 2026</p>
+</div>
+<button class="book-toggle" type="button" aria-expanded="true" aria-controls="book-streamind-body">Close book</button>
+</header>
+<div class="book-body" id="book-streamind-body" tabindex="0" aria-label="Streamind Health book. Use the left and right arrow keys to turn pages.">
+<button class="book-cover" type="button" aria-label="Open the Streamind Health book"><span class="cover-face"><span class="cover-kicker">Project</span><span class="cover-title">Streamind Health</span><span class="cover-rule" aria-hidden="true"></span><span class="cover-meta">Software Engineer Intern · Oct 2025 – May 2026</span><span class="cover-cta">Open book →</span></span><span class="cover-back" aria-hidden="true"></span></button>
+<div class="book-spread">
+<div class="book-page book-left"><div class="page-inner"><p class="page-num">Page 1</p><h3>A tool for mobile</h3><p>I helped adapt a camera-based biofeedback tool for mobile. The app reads pulse signals from camera video to estimate heart rate.</p></div></div>
+<div class="book-page book-right"><div class="page-inner"><figure><button class="book-zoom" type="button" aria-label="Enlarge image: The Streamind heart-rate monitor running on a phone."><img src="assets/img/work/streamind-mobile-app.jpg" alt="Streamind Health mobile app showing the Heart Rate Monitor screen with a camera preview and Monitor, History, Breathe and Mood tabs" width="673" height="1400" decoding="async"></button><figcaption>The Streamind heart-rate monitor running on a phone.</figcaption></figure></div></div>
+<span class="book-spine" aria-hidden="true"></span>
+</div>
+</div>
+<div class="book-controls">
+<button class="book-btn book-prev" type="button" aria-label="Previous page"><span aria-hidden="true">←</span></button>
+<p class="book-count" aria-live="polite">Page <span class="book-n">1</span> of 4</p>
+<button class="book-btn book-next" type="button" aria-label="Next page"><span aria-hidden="true">→</span></button>
+</div>
+<script type="application/json" class="book-data">[{"h": "A tool for mobile", "p": "I helped adapt a camera-based biofeedback tool for mobile. The app reads pulse signals from camera video to estimate heart rate.", "src": "assets/img/work/streamind-mobile-app.jpg", "w": 673, "ht": 1400, "cap": "The Streamind heart-rate monitor running on a phone.", "alt": "Streamind Health mobile app showing the Heart Rate Monitor screen with a camera preview and Monitor, History, Breathe and Mood tabs"}, {"h": "Browser and mobile", "p": "The product already worked on laptops. Bringing it to phones meant weighing user needs, feasibility, and signal accuracy.", "src": "assets/img/work/streamind-browser-and-mobile.jpg", "w": 1400, "ht": 612, "cap": "Guided breathing in the browser app, beside the mobile heart-rate monitor.", "alt": "Streamind Health browser app on a laptop showing breathing exercises, next to the mobile app's heart-rate monitor"}, {"h": "Cleaning the signal", "p": "From our final presentation: band-pass filtering keeps only the frequencies that match a realistic human heart rate.", "src": "assets/img/work/streamind-rppg-bandpass.jpg", "w": 1400, "ht": 787, "cap": "Band-pass filtering keeps only frequencies in the human heart-rate range.", "alt": "Presentation slide on band-pass filtering, showing a heart-rate passband between 0.87 and 3.0 hertz"}, {"h": "Finding the heart rate", "p": "Frequency analysis with parabolic interpolation refines the peak, giving a more precise heart-rate estimate.", "src": "assets/img/work/streamind-rppg-frequency.jpg", "w": 1400, "ht": 787, "cap": "Frequency analysis with parabolic interpolation refines the heart-rate estimate.", "alt": "Presentation slide on frequency analysis with parabolic interpolation, from windowed signal to a refined peak"}]</script>
+</article>
+<article class="book cover-maroon" id="book-jarvis" aria-labelledby="book-jarvis-title">
+<header class="book-head">
+<div>
+<h2 class="book-title" id="book-jarvis-title">Jarvis</h2>
+<p class="book-meta">Cal Hacks 13.0 · Team project</p>
+</div>
+<button class="book-toggle" type="button" aria-expanded="false" aria-controls="book-jarvis-body">Open book</button>
+</header>
+<div class="book-body" id="book-jarvis-body" tabindex="0" aria-label="Jarvis book. Use the left and right arrow keys to turn pages.">
+<button class="book-cover" type="button" aria-label="Open the Jarvis book"><span class="cover-face"><span class="cover-kicker">Project</span><span class="cover-title">Jarvis</span><span class="cover-rule" aria-hidden="true"></span><span class="cover-meta">Cal Hacks 13.0 · Team project</span><span class="cover-cta">Open book →</span></span><span class="cover-back" aria-hidden="true"></span></button>
+<div class="book-spread">
+<div class="book-page book-left"><div class="page-inner"><p class="page-num">Page 1</p><h3>Live whiteboard</h3><p>Jarvis joins Google Meet, answers questions out loud, and keeps a live whiteboard of decisions and action items.</p></div></div>
+<div class="book-page book-right"><div class="page-inner"><figure><button class="book-zoom" type="button" aria-label="Enlarge image: Jarvis in a Google Meet call, keeping a live whiteboard of decided, open, and to-do items."><img src="assets/img/work/jarvis-google-meet.jpg" alt="Google Meet call with Jarvis as a participant and a live whiteboard of decided, open and to-do items" width="1400" height="787" decoding="async"></button><figcaption>Jarvis in a Google Meet call, keeping a live whiteboard of decided, open, and to-do items.</figcaption></figure></div></div>
+<span class="book-spine" aria-hidden="true"></span>
+</div>
+</div>
+<div class="book-controls">
+<button class="book-btn book-prev" type="button" aria-label="Previous page"><span aria-hidden="true">←</span></button>
+<p class="book-count" aria-live="polite">Page <span class="book-n">1</span> of 3</p>
+<button class="book-btn book-next" type="button" aria-label="Next page"><span aria-hidden="true">→</span></button>
+</div>
+<script type="application/json" class="book-data">[{"h": "Live whiteboard", "p": "Jarvis joins Google Meet, answers questions out loud, and keeps a live whiteboard of decisions and action items.", "src": "assets/img/work/jarvis-google-meet.jpg", "w": 1400, "ht": 787, "cap": "Jarvis in a Google Meet call, keeping a live whiteboard of decided, open, and to-do items.", "alt": "Google Meet call with Jarvis as a participant and a live whiteboard of decided, open and to-do items"}, {"h": "Meetings dashboard", "p": "My team built Jarvis for student clubs planning events. The dashboard lists the meetings Jarvis joined and can send it into a new call.", "src": "assets/img/work/jarvis-dashboard-meetings.jpg", "w": 1600, "ht": 775, "cap": "The Jarvis dashboard: send Jarvis into a Google Meet, and see the meetings it joined.", "alt": "Jarvis web dashboard with a field to send Jarvis to a Google Meet link and a list of recent planning meetings"}, {"h": "Team memory", "p": "We wanted teams to keep track of decisions. The Memory tab collects what was agreed in each meeting as changes the team can accept.", "src": "assets/img/work/jarvis-dashboard-memory.jpg", "w": 1600, "ht": 777, "cap": "The Memory tab: decisions from meetings, proposed as changes the team can accept.", "alt": "Jarvis dashboard Memory tab listing proposed project-state changes from meetings, each with Accept, edit and dismiss controls"}]</script>
+</article>
 </div>
 </section>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>

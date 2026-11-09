@@ -64,6 +64,8 @@
     setTimeout(function () {
       root.classList.remove('intro-on');
       if (hero) hero.classList.add('arrive');
+      var bs = document.querySelector('.books-section');
+      if (bs) bs.classList.add('arrive');
       intro.parentNode.removeChild(intro);
       for (var j = 0; j < page.length; j++) page[j].removeAttribute('inert');
     }, 600);
@@ -79,77 +81,153 @@
   document.addEventListener('keydown', onKey);
 })();
 
-// Project box on the homepage: one visual at a time with a caption and a page-turn animation.
-// Arrows, Left/Right keys (when the box has focus) and swipes change pages; there is no autoplay.
+// Project books on the homepage. Each book is independent: it opens and closes on its own, and its pages
+// turn around the spine (a single page turns on small screens). Arrows, Left/Right keys while the book has
+// focus, and swipes turn pages. Click or tap a screenshot to enlarge it.
 (function () {
-  var box = document.querySelector('.pv');
-  if (!box) return;
-  var slides = Array.prototype.slice.call(box.querySelectorAll('.pv-slide'));
-  var title = box.querySelector('.pv-title');
-  var count = box.querySelector('.pv-n');
   var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var cur = 0, busy = null;
+  var narrow = window.matchMedia && matchMedia('(max-width: 760px)');
+  var esc = function (t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
 
-  function finish() {
-    if (!busy) return;
-    clearTimeout(busy.t);
-    busy.el.classList.remove('turn-out', 'turn-in');
-    if (busy.hide) busy.hide.hidden = true;
-    busy = null;
+  function leftHTML(p, i) {
+    return '<div class="page-inner"><p class="page-num">Page ' + (i + 1) + '</p><h3>' + esc(p.h) + '</h3><p>' + esc(p.p) + '</p></div>';
+  }
+  function rightHTML(p) {
+    return '<div class="page-inner"><figure><button class="book-zoom" type="button" aria-label="Enlarge image: ' + esc(p.cap) +
+      '"><img src="' + esc(p.src) + '" alt="' + esc(p.alt) + '" width="' + p.w + '" height="' + p.ht + '" decoding="async"></button><figcaption>' +
+      esc(p.cap) + '</figcaption></figure></div>';
   }
 
-  function show(next, dir) {
-    finish();
-    next = (next + slides.length) % slides.length;
-    if (next === cur) return;
-    var from = slides[cur], to = slides[next];
-    title.textContent = to.getAttribute('data-project');
-    count.textContent = next + 1;
-    to.setAttribute('aria-label', (next + 1) + ' of ' + slides.length);
-    if (calm) {
-      from.hidden = true;
-      to.hidden = false;
-    } else if (dir > 0) {
-      // Forward: the current page turns away to reveal the next one beneath it.
-      to.hidden = false;
-      from.classList.add('turn-out');
-      busy = { el: from, hide: from, t: setTimeout(finish, 560) };
-    } else {
-      // Back: the previous page turns back in on top of the current one.
-      to.hidden = false;
-      to.classList.add('turn-in');
-      busy = { el: to, hide: from, t: setTimeout(finish, 560) };
-    }
-    cur = next;
-  }
+  Array.prototype.forEach.call(document.querySelectorAll('.book'), function (book) {
+    var pages = JSON.parse(book.querySelector('.book-data').textContent);
+    var body = book.querySelector('.book-body');
+    var spread = book.querySelector('.book-spread');
+    var left = book.querySelector('.book-left');
+    var right = book.querySelector('.book-right');
+    var prev = book.querySelector('.book-prev');
+    var next = book.querySelector('.book-next');
+    var num = book.querySelector('.book-n');
+    var toggle = book.querySelector('.book-toggle');
+    var cover = book.querySelector('.book-cover');
+    var cur = 0, pending = null;
 
-  box.querySelector('.pv-next').addEventListener('click', function () { show(cur + 1, 1); });
-  box.querySelector('.pv-prev').addEventListener('click', function () { show(cur - 1, -1); });
-  box.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1, 1); }
-    if (e.key === 'ArrowLeft') { e.preventDefault(); show(cur - 1, -1); }
+    // Preload the other screenshots so turns never show an empty page.
+    pages.forEach(function (p) { var im = new Image(); im.src = p.src; });
+
+    function sync() {
+      num.textContent = cur + 1;
+      prev.disabled = cur === 0;
+      next.disabled = cur === pages.length - 1;
+    }
+    function settle() {
+      if (!pending) return;
+      var p = pending;
+      pending = null;
+      clearTimeout(p.t);
+      p.done();
+      if (p.leaf.parentNode) p.leaf.parentNode.removeChild(p.leaf);
+    }
+    function leaf(cls, frontHTML, frontSide, backHTML, backSide) {
+      var el = document.createElement('div');
+      el.className = 'book-leaf ' + cls;
+      el.setAttribute('aria-hidden', 'true');
+      el.innerHTML = '<div class="leaf-face leaf-front"><div class="book-page book-' + frontSide + '">' + frontHTML + '</div></div>' +
+        (backHTML ? '<div class="leaf-face leaf-back"><div class="book-page book-' + backSide + '">' + backHTML + '</div></div>' : '');
+      spread.appendChild(el);
+      void el.offsetWidth;
+      return el;
+    }
+
+    function go(to) {
+      settle();
+      if (to < 0 || to >= pages.length || to === cur) return;
+      var dir = to > cur ? 1 : -1, from = cur;
+      cur = to;
+      sync();
+      if (calm) { left.innerHTML = leftHTML(pages[to], to); right.innerHTML = rightHTML(pages[to]); return; }
+
+      var el, done;
+      if (narrow && narrow.matches) {
+        // Stacked layout: the whole page turns from its left edge.
+        if (dir > 0) {
+          // The current page (text and image) turns away, revealing the next one already in place beneath it.
+          el = leaf('fwd', '', 'left');
+          el.querySelector('.leaf-front').innerHTML = '<div class="book-page">' + left.outerHTML + right.outerHTML + '</div>';
+          left.innerHTML = leftHTML(pages[to], to); right.innerHTML = rightHTML(pages[to]);
+          done = function () {};
+        } else {
+          // The previous page turns back in on top, then becomes the page in place.
+          el = leaf('back', '', 'left');
+          el.querySelector('.leaf-front').innerHTML = '<div class="book-page"><div class="book-page book-left">' + leftHTML(pages[to], to) +
+            '</div><div class="book-page book-right">' + rightHTML(pages[to]) + '</div></div>';
+          done = function () { left.innerHTML = leftHTML(pages[to], to); right.innerHTML = rightHTML(pages[to]); };
+        }
+      } else if (dir > 0) {
+        // Forward: the right page lifts and turns over the spine, showing the next left page on its back.
+        el = leaf('fwd', rightHTML(pages[from]), 'right', leftHTML(pages[to], to), 'left');
+        right.innerHTML = rightHTML(pages[to]);
+        done = function () { left.innerHTML = leftHTML(pages[to], to); };
+      } else {
+        // Back: the left page turns back over the spine, showing the previous right page on its back.
+        el = leaf('back', leftHTML(pages[from], from), 'left', rightHTML(pages[to]), 'right');
+        left.innerHTML = leftHTML(pages[to], to);
+        done = function () { right.innerHTML = rightHTML(pages[to]); };
+      }
+      requestAnimationFrame(function () { el.classList.add('turn'); });
+      pending = { leaf: el, done: done, t: setTimeout(settle, 720) };
+    }
+
+    function setOpen(open, focus) {
+      settle();
+      book.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.textContent = open ? 'Close book' : 'Open book';
+      cover.tabIndex = open ? -1 : 0;
+      if (focus) (open ? body : cover).focus({ preventScroll: true });
+    }
+
+    cover.tabIndex = book.classList.contains('is-open') ? -1 : 0;
+    sync();
+    toggle.addEventListener('click', function () { setOpen(!book.classList.contains('is-open'), false); });
+    cover.addEventListener('click', function () { setOpen(true, true); });
+    next.addEventListener('click', function () { go(cur + 1); });
+    prev.addEventListener('click', function () { go(cur - 1); });
+    book.addEventListener('keydown', function (e) {
+      if (!book.classList.contains('is-open') || e.target.closest('button.book-toggle')) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+    });
+
+    var sx = null, sy = null;
+    body.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    body.addEventListener('touchend', function (e) {
+      if (sx === null || !book.classList.contains('is-open')) return;
+      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      sx = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        body.dataset.swiped = '1';
+        go(cur + (dx < 0 ? 1 : -1));
+        setTimeout(function () { delete body.dataset.swiped; }, 400);
+      }
+    });
   });
 
-  var sx = null, sy = null;
-  var stage = box.querySelector('.pv-stage');
-  stage.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
-  stage.addEventListener('touchend', function (e) {
-    if (sx === null) return;
-    var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
-    sx = null;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-      stage.dataset.swiped = '1';
-      show(cur + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
-      setTimeout(function () { delete stage.dataset.swiped; }, 400);
-    }
-  });
-
-  // Lightbox: click or tap an image to enlarge it; close with the button, Escape, or a click outside.
+  // Lightbox shared by both books.
   var lb = document.getElementById('lightbox');
   if (!lb) return;
   var lbImg = lb.querySelector('img'), lbCap = lb.querySelector('figcaption'), lbClose = lb.querySelector('.lightbox-close');
   var opener = null;
-  function openLb(btn) {
+  function closeLb() {
+    if (lb.hidden) return;
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    if (opener && document.contains(opener)) opener.focus();
+  }
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.book-zoom');
+    if (!btn || btn.closest('.book-leaf')) return;
+    var body = btn.closest('.book-body');
+    if (body && body.dataset.swiped) return;
     var img = btn.querySelector('img');
     lbImg.src = img.currentSrc || img.src;
     lbImg.alt = img.alt;
@@ -158,81 +236,29 @@
     lb.hidden = false;
     document.body.style.overflow = 'hidden';
     lbClose.focus();
-  }
-  function closeLb() {
-    if (lb.hidden) return;
-    lb.hidden = true;
-    document.body.style.overflow = '';
-    if (opener) opener.focus();
-  }
-  box.addEventListener('click', function (e) {
-    var btn = e.target.closest && e.target.closest('.pv-zoom');
-    if (btn && !stage.dataset.swiped) openLb(btn);
   });
   lbClose.addEventListener('click', closeLb);
   lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
   document.addEventListener('keydown', function (e) {
     if (lb.hidden) return;
     if (e.key === 'Escape') { e.preventDefault(); closeLb(); }
-    if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); } // Only one control, so keep focus on it.
+    if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); }
   });
 })();
 
-// Gold-line page transition. Clicking a navigation item or an experience card extends a thin gold line from
-// the clicked item while a cream panel sweeps across; the new page then reveals with the line settling under
-// its heading (see the <head> script and .nav-arrive). About 350 ms in total; skipped with reduced motion.
+// Experience cards: "View details" expands the details inside the card; "Hide details" collapses them.
 (function () {
-  var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var root = document.documentElement;
-
-  if (root.classList.contains('nav-arrive')) {
-    var h1 = document.querySelector('main h1');
-    if (h1 && !calm) {
-      var line = document.createElement('span');
-      line.className = 'pt-settle';
-      line.setAttribute('aria-hidden', 'true');
-      h1.insertAdjacentElement('afterend', line);
-      setTimeout(function () { if (line.parentNode) line.parentNode.removeChild(line); }, 1700);
-    }
-    setTimeout(function () { root.classList.remove('nav-arrive'); }, 400);
-  }
-  // Pages restored from the back/forward cache should never keep a transition overlay.
-  window.addEventListener('pageshow', function (e) {
-    if (!e.persisted) return;
-    root.classList.remove('nav-arrive');
-    var v = document.querySelector('.pt-veil'), l = document.querySelector('.pt-line');
-    if (v) v.parentNode.removeChild(v);
-    if (l) l.parentNode.removeChild(l);
-  });
-  if (calm) return;
-
-  var SELECTOR = '.nav a, .brand, .xp-card .xp-go, .work-row';
-  document.addEventListener('click', function (e) {
-    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    var a = e.target.closest && e.target.closest(SELECTOR);
-    if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
-    var url = new URL(a.href, location.href);
-    if (url.origin !== location.origin || !/\.html$|\/$/.test(url.pathname)) return;
-    if (url.pathname === location.pathname && url.search === location.search) return;
-    e.preventDefault();
-
-    var src = (a.closest('.xp-card') || a).getBoundingClientRect();
-    var line = document.createElement('span');
-    line.className = 'pt-line';
-    line.style.left = src.left + 'px';
-    line.style.width = src.width + 'px';
-    line.style.top = (src.bottom - 1) + 'px';
-    var veil = document.createElement('div');
-    veil.className = 'pt-veil';
-    veil.innerHTML = '<div class="pt-panel"></div>';
-    document.body.appendChild(veil);
-    document.body.appendChild(line);
-    void veil.offsetWidth;
-    veil.classList.add('pt-go');
-    line.style.left = '0px';
-    line.style.width = '100vw';
-    try { sessionStorage.setItem('vh-nav', String(Date.now())); } catch (err) {}
-    setTimeout(function () { location.href = url.href; }, 190);
+  Array.prototype.forEach.call(document.querySelectorAll('.xp-toggle'), function (btn) {
+    var card = btn.closest('.xp-card');
+    var more = document.getElementById(btn.getAttribute('aria-controls'));
+    var label = btn.querySelector('.xp-label');
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      label.textContent = open ? 'Hide details' : 'View details';
+      card.classList.toggle('is-expanded', open);
+      if (open) more.removeAttribute('inert'); else more.setAttribute('inert', '');
+    });
   });
 })();
 

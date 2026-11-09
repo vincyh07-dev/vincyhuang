@@ -14,8 +14,6 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <script>
 document.documentElement.className='js';
-// Gold-line page transition: start covered by the cream panel when arriving from an in-site click.
-(function(){try{var t=+sessionStorage.getItem('vh-nav');sessionStorage.removeItem('vh-nav');if(t&&Date.now()-t<1500&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.className+=' nav-arrive';}}catch(e){}})();
 </script>
 </head>
 <body class="">
@@ -49,47 +47,92 @@ document.documentElement.className='js';
 <section class="section" style="padding-top:20px">
 <div class="wrap">
 <h2 class="group-title">Research</h2>
-<ul class="xp-grid">
-<li class="xp-card">
-<p class="xp-dates">Jun 2026 – Present</p>
-<h3>Undergraduate Research Assistant</h3>
+<ul class="xp-list">
+<li class="xp-card" id="xp-ctl-llm-research">
 <p class="xp-org">UC Berkeley Center for Teaching &amp; Learning</p>
+<h3 class="xp-role">Undergraduate Research Assistant</h3>
+<p class="xp-dates">Jun 2026 – Present</p>
 <p class="xp-summary">I study how students use AI-generated feedback.</p>
-<p class="xp-links"><a class="xp-go" href="projects/ctl-llm-research.html">View details<span class="sr">: Undergraduate Research Assistant, UC Berkeley Center for Teaching &amp; Learning</span> →</a><a class="xp-ext tlink" href="https://www.linkedin.com/posts/california-education-learning-lab_aiineducation-ailiteracy-criticalthinking-activity-7508981214205120512-ao9a" target="_blank" rel="noopener">Framework for Valued Learning Outcomes on LinkedIn <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a></p>
+<button class="xp-toggle" type="button" aria-expanded="false" aria-controls="xp-ctl-llm-research-more"><span class="xp-label">View details</span><span class="sr">: Undergraduate Research Assistant, UC Berkeley Center for Teaching &amp; Learning</span><span class="xp-chev" aria-hidden="true">↓</span></button>
+<div class="xp-more" id="xp-ctl-llm-research-more" inert>
+<div class="xp-more-inner">
+<h4>What I worked on</h4><p>Ongoing research on how students and faculty use LLM tools for grading and feedback, so educators can teach better and choose effective learning tools.</p>
+<h4>What I did</h4><ul class="xp-did"><li>Run focus groups and surveys with students and faculty.</li><li>Analyze qualitative and quantitative feedback for patterns in engagement, usability, and learning needs.</li><li>Turn the findings into stakeholder memos for educators.</li></ul>
+<h4>Methods and tools</h4><ul class="xp-tags"><li>Focus groups</li><li>Surveys</li><li>Qualitative analysis</li><li>Quantitative analysis</li><li>Synthesis</li></ul>
+<h4>Related work</h4><ul class="xp-related"><li><a href="https://www.linkedin.com/posts/california-education-learning-lab_aiineducation-ailiteracy-criticalthinking-activity-7508981214205120512-ao9a" target="_blank" rel="noopener">Read about Framework for Valued Learning Outcomes on LinkedIn <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span>One of the projects I worked on in this role: California Education Learning Lab’s post on a UC Berkeley project rethinking how educators assess critical thinking in AI-enabled classrooms.</span></li></ul>
+<p class="xp-page"><a href="projects/ctl-llm-research.html">Open the full page →</a></p>
+</div>
+</div>
 </li>
 </ul>
 <h2 class="group-title">Internships</h2>
-<ul class="xp-grid">
-<li class="xp-card">
-<p class="xp-dates">May 2026 – Present</p>
-<h3>Machine Learning Intern</h3>
+<ul class="xp-list">
+<li class="xp-card" id="xp-ucsf-radiology">
 <p class="xp-org">UCSF Radiology Department</p>
+<h3 class="xp-role">Machine Learning Intern</h3>
+<p class="xp-dates">May 2026 – Present</p>
 <p class="xp-summary">I use machine learning to assess MRI quality.</p>
-<p class="xp-links"><a class="xp-go" href="projects/ucsf-radiology.html">View details<span class="sr">: Machine Learning Intern, UCSF Radiology Department</span> →</a></p>
+<button class="xp-toggle" type="button" aria-expanded="false" aria-controls="xp-ucsf-radiology-more"><span class="xp-label">View details</span><span class="sr">: Machine Learning Intern, UCSF Radiology Department</span><span class="xp-chev" aria-hidden="true">↓</span></button>
+<div class="xp-more" id="xp-ucsf-radiology-more" inert>
+<div class="xp-more-inner">
+<h4>What I worked on</h4><p>Ongoing work in the radiology department, using machine learning to support consistent MRI assessment.</p>
+<h4>What I did</h4><ul class="xp-did"><li>Built a deep-learning pipeline on prostate MRI scans to classify diagnostic image quality.</li><li>Trained and evaluated a liver segmentation model, using Dice scores to measure performance across patient data.</li><li>Analyzed failure cases and performance distributions to find model limitations and set priorities for the next iteration.</li></ul>
+<h4>Methods and tools</h4><ul class="xp-tags"><li>Deep learning</li><li>Model evaluation</li><li>Error analysis</li></ul>
+
+<p class="xp-page"><a href="projects/ucsf-radiology.html">Open the full page →</a></p>
+</div>
+</div>
 </li>
-<li class="xp-card">
-<p class="xp-dates">Jan – May 2026</p>
-<h3>Software Engineer Intern</h3>
+<li class="xp-card" id="xp-ctrl-robotics">
 <p class="xp-org">CTRL Robotics</p>
+<h3 class="xp-role">Software Engineer Intern</h3>
+<p class="xp-dates">Jan – May 2026</p>
 <p class="xp-summary">I turned hospital operators’ needs into product requirements, then redesigned the robot’s mapping and navigation tools.</p>
-<p class="xp-links"><a class="xp-go" href="projects/ctrl-robotics.html">View details<span class="sr">: Software Engineer Intern, CTRL Robotics</span> →</a></p>
+<button class="xp-toggle" type="button" aria-expanded="false" aria-controls="xp-ctrl-robotics-more"><span class="xp-label">View details</span><span class="sr">: Software Engineer Intern, CTRL Robotics</span><span class="xp-chev" aria-hidden="true">↓</span></button>
+<div class="xp-more" id="xp-ctrl-robotics-more" inert>
+<div class="xp-more-inner">
+<h4>What I worked on</h4><p>CTRL Robotics builds an autonomous robotics platform for hospitals. I worked on the product and operations side, starting from how hospital teams actually work.</p>
+<h4>What I did</h4><ul class="xp-did"><li>Analyzed hospital workflows and turned operator needs into product requirements.</li><li>Redesigned the mapping and navigation tools, improving usability by 25% and reducing navigation errors by 30%.</li><li>Worked with engineers to launch robot-selection and badge-registration features that simplified clinical operations.</li></ul>
+<h4>Methods and tools</h4><ul class="xp-tags"><li>Product requirements</li><li>Workflow analysis</li><li>Cross-functional work</li></ul>
+
+<p class="xp-page"><a href="projects/ctrl-robotics.html">Open the full page →</a></p>
+</div>
+</div>
 </li>
-<li class="xp-card">
-<p class="xp-dates">Oct 2025 – May 2026</p>
-<h3>Software Engineer Intern</h3>
+<li class="xp-card" id="xp-streamind-health">
 <p class="xp-org">Streamind Health</p>
+<h3 class="xp-role">Software Engineer Intern</h3>
+<p class="xp-dates">Oct 2025 – May 2026</p>
 <p class="xp-summary">I helped adapt a camera-based biofeedback tool for mobile.</p>
-<p class="xp-links"><a class="xp-go" href="projects/streamind-health.html">View details<span class="sr">: Software Engineer Intern, Streamind Health</span> →</a><a class="xp-ext tlink" href="https://github.com/streamind-health/streamind-rppg-demo" target="_blank" rel="noopener">Browser prototype on GitHub <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a></p>
+<button class="xp-toggle" type="button" aria-expanded="false" aria-controls="xp-streamind-health-more"><span class="xp-label">View details</span><span class="sr">: Software Engineer Intern, Streamind Health</span><span class="xp-chev" aria-hidden="true">↓</span></button>
+<div class="xp-more" id="xp-streamind-health-more" inert>
+<div class="xp-more-inner">
+<h4>What I worked on</h4><p>Streamind Health makes a biofeedback tool built on rPPG, which estimates pulse signals from camera video. It already worked on laptops, and I helped adapt it for mobile.</p>
+<h4>What I did</h4><ul class="xp-did"><li>Helped adapt the tool from laptop to mobile, weighing user needs, feasibility, and signal accuracy.</li><li>Evaluated camera performance and signal-quality tradeoffs to guide product and engineering decisions.</li><li>Built data capture and visualization features that turn physiological signals into information for therapists and patients.</li></ul>
+<h4>Methods and tools</h4><ul class="xp-tags"><li>Product strategy</li><li>Tradeoff analysis</li><li>Data visualization</li></ul>
+<h4>Related work</h4><ul class="xp-related"><li><a href="https://github.com/streamind-health/streamind-rppg-demo" target="_blank" rel="noopener">View browser prototype on GitHub <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span>The team’s webcam-based heart-rate demo.</span></li></ul>
+<p class="xp-page"><a href="projects/streamind-health.html">Open the full page →</a></p>
+</div>
+</div>
 </li>
 </ul>
 <h2 class="group-title">Leadership</h2>
-<ul class="xp-grid">
-<li class="xp-card">
-<p class="xp-dates">Sep 2025 – Present</p>
-<h3>Internal Vice President</h3>
+<ul class="xp-list">
+<li class="xp-card" id="xp-compbio-berkeley">
 <p class="xp-org">Computational Biology at Berkeley</p>
+<h3 class="xp-role">Internal Vice President</h3>
+<p class="xp-dates">Sep 2025 – Present</p>
 <p class="xp-summary">I lead internal programming and organize events for members.</p>
-<p class="xp-links"><a class="xp-go" href="projects/compbio-berkeley.html">View details<span class="sr">: Internal Vice President, Computational Biology at Berkeley</span> →</a><a class="xp-ext tlink" href="https://compbioatberkeley.github.io/" target="_blank" rel="noopener">Club website <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a></p>
+<button class="xp-toggle" type="button" aria-expanded="false" aria-controls="xp-compbio-berkeley-more"><span class="xp-label">View details</span><span class="sr">: Internal Vice President, Computational Biology at Berkeley</span><span class="xp-chev" aria-hidden="true">↓</span></button>
+<div class="xp-more" id="xp-compbio-berkeley-more" inert>
+<div class="xp-more-inner">
+<h4>What I worked on</h4><p>As Internal Vice President, I lead the club&#x27;s internal programming and organize events for members.</p>
+<h4>What I did</h4><ul class="xp-did"><li>Lead recruitment and operations for 90+ members.</li><li>Increased applications by 200% through targeted outreach.</li><li>Set up structured workflows for recruiting, onboarding, and member engagement.</li></ul>
+<h4>Methods and tools</h4><ul class="xp-tags"><li>Leadership</li><li>Operations</li><li>Recruiting</li></ul>
+<h4>Related work</h4><ul class="xp-related"><li><a href="https://compbioatberkeley.github.io/" target="_blank" rel="noopener">Computational Biology at Berkeley website <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><span>The club’s public site, covering its education, research, projects, and community events.</span></li></ul>
+<p class="xp-page"><a href="projects/compbio-berkeley.html">Open the full page →</a></p>
+</div>
+</div>
 </li>
 </ul>
 <h2 class="group-title">Education</h2>
