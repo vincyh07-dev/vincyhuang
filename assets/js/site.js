@@ -26,9 +26,10 @@
   });
 })();
 
-// Opening "Hi" screen (homepage only). The <head> script decides whether to show it by adding
-// .intro-on before first paint. Click or tap "Hi" to open at once; otherwise the navy panels slide
-// apart after a short pause. Whole sequence stays under two seconds.
+// Opening greeting (homepage only). The <head> script adds .intro-on before first paint when it should
+// play. "Hi, I'm Vincy Huang." settles on navy, then the panels part while the same line glides into
+// the hero heading's position, so it becomes the homepage greeting. Click/tap or Enter/Space/Esc skips
+// ahead. Total time stays under two seconds.
 (function () {
   var root = document.documentElement;
   try { sessionStorage.setItem('vh-visited', '1'); } catch (e) {}
@@ -37,31 +38,48 @@
     if (intro) intro.parentNode.removeChild(intro);
     return;
   }
+  var hero = document.querySelector('.hero-intro');
+  var heading = hero && hero.querySelector('h1');
+  var text = intro.querySelector('.intro-text');
   var page = document.querySelectorAll('body > :not(.intro)');
   for (var i = 0; i < page.length; i++) page[i].setAttribute('inert', '');
-  var hi = intro.querySelector('.intro-hi');
-  var done = false;
 
+  // Wrap within the hero heading's width so the greeting breaks lines exactly like it will on the page,
+  // while staying only as wide as the text so it sits centered on the navy screen.
+  if (heading) {
+    text.style.width = 'max-content';
+    text.style.maxWidth = heading.getBoundingClientRect().width + 'px';
+  }
+
+  var done = false;
   function open() {
     if (done) return;
     done = true;
     clearTimeout(timer);
+    document.removeEventListener('keydown', onKey);
+    if (heading) {
+      var from = text.getBoundingClientRect();
+      var to = heading.getBoundingClientRect();
+      text.style.animation = 'none';
+      text.style.transform = 'translate(' + (to.left - from.left) + 'px,' + (to.top - from.top) + 'px)';
+    }
     intro.classList.add('leaving');
     setTimeout(function () {
       root.classList.remove('intro-on');
+      if (hero) hero.classList.add('arrive');
       intro.parentNode.removeChild(intro);
       for (var j = 0; j < page.length; j++) page[j].removeAttribute('inert');
-    }, 650);
+    }, 660);
   }
-
-  var timer = setTimeout(open, 1000);
-  hi.addEventListener('click', open);
   function onKey(e) {
     if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
-      document.removeEventListener('keydown', onKey);
+      e.preventDefault();
       open();
     }
   }
+
+  var timer = setTimeout(open, 950);
+  intro.addEventListener('click', open);
   document.addEventListener('keydown', onKey);
 })();
 
