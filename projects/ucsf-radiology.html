@@ -12,7 +12,11 @@
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <link rel="stylesheet" href="../assets/css/style.css">
-<script>document.documentElement.className='js';</script>
+<script>
+document.documentElement.className='js';
+// Gold-line page transition: start covered by the cream panel when arriving from an in-site click.
+(function(){try{var t=+sessionStorage.getItem('vh-nav');sessionStorage.removeItem('vh-nav');if(t&&Date.now()-t<1500&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.className+=' nav-arrive';}}catch(e){}})();
+</script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to main content</a>
@@ -42,7 +46,7 @@
 <p class="lead">I use machine learning to assess MRI quality.</p>
 </header>
 <section aria-labelledby="on"><h2 id="on">What I worked on</h2><p>Ongoing work in the radiology department, using machine learning to support consistent MRI assessment.</p></section>
-<section aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Built a deep-learning pipeline on prostate MRI scans to classify diagnostic image quality.</li><li>Trained and evaluated a liver segmentation model, using Dice scores to measure performance across patient data.</li><li>Analyzed failure cases and performance distributions to find model limitations and set priorities for the next iteration.</li></ul></section>
+<section class="contrib" aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Built a deep-learning pipeline on prostate MRI scans to classify diagnostic image quality.</li><li>Trained and evaluated a liver segmentation model, using Dice scores to measure performance across patient data.</li><li>Analyzed failure cases and performance distributions to find model limitations and set priorities for the next iteration.</li></ul></section>
 <section aria-labelledby="mt"><h2 id="mt">Methods and tools</h2><ul class="tags"><li><span class="tag">Deep learning</span></li><li><span class="tag">Model evaluation</span></li><li><span class="tag">Error analysis</span></li></ul></section>
 
 </article>

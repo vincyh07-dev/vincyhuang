@@ -12,7 +12,11 @@
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <link rel="stylesheet" href="../assets/css/style.css">
-<script>document.documentElement.className='js';</script>
+<script>
+document.documentElement.className='js';
+// Gold-line page transition: start covered by the cream panel when arriving from an in-site click.
+(function(){try{var t=+sessionStorage.getItem('vh-nav');sessionStorage.removeItem('vh-nav');if(t&&Date.now()-t<1500&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.className+=' nav-arrive';}}catch(e){}})();
+</script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to main content</a>
@@ -42,7 +46,7 @@
 <p class="lead">I turned hospital operators’ needs into product requirements, then redesigned the robot’s mapping and navigation tools.</p>
 </header>
 <section aria-labelledby="on"><h2 id="on">What I worked on</h2><p>CTRL Robotics builds an autonomous robotics platform for hospitals. I worked on the product and operations side, starting from how hospital teams actually work.</p></section>
-<section aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Analyzed hospital workflows and turned operator needs into product requirements.</li><li>Redesigned the mapping and navigation tools, improving usability by 25% and reducing navigation errors by 30%.</li><li>Worked with engineers to launch robot-selection and badge-registration features that simplified clinical operations.</li></ul></section>
+<section class="contrib" aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Analyzed hospital workflows and turned operator needs into product requirements.</li><li>Redesigned the mapping and navigation tools, improving usability by 25% and reducing navigation errors by 30%.</li><li>Worked with engineers to launch robot-selection and badge-registration features that simplified clinical operations.</li></ul></section>
 <section aria-labelledby="mt"><h2 id="mt">Methods and tools</h2><ul class="tags"><li><span class="tag">Product requirements</span></li><li><span class="tag">Workflow analysis</span></li><li><span class="tag">Cross-functional work</span></li></ul></section>
 
 </article>

@@ -12,7 +12,11 @@
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <link rel="stylesheet" href="../assets/css/style.css">
-<script>document.documentElement.className='js';</script>
+<script>
+document.documentElement.className='js';
+// Gold-line page transition: start covered by the cream panel when arriving from an in-site click.
+(function(){try{var t=+sessionStorage.getItem('vh-nav');sessionStorage.removeItem('vh-nav');if(t&&Date.now()-t<1500&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.className+=' nav-arrive';}}catch(e){}})();
+</script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to main content</a>
@@ -42,9 +46,8 @@
 <p class="lead">I study how students use AI-generated feedback.</p>
 </header>
 <section aria-labelledby="on"><h2 id="on">What I worked on</h2><p>Ongoing research on how students and faculty use LLM tools for grading and feedback, so educators can teach better and choose effective learning tools.</p></section>
-<section aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Run focus groups and surveys with students and faculty.</li><li>Analyze qualitative and quantitative feedback for patterns in engagement, usability, and learning needs.</li><li>Turn the findings into stakeholder memos for educators.</li></ul></section>
+<section class="contrib" aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Run focus groups and surveys with students and faculty.</li><li>Analyze qualitative and quantitative feedback for patterns in engagement, usability, and learning needs.</li><li>Turn the findings into stakeholder memos for educators.</li></ul></section>
 <section aria-labelledby="mt"><h2 id="mt">Methods and tools</h2><ul class="tags"><li><span class="tag">Focus groups</span></li><li><span class="tag">Surveys</span></li><li><span class="tag">Qualitative analysis</span></li><li><span class="tag">Quantitative analysis</span></li><li><span class="tag">Synthesis</span></li></ul></section>
-
 <section aria-labelledby="rel"><h2 id="rel">Related work</h2><ul class="related"><li><a class="tlink" href="https://www.linkedin.com/posts/california-education-learning-lab_aiineducation-ailiteracy-criticalthinking-activity-7508981214205120512-ao9a" target="_blank" rel="noopener">Read about Framework for Valued Learning Outcomes on LinkedIn <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><p>One of the projects I worked on in this role: California Education Learning Lab’s post on a UC Berkeley project rethinking how educators assess critical thinking in AI-enabled classrooms.</p></li></ul></section>
 </article>
 

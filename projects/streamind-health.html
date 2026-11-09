@@ -12,7 +12,11 @@
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <link rel="stylesheet" href="../assets/css/style.css">
-<script>document.documentElement.className='js';</script>
+<script>
+document.documentElement.className='js';
+// Gold-line page transition: start covered by the cream panel when arriving from an in-site click.
+(function(){try{var t=+sessionStorage.getItem('vh-nav');sessionStorage.removeItem('vh-nav');if(t&&Date.now()-t<1500&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.className+=' nav-arrive';}}catch(e){}})();
+</script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to main content</a>
@@ -42,9 +46,9 @@
 <p class="lead">I helped adapt a camera-based biofeedback tool for mobile.</p>
 </header>
 <section aria-labelledby="on"><h2 id="on">What I worked on</h2><p>Streamind Health makes a biofeedback tool built on rPPG, which estimates pulse signals from camera video. It already worked on laptops, and I helped adapt it for mobile.</p></section>
-<section aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Helped adapt the tool from laptop to mobile, weighing user needs, feasibility, and signal accuracy.</li><li>Evaluated camera performance and signal-quality tradeoffs to guide product and engineering decisions.</li><li>Built data capture and visualization features that turn physiological signals into information for therapists and patients.</li></ul></section>
+<section class="contrib" aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Helped adapt the tool from laptop to mobile, weighing user needs, feasibility, and signal accuracy.</li><li>Evaluated camera performance and signal-quality tradeoffs to guide product and engineering decisions.</li><li>Built data capture and visualization features that turn physiological signals into information for therapists and patients.</li></ul></section>
 <section aria-labelledby="mt"><h2 id="mt">Methods and tools</h2><ul class="tags"><li><span class="tag">Product strategy</span></li><li><span class="tag">Tradeoff analysis</span></li><li><span class="tag">Data visualization</span></li></ul></section>
-<section aria-labelledby="rel"><h2 id="rel">Related work</h2><ul class="related"><li><a class="tlink" href="https://github.com/streamind-health/streamind-rppg-demo" target="_blank" rel="noopener">View browser prototype on GitHub <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><p>The team’s public webcam demo for estimating heart rate.</p></li></ul></section>
+<section aria-labelledby="rel"><h2 id="rel">Related work</h2><ul class="related"><li><a class="tlink" href="https://github.com/streamind-health/streamind-rppg-demo" target="_blank" rel="noopener">View browser prototype on GitHub <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><p>The team’s webcam-based heart-rate demo.</p></li></ul></section>
 </article>
 
 </main>

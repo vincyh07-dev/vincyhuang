@@ -14,15 +14,19 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <script>
 document.documentElement.className='js';
-// Opening "Hi" screen: first homepage visit of the session only, never with reduced motion or a #link.
+// Gold-line page transition: start covered by the cream panel when arriving from an in-site click.
+(function(){try{var t=+sessionStorage.getItem('vh-nav');sessionStorage.removeItem('vh-nav');if(t&&Date.now()-t<1500&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.className+=' nav-arrive';}}catch(e){}})();
+// Maroon entrance: first homepage visit of the session only, never with reduced motion or a #link.
 (function(){try{var d=document.documentElement;if(!sessionStorage.getItem('vh-visited')&&!location.hash&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.className+=' intro-on';}}catch(e){}})();
 </script>
 </head>
 <body class="">
 <div class="intro" id="intro">
-<div class="intro-panel intro-left"></div>
-<div class="intro-panel intro-right"></div>
-<button class="intro-hi" type="button" aria-label="Skip the introduction"><span class="intro-text" aria-hidden="true">Hi, I’m Vincy Huang.</span><span class="intro-line" aria-hidden="true"></span></button>
+<div class="intro-panel intro-top"></div>
+<div class="intro-panel intro-bottom"></div>
+<span class="intro-seam" aria-hidden="true"></span>
+<p class="intro-greeting" aria-hidden="true"><span class="g-hi">Hi,</span> <span class="g-rest">I’m Vincy Huang.</span></p>
+<button class="intro-skip" type="button">Skip intro</button>
 </div>
 <a class="skip" href="#main">Skip to main content</a>
 <header class="site-header">
@@ -45,6 +49,7 @@ document.documentElement.className='js';
 
 <section class="hero hero-intro">
 <div class="wrap">
+<div class="hero-copy">
 <h1 class="h-serif">Hi, I’m Vincy Huang.</h1>
 <p class="lead">I’m a UC Berkeley student interested in product management. I like talking to users, looking at the data, and figuring out what to build next.</p>
 <div class="btn-row">
@@ -52,7 +57,48 @@ document.documentElement.className='js';
 <a class="btn btn-ghost" href="projects.html">View projects</a>
 </div>
 </div>
+<section class="pv" aria-roledescription="carousel" aria-labelledby="pv-title" tabindex="-1">
+<div class="pv-head">
+<h2 class="pv-title" id="pv-title" aria-live="polite">Streamind Health</h2>
+<p class="pv-count" aria-hidden="true"><span class="pv-n">1</span> / 6</p>
+</div>
+<div class="pv-stage">
+<figure class="pv-slide" data-project="Streamind Health" data-index="0">
+<button class="pv-zoom" type="button" aria-label="Enlarge image: The Streamind heart-rate monitor running on a phone."><img src="assets/img/work/streamind-mobile-app.jpg" alt="Streamind Health mobile app showing the Heart Rate Monitor screen with a camera preview and Monitor, History, Breathe and Mood tabs" width="673" height="1400" decoding="async"></button>
+<figcaption>The Streamind heart-rate monitor running on a phone.</figcaption>
+</figure>
+<figure class="pv-slide" data-project="Streamind Health" data-index="1" hidden>
+<button class="pv-zoom" type="button" aria-label="Enlarge image: Guided breathing in the browser app, beside the mobile heart-rate monitor."><img src="assets/img/work/streamind-browser-and-mobile.jpg" alt="Streamind Health browser app on a laptop showing breathing exercises, next to the mobile app&#x27;s heart-rate monitor" width="1400" height="612" loading="lazy" decoding="async"></button>
+<figcaption>Guided breathing in the browser app, beside the mobile heart-rate monitor.</figcaption>
+</figure>
+<figure class="pv-slide" data-project="Streamind Health" data-index="2" hidden>
+<button class="pv-zoom" type="button" aria-label="Enlarge image: From our final presentation: band-pass filtering keeps only frequencies in the human heart-rate range."><img src="assets/img/work/streamind-rppg-bandpass.jpg" alt="Presentation slide on band-pass filtering, showing a heart-rate passband between 0.87 and 3.0 hertz" width="1400" height="787" loading="lazy" decoding="async"></button>
+<figcaption>From our final presentation: band-pass filtering keeps only frequencies in the human heart-rate range.</figcaption>
+</figure>
+<figure class="pv-slide" data-project="Streamind Health" data-index="3" hidden>
+<button class="pv-zoom" type="button" aria-label="Enlarge image: From our final presentation: frequency analysis with parabolic interpolation refines the heart-rate estimate."><img src="assets/img/work/streamind-rppg-frequency.jpg" alt="Presentation slide on frequency analysis with parabolic interpolation, from windowed signal to a refined peak" width="1400" height="787" loading="lazy" decoding="async"></button>
+<figcaption>From our final presentation: frequency analysis with parabolic interpolation refines the heart-rate estimate.</figcaption>
+</figure>
+<figure class="pv-slide" data-project="Jarvis" data-index="4" hidden>
+<button class="pv-zoom" type="button" aria-label="Enlarge image: Jarvis joins Google Meet and keeps a live whiteboard of decisions."><img src="assets/img/work/jarvis-google-meet.jpg" alt="Google Meet call with Jarvis as a participant and a live whiteboard of decided, open and to-do items" width="1400" height="787" loading="lazy" decoding="async"></button>
+<figcaption>Jarvis joins Google Meet and keeps a live whiteboard of decisions.</figcaption>
+</figure>
+<figure class="pv-slide" data-project="Jarvis" data-index="5" hidden>
+<button class="pv-zoom" type="button" aria-label="Enlarge image: A teammate who missed the call asks Jarvis for a recap in Slack."><img src="assets/img/work/jarvis-slack-recap.jpg" alt="Slack conversation on a phone where Jarvis replies with a recap of what was discussed, decided and still open" width="643" height="1400" loading="lazy" decoding="async"></button>
+<figcaption>A teammate who missed the call asks Jarvis for a recap in Slack.</figcaption>
+</figure>
+</div>
+<div class="pv-controls">
+<button class="pv-btn pv-prev" type="button" aria-label="Previous image"><span aria-hidden="true">←</span></button>
+<button class="pv-btn pv-next" type="button" aria-label="Next image"><span aria-hidden="true">→</span></button>
+</div>
 </section>
+</div>
+</section>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
+<button class="lightbox-close" type="button">Close <span aria-hidden="true">×</span></button>
+<figure><img alt=""><figcaption></figcaption></figure>
+</div>
 
 <section class="section" aria-labelledby="work-h">
 <div class="wrap">
@@ -60,25 +106,10 @@ document.documentElement.className='js';
 <h2 class="h-serif" id="work-h">Selected Work</h2>
 <p><a class="tlink" href="experience.html">All experience →</a></p>
 </div>
-<ul class="work-list">
-<li class="work-item">
-<p class="role-name">Undergraduate Research Assistant</p>
-<h3><a href="projects/ctl-llm-research.html">UC Berkeley Center for Teaching &amp; Learning</a></h3>
-<p class="what">I study how students use AI-generated feedback.</p>
-<span class="go" aria-hidden="true">View details →</span>
-</li>
-<li class="work-item">
-<p class="role-name">Machine Learning Intern</p>
-<h3><a href="projects/ucsf-radiology.html">UCSF Radiology</a></h3>
-<p class="what">I use machine learning to assess MRI quality.</p>
-<span class="go" aria-hidden="true">View details →</span>
-</li>
-<li class="work-item">
-<p class="role-name">Internal Vice President</p>
-<h3><a href="projects/compbio-berkeley.html">Computational Biology at Berkeley</a></h3>
-<p class="what">I lead internal programming and organize events for members.</p>
-<span class="go" aria-hidden="true">View details →</span>
-</li>
+<ul class="work-rows">
+<li><a class="work-row" href="projects/ctl-llm-research.html"><span class="wr-title">UC Berkeley Center for Teaching &amp; Learning</span><span class="wr-what">I study how students use AI-generated feedback.</span><span class="wr-go" aria-hidden="true">→</span></a></li>
+<li><a class="work-row" href="projects/ucsf-radiology.html"><span class="wr-title">UCSF Radiology</span><span class="wr-what">I use machine learning to assess MRI quality.</span><span class="wr-go" aria-hidden="true">→</span></a></li>
+<li><a class="work-row" href="projects/compbio-berkeley.html"><span class="wr-title">Computational Biology at Berkeley</span><span class="wr-what">I lead internal programming and organize events for members.</span><span class="wr-go" aria-hidden="true">→</span></a></li>
 </ul>
 </div>
 </section>

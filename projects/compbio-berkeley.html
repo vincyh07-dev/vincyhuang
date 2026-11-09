@@ -12,7 +12,11 @@
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <link rel="stylesheet" href="../assets/css/style.css">
-<script>document.documentElement.className='js';</script>
+<script>
+document.documentElement.className='js';
+// Gold-line page transition: start covered by the cream panel when arriving from an in-site click.
+(function(){try{var t=+sessionStorage.getItem('vh-nav');sessionStorage.removeItem('vh-nav');if(t&&Date.now()-t<1500&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.className+=' nav-arrive';}}catch(e){}})();
+</script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to main content</a>
@@ -42,9 +46,8 @@
 <p class="lead">I lead internal programming and organize events for members.</p>
 </header>
 <section aria-labelledby="on"><h2 id="on">What I worked on</h2><p>As Internal Vice President, I lead the club&#x27;s internal programming and organize events for members.</p></section>
-<section aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Lead recruitment and operations for 90+ members.</li><li>Increased applications by 200% through targeted outreach.</li><li>Set up structured workflows for recruiting, onboarding, and member engagement.</li></ul></section>
+<section class="contrib" aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Lead recruitment and operations for 90+ members.</li><li>Increased applications by 200% through targeted outreach.</li><li>Set up structured workflows for recruiting, onboarding, and member engagement.</li></ul></section>
 <section aria-labelledby="mt"><h2 id="mt">Methods and tools</h2><ul class="tags"><li><span class="tag">Leadership</span></li><li><span class="tag">Operations</span></li><li><span class="tag">Recruiting</span></li></ul></section>
-
 <section aria-labelledby="rel"><h2 id="rel">Related work</h2><ul class="related"><li><a class="tlink" href="https://compbioatberkeley.github.io/" target="_blank" rel="noopener">Computational Biology at Berkeley website <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></a><p>The club’s public site, covering its education, research, projects, and community events.</p></li></ul></section>
 </article>
 
