@@ -401,9 +401,16 @@ h2.h-serif { font-size: clamp(30px, 4vw, 42px); line-height: 1.12; margin-bottom
 
 /* ---------- Project books ---------- */
 .books-section { padding: 8px 0 clamp(48px, 6vw, 72px); }
-.books { display: grid; gap: clamp(40px, 5vw, 64px); }
-.book { --cover: var(--navy); }
+/* Closed books sit side by side; an open book takes the combined width. */
+.books { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 3vw, 40px); align-items: start; }
+.books.has-open { grid-template-columns: 1fr; }
+.books.has-open .book:not(.is-solo) { display: none; }
+.book { --cover: var(--navy); --slot: 0; min-width: 0; }
+.book[data-slot="1"] { --slot: 1; }
 .book.cover-maroon { --cover: var(--maroon); }
+/* Interior colours */
+.book-streamind { --page-tint: #e5f7f3; --accent: #08705f; }
+.book-jarvis { --page-tint: #f0e9fc; --accent: #6233bf; }
 .book-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
 .book-title { font: 500 clamp(26px, 3vw, 32px)/1.15 var(--serif); color: var(--navy); margin: 0 0 2px; }
 .book-meta { margin: 0; font-size: 14px; color: var(--muted); }
@@ -413,30 +420,30 @@ h2.h-serif { font-size: clamp(30px, 4vw, 42px); line-height: 1.12; margin-bottom
 }
 .book-toggle:hover { background: var(--maroon); border-color: var(--maroon); color: var(--paper); }
 
-.book-body { position: relative; height: clamp(420px, 44vw, 520px); perspective: 2200px; outline-offset: 6px; }
+.book-body { position: relative; height: clamp(400px, 40vw, 500px); perspective: 2200px; outline-offset: 6px; }
 .book-body:focus-visible { outline: 3px solid var(--maroon); }
 
-/* Open spread: two cream pages, a spine, and layered paper edges */
+/* Open spread: tinted text page, crisp white screenshot page, a spine, and layered paper edges */
 .book-spread {
-  position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; background: var(--cream-warm);
-  border: 1px solid #e3d8c0; transform-style: preserve-3d;
-  box-shadow: 0 2px 0 -1px #f3ead6, 0 2px 0 0 #e3d8c0, 0 4px 0 -1px #f3ead6, 0 4px 0 0 #e6dcc6, 0 6px 0 -1px #f3ead6, 0 6px 0 0 #ebe2cf, 0 18px 30px -18px rgba(20, 36, 58, .35);
+  position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; background: var(--white);
+  border: 1px solid #dcdfe3; transform-style: preserve-3d;
+  box-shadow: 0 2px 0 -1px #f4f5f7, 0 2px 0 0 #dcdfe3, 0 4px 0 -1px #f4f5f7, 0 4px 0 0 #e1e4e8, 0 6px 0 -1px #f4f5f7, 0 6px 0 0 #e6e8ec, 0 18px 30px -18px rgba(20, 36, 58, .35);
   transition: opacity .3s ease .25s;
 }
-.book-page { position: relative; overflow: hidden; background: var(--cream-warm); }
-.book-left { background: linear-gradient(to left, rgba(20, 36, 58, .07), transparent 9%), var(--cream-warm); }
-.book-right { background: linear-gradient(to right, rgba(20, 36, 58, .07), transparent 9%), var(--cream-warm); }
-.page-inner { height: 100%; padding: clamp(24px, 3.4vw, 44px); display: flex; flex-direction: column; }
+.book-page { position: relative; overflow: hidden; }
+.book-left { background: linear-gradient(to left, rgba(20, 36, 58, .1), transparent 8%), var(--page-tint); color: var(--navy); }
+.book-right { background: linear-gradient(to right, rgba(60, 64, 72, .1), transparent 7%), var(--white); }
+.page-inner { height: 100%; padding: clamp(24px, 3.2vw, 42px); display: flex; flex-direction: column; }
 .book-left .page-inner { justify-content: center; }
-.page-num { margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.book-page h3 { font: 500 clamp(24px, 2.6vw, 30px)/1.15 var(--serif); color: var(--navy); margin-bottom: 12px; }
-.book-page h3::after { content: ""; display: block; width: 32px; height: 1px; background: var(--gold); margin-top: 14px; }
-.book-left p:not(.page-num) { font-size: 17px; line-height: 1.6; margin: 0; max-width: 420px; }
+.page-num { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.book-page h3 { font: 500 clamp(24px, 2.5vw, 30px)/1.15 var(--serif); color: var(--navy); margin-bottom: 12px; }
+.book-page h3::after { content: ""; display: block; width: 32px; height: 2px; background: var(--accent); margin-top: 14px; }
+.book-left p:not(.page-num) { font-size: 16.5px; line-height: 1.6; margin: 0; max-width: 440px; color: var(--navy); }
 .book-right figure { margin: 0; height: 100%; display: flex; flex-direction: column; }
-.book-zoom { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 8px; background: var(--white); border: 1px solid #ece4d1; cursor: zoom-in; }
+.book-zoom { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 0; background: var(--white); border: 0; cursor: zoom-in; }
 .book-zoom img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
 .book-right figcaption { margin-top: 10px; font-size: 14px; line-height: 1.45; color: var(--ink); }
-.book-spine { position: absolute; top: -1px; bottom: -1px; left: 50%; width: 2px; margin-left: -1px; background: linear-gradient(var(--line), #d8ccb2, var(--line)); pointer-events: none; z-index: 2; }
+.book-spine { position: absolute; top: -1px; bottom: -1px; left: 50%; width: 2px; margin-left: -1px; background: linear-gradient(#d3d7dc, #b9bec5, #d3d7dc); pointer-events: none; z-index: 2; }
 
 /* A leaf is the page that is turning: it rotates around the spine */
 .book-leaf { position: absolute; top: 0; bottom: 0; width: 50%; z-index: 4; transform-style: preserve-3d; transition: transform .7s cubic-bezier(.45, .05, .25, 1); }
@@ -450,29 +457,30 @@ h2.h-serif { font-size: clamp(30px, 4vw, 42px); line-height: 1.12; margin-bottom
 .book-leaf .leaf-front::after, .book-leaf .leaf-back::after { content: ""; position: absolute; inset: 0; pointer-events: none; transition: background .7s ease; background: rgba(20, 36, 58, 0); }
 .book-leaf.turn .leaf-front::after { background: rgba(20, 36, 58, .12); }
 
-/* Closed: the cover sits centred; opening swings it around the spine */
+/* Covers. Side by side, each cover fills its book. When a book opens it takes the full width: the cover
+   starts where it was (left or right half) and swings open around its spine onto the left page. */
 .book-cover {
-  position: absolute; top: 0; bottom: 0; left: 25%; width: 50%; z-index: 5; padding: 0; border: 0; background: none; cursor: pointer;
+  position: absolute; top: 0; bottom: 0; left: 0; width: 100%; z-index: 5; padding: 0; border: 0; background: none; cursor: pointer;
   transition: left .55s cubic-bezier(.45, .05, .25, 1), opacity 0s, visibility 0s;
 }
-/* Each face turns on its own around the spine edge, so the cover never shows mirrored text. */
+.book.is-solo .book-cover { left: calc(var(--slot) * 50%); width: 50%; }
 .cover-face, .cover-back {
   position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
   transform-origin: left center; transition: transform .75s cubic-bezier(.45, .05, .25, 1);
 }
 .cover-face {
   display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 10px; padding: clamp(24px, 4vw, 48px);
-  background: var(--cover); color: var(--paper); text-align: left;
+  background: var(--cover); color: var(--paper); text-align: left; transform: perspective(2200px) rotateY(0deg);
   box-shadow: inset 10px 0 14px -10px rgba(0, 0, 0, .45), 4px 4px 0 -1px #f3ead6, 4px 4px 0 0 #e3d8c0, 8px 8px 0 -1px #f3ead6, 8px 8px 0 0 #e6dcc6, 0 22px 34px -20px rgba(20, 36, 58, .5);
 }
 .cover-face::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 14px; background: rgba(0, 0, 0, .18); }
 .cover-kicker { font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); }
-.cover-title { font: 500 clamp(32px, 4vw, 48px)/1.05 var(--serif); }
+.cover-title { font: 500 clamp(30px, 3.6vw, 46px)/1.05 var(--serif); }
 .cover-rule { width: 56px; height: 1px; background: var(--gold); }
 .cover-meta { font-size: 15px; color: rgba(250, 248, 244, .8); }
 .cover-cta { margin-top: 18px; font-size: 15px; font-weight: 500; color: var(--paper); border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+/* The back is the other side of the same sheet: it turns with the front, flipped about its own centre. */
 .cover-back { background: var(--cover); transform: perspective(2200px) rotateY(0deg) translateX(50%) rotateY(180deg) translateX(-50%); }
-.cover-face { transform: perspective(2200px) rotateY(0deg); }
 .book-cover:focus-visible { outline: 3px solid var(--maroon); outline-offset: 4px; }
 .book:not(.is-open) .book-spread { opacity: 0; visibility: hidden; transition: opacity .2s ease .55s, visibility 0s linear .75s; }
 .book.is-open .book-cover { left: 50%; opacity: 0; visibility: hidden; pointer-events: none; transition: left .55s cubic-bezier(.45, .05, .25, 1), opacity .2s ease .7s, visibility 0s linear .9s; }
@@ -489,19 +497,21 @@ h2.h-serif { font-size: clamp(30px, 4vw, 42px); line-height: 1.12; margin-bottom
 .book-btn:hover:not(:disabled) { background: var(--maroon); border-color: var(--maroon); color: var(--paper); }
 .book-btn:disabled { opacity: .35; cursor: default; }
 
-/* Smaller screens: pages stack and a single page turns */
+/* Narrow screens: covers stack; an open book shows the description above the screenshot */
 @media (max-width: 760px) {
+  .books { grid-template-columns: 1fr; }
   .book-body { height: auto; min-height: 0; }
   .book-spread { position: relative; grid-template-columns: 1fr; }
   .book-spine { display: none; }
-  .book-left { background: var(--cream-warm); border-bottom: 1px dashed #e3d8c0; }
-  .book-right { background: var(--cream-warm); }
+  .book-left { background: var(--page-tint); border-bottom: 1px solid #e1e4e8; }
+  .book-right { background: var(--white); box-shadow: inset 0 8px 10px -10px rgba(60, 64, 72, .35); }
   .page-inner { padding: 22px; }
   .book-right .page-inner { height: auto; }
   .book-zoom { height: min(62vh, 420px); flex: none; }
-  .book-cover { position: relative; left: 0; width: 100%; height: 340px; display: block; }
+  .book-cover, .book.is-solo .book-cover { position: relative; left: 0; width: 100%; height: 300px; display: block; }
   .book:not(.is-open) .book-spread { display: none; }
-  .book.is-open .book-cover { position: absolute; left: 0; }
+  .book:not(.is-open) .book-controls { display: none; }
+  .book.is-open .book-cover { position: absolute; left: 0; top: 0; }
   .book.is-open .cover-face { transform: perspective(2200px) rotateY(-100deg); }
   .book.is-open .cover-back { transform: perspective(2200px) rotateY(-100deg) translateX(50%) rotateY(180deg) translateX(-50%); }
   .book-leaf { width: 100%; left: 0; transform-origin: left center; }

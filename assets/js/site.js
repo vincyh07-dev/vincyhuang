@@ -29,7 +29,7 @@
 // Maroon entrance (homepage only). The <head> script adds .intro-on before first paint when it should play.
 // "Hi," appears, then "I'm Vincy Huang." is revealed as a gold seam draws across the screen. The panels part
 // along that seam while the greeting glides into the hero heading. Click, tap, Enter, Space or Escape skips.
-// The whole sequence stays under two seconds.
+// The reveal itself takes about 0.6 s.
 (function () {
   var root = document.documentElement;
   try { sessionStorage.setItem('vh-visited', '1'); } catch (e) {}
@@ -76,7 +76,8 @@
       open();
     }
   }
-  var timer = setTimeout(open, 950);
+  // The full greeting is drawn by ~0.8 s; hold it about two more seconds before revealing the homepage.
+  var timer = setTimeout(open, 2950);
   intro.addEventListener('click', open);
   document.addEventListener('keydown', onKey);
 })();
@@ -177,19 +178,42 @@
       pending = { leaf: el, done: done, t: setTimeout(settle, 720) };
     }
 
-    function setOpen(open, focus) {
+    // Opening: the section switches to a single wide book first, then the cover swings open from where it
+    // sat. Closing: the cover swings back, then both closed books return side by side and focus goes back
+    // to this book's cover.
+    var shelf = book.parentNode, swap = null;
+    function setOpen(open) {
       settle();
-      book.classList.toggle('is-open', open);
+      clearTimeout(swap);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.textContent = open ? 'Close book' : 'Open book';
-      cover.tabIndex = open ? -1 : 0;
-      if (focus) (open ? body : cover).focus({ preventScroll: true });
+      if (open) {
+        shelf.classList.add('has-open');
+        book.classList.add('is-solo');
+        void book.offsetWidth; // lay out the wide book before the cover starts to move
+        book.classList.add('is-open');
+        cover.tabIndex = -1;
+        body.tabIndex = 0;
+        body.focus({ preventScroll: true });
+        book.scrollIntoView({ block: 'nearest', behavior: calm ? 'auto' : 'smooth' });
+      } else {
+        book.classList.remove('is-open');
+        body.tabIndex = -1;
+        swap = setTimeout(function () {
+          book.classList.remove('is-solo');
+          shelf.classList.remove('has-open');
+          cover.tabIndex = 0;
+          cover.focus({ preventScroll: true });
+        }, calm ? 0 : 780);
+        cover.tabIndex = 0;
+        cover.focus({ preventScroll: true });
+      }
     }
 
-    cover.tabIndex = book.classList.contains('is-open') ? -1 : 0;
+    cover.tabIndex = 0;
     sync();
-    toggle.addEventListener('click', function () { setOpen(!book.classList.contains('is-open'), false); });
-    cover.addEventListener('click', function () { setOpen(true, true); });
+    toggle.addEventListener('click', function () { setOpen(!book.classList.contains('is-open')); });
+    cover.addEventListener('click', function () { setOpen(true); });
     next.addEventListener('click', function () { go(cur + 1); });
     prev.addEventListener('click', function () { go(cur - 1); });
     book.addEventListener('keydown', function (e) {
