@@ -1,137 +1,510 @@
 <!doctype html>
 <html lang="en" class="no-js">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Acne detection across image datasets · Vincy Huang</title>
-<meta name="description" content="Vincy Huang compared Faster R-CNN and YOLOv8n on ACNE04 and tested an acne patch classifier on DermNet.">
-<meta property="og:title" content="Acne detection across image datasets · Vincy Huang">
-<meta property="og:description" content="Vincy Huang compared Faster R-CNN and YOLOv8n on ACNE04 and tested an acne patch classifier on DermNet.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#14243A">
-<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="../assets/css/style.css">
-<script>
-(function(){var d=document.documentElement;d.className='js';
-var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-// Arriving through the maroon crescent: start covered, then uncover once the page is ready.
-try{if(sessionStorage.getItem('vh-cres')){sessionStorage.removeItem('vh-cres');if(!calm)d.className+=' cres-arrive';}}catch(e){}
-})();
-</script>
-</head>
-<body>
-<a class="skip" href="#main">Skip to main content</a>
-<header class="site-header">
-<div class="bar">
-<a class="brand" href="../index.html#home" data-nav aria-label="Vincy Huang, home"><span class="mono" aria-hidden="true">V</span><span class="brand-name">Vincy Huang</span></a>
-<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-<nav class="nav" id="site-nav" aria-label="Primary">
-<div class="nav-pill"><a href="../index.html#home" data-nav data-section="home">Home</a><a href="../index.html#experience" data-nav data-section="experience">Experience</a><a href="../index.html#projects" data-nav data-section="projects" aria-current="true">Projects</a><a href="../index.html#about" data-nav data-section="about">About</a><a href="../index.html#contact" data-nav data-section="contact">Contact</a></div>
-<a class="nav-resume" href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Open résumé<span class="sr"> (PDF, opens in a new tab)</span></a>
-</nav>
-</div>
-</header>
-<main id="main">
-<article class="cs cs-cream">
-<header class="cs-hero">
-<p class="back"><a class="tlink" href="../index.html#projects" data-nav><span aria-hidden="true">←</span> All projects</a></p>
-<p class="eyebrow">Case study · Computer vision</p>
-<h1 class="cs-title">Acne detection across image datasets</h1>
-<p class="cs-lede">I compared two object detectors on ACNE04, then trained a separate binary acne vs. non-acne patch classifier and tested it on DermNet, a different source of images.</p>
-<dl class="cs-facts"><div><dt>Role</dt><dd>Built and evaluated the pipeline</dd></div><div><dt>Data</dt><dd>ACNE04, DermNet</dd></div><div><dt>Models</dt><dd>Faster R-CNN, YOLOv8n, ResNet-18</dd></div><div><dt>Code</dt><dd><a class="tlink" href="https://github.com/vincyh07-dev/acne_detection" target="_blank" rel="noopener">GitHub repository<span class="sr"> (opens in a new tab)</span></a></dd></div></dl>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Acne detection across image datasets · Vincy Huang</title>
+    <meta
+      name="description"
+      content="Vincy Huang compared Faster R-CNN and YOLOv8n on ACNE04 and tested an acne patch classifier on DermNet."
+    />
+    <meta
+      property="og:title"
+      content="Acne detection across image datasets · Vincy Huang"
+    />
+    <meta
+      property="og:description"
+      content="Vincy Huang compared Faster R-CNN and YOLOv8n on ACNE04 and tested an acne patch classifier on DermNet."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#14243A" />
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.className = "js";
+        var calm =
+          window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        // Arriving through the maroon crescent: start covered, then uncover once the page is ready.
+        try {
+          if (sessionStorage.getItem("vh-cres")) {
+            sessionStorage.removeItem("vh-cres");
+            if (!calm) d.className += " cres-arrive";
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html#home" data-nav aria-label="Vincy Huang, home"
+          ><span class="mono" aria-hidden="true">V</span
+          ><span class="brand-name">Vincy Huang</span></a
+        >
+        <button
+          class="menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
+        </button>
+        <nav class="nav" id="site-nav" aria-label="Primary">
+          <div class="nav-pill">
+            <a href="../index.html#home" data-nav data-section="home">Home</a
+            ><a href="../index.html#experience" data-nav data-section="experience"
+              >Experience</a
+            ><a
+              href="../index.html#projects"
+              data-nav
+              data-section="projects"
+              aria-current="true"
+              >Projects</a
+            ><a href="../index.html#about" data-nav data-section="about">About</a
+            ><a href="../index.html#contact" data-nav data-section="contact">Contact</a>
+          </div>
+          <a
+            class="nav-resume"
+            href="../assets/docs/Vincy_Huang_Resume.pdf"
+            target="_blank"
+            rel="noopener"
+            >Open résumé<span class="sr"> (PDF, opens in a new tab)</span></a
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <article class="cs cs-cream">
+        <header class="cs-hero">
+          <p class="back">
+            <a class="tlink" href="../index.html#projects" data-nav
+              ><span aria-hidden="true">←</span> All projects</a
+            >
+          </p>
+          <p class="eyebrow">Case study · Computer vision</p>
+          <h1 class="cs-title">Acne detection across image datasets</h1>
+          <p class="cs-lede">
+            I compared two object detectors on ACNE04, then trained a separate binary acne
+            vs. non-acne patch classifier and tested it on DermNet, a different source of
+            images.
+          </p>
+          <dl class="cs-facts">
+            <div>
+              <dt>Role</dt>
+              <dd>Built and evaluated the pipeline</dd>
+            </div>
+            <div>
+              <dt>Data</dt>
+              <dd>ACNE04, DermNet</dd>
+            </div>
+            <div>
+              <dt>Models</dt>
+              <dd>Faster R-CNN, YOLOv8n, ResNet-18</dd>
+            </div>
+            <div>
+              <dt>Code</dt>
+              <dd>
+                <a
+                  class="tlink"
+                  href="https://github.com/vincyh07-dev/acne_detection"
+                  target="_blank"
+                  rel="noopener"
+                  >GitHub repository<span class="sr"> (opens in a new tab)</span></a
+                >
+              </dd>
+            </div>
+          </dl>
+        </header>
 
-<figure class="cs-full reveal"><button class="zoom" type="button" data-cap="Illustration · Trained on one source of images, tested on another" aria-label="Enlarge image: Trained on one source of images, tested on another"><img src="../assets/img/illustrations/acne-crossdataset.svg" alt="Illustration: lesion patches from ACNE04 train a classifier that is then tested on DermNet images" width="900" height="460" loading="lazy" decoding="async"></button><figcaption><span>Trained on one source of images, tested on another</span><span>Illustration</span></figcaption></figure>
+        <figure class="cs-full reveal">
+          <button
+            class="zoom"
+            type="button"
+            data-cap="Illustration · Trained on one source of images, tested on another"
+            aria-label="Enlarge image: Trained on one source of images, tested on another"
+          >
+            <img
+              src="../assets/img/illustrations/acne-crossdataset.svg"
+              alt="Illustration: lesion patches from ACNE04 train a classifier that is then tested on DermNet images"
+              width="900"
+              height="460"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <figcaption>
+            <span>Trained on one source of images, tested on another</span
+            ><span>Illustration</span>
+          </figcaption>
+        </figure>
 
-<div class="cs-body">
-<section class="cs-sec reveal" aria-labelledby="c-h"><h2 id="c-h">Problem</h2><p>The project began with a practical question: could an online image system automatically locate acne regions instead of requiring every spot to be marked by hand? That meant testing which detector could find useful lesion boxes without overwhelming a reviewer with false positives or missing too much.</p><p>A second problem was reliability. A model can perform well on the images it learned from and still fail on photos from somewhere else. I compared detector behavior on ACNE04, then tested whether a separate classifier built from ACNE04 patches held up on DermNet images from a different source.</p><p>This is an educational computer-vision project, not a clinical diagnostic system.</p></section>
+        <div class="cs-body">
+          <section class="cs-sec reveal" aria-labelledby="c-h">
+            <h2 id="c-h">Problem</h2>
+            <p>
+              The project began with a practical question: could an online image system
+              automatically locate acne regions instead of requiring every spot to be
+              marked by hand? That meant testing which detector could find useful lesion
+              boxes without overwhelming a reviewer with false positives or missing too
+              much.
+            </p>
+            <p>
+              A second problem was reliability. A model can perform well on the images it
+              learned from and still fail on photos from somewhere else. I compared
+              detector behavior on ACNE04, then tested whether a separate classifier built
+              from ACNE04 patches held up on DermNet images from a different source.
+            </p>
+            <p>
+              This is an educational computer-vision project, not a clinical diagnostic
+              system.
+            </p>
+          </section>
 
-<section class="cs-contrib reveal" aria-labelledby="u-h"><h2 id="u-h">What I did</h2><p>I built the pipeline end to end. I trained and evaluated Faster R-CNN and YOLOv8n to find acne lesions in ACNE04 photos, cut lesion and background patches to train a separate binary classifier, and tested that classifier on DermNet.</p></section>
+          <section class="cs-contrib reveal" aria-labelledby="u-h">
+            <h2 id="u-h">What I did</h2>
+            <p>
+              I built the pipeline end to end. I trained and evaluated Faster R-CNN and
+              YOLOv8n to find acne lesions in ACNE04 photos, cut lesion and background
+              patches to train a separate binary classifier, and tested that classifier on
+              DermNet.
+            </p>
+          </section>
 
-<section class="cs-sec reveal" aria-labelledby="d-h">
-<h2 id="d-h">Two detectors, two kinds of mistakes</h2>
-<figure class="chart reveal">
-<figcaption class="chart-title">Detector results on ACNE04, as reported</figcaption>
-<p class="legend"><span><i style="background:#3b64a8"></i>Faster R-CNN</span><span><i style="background:#c0862f"></i>YOLOv8n</span></p>
-<svg viewBox="0 0 640 300" role="img" aria-label="Bar chart. Precision: Faster R-CNN 13.9%, YOLOv8n 42.5%. Recall: Faster R-CNN 62.1%, YOLOv8n 41.0%. mAP at 0.5: Faster R-CNN 28.8%, YOLOv8n 35.4%. The same values are in the table below."><path d="M44 252.0H630" class="grid"/><text x="36" y="256.0" text-anchor="end" class="tick">0%</text><path d="M44 185.7H630" class="grid"/><text x="36" y="189.7" text-anchor="end" class="tick">20%</text><path d="M44 119.4H630" class="grid"/><text x="36" y="123.4" text-anchor="end" class="tick">40%</text><path d="M44 53.1H630" class="grid"/><text x="36" y="57.1" text-anchor="end" class="tick">60%</text><g class="bar"><title>Faster R-CNN, Precision: 13.9%</title><path d="M96.7 252V209.9a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z" fill="#3b64a8"/><text x="118.7" y="199.9" text-anchor="middle" class="v">13.9%</text></g><g class="bar"><title>YOLOv8n, Precision: 42.5%</title><path d="M142.7 252V115.1a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z" fill="#c0862f"/><text x="164.7" y="105.1" text-anchor="middle" class="v">42.5%</text></g><text x="141.7" y="274" text-anchor="middle" class="ax">Precision</text><g class="bar"><title>Faster R-CNN, Recall: 62.1%</title><path d="M292.0 252V50.2a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z" fill="#3b64a8"/><text x="314.0" y="40.2" text-anchor="middle" class="v">62.1%</text></g><g class="bar"><title>YOLOv8n, Recall: 41.0%</title><path d="M338.0 252V120.1a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z" fill="#c0862f"/><text x="360.0" y="110.1" text-anchor="middle" class="v">41.0%</text></g><text x="337.0" y="274" text-anchor="middle" class="ax">Recall</text><g class="bar"><title>Faster R-CNN, mAP@0.5: 28.8%</title><path d="M487.3 252V160.5a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z" fill="#3b64a8"/><text x="509.3" y="150.5" text-anchor="middle" class="v">28.8%</text></g><g class="bar"><title>YOLOv8n, mAP@0.5: 35.4%</title><path d="M533.3 252V138.7a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z" fill="#c0862f"/><text x="555.3" y="128.7" text-anchor="middle" class="v">35.4%</text></g><text x="532.3" y="274" text-anchor="middle" class="ax">mAP@0.5</text></svg>
-</figure>
-<div class="table-wrap"><table>
-<caption class="sr">Detector results on ACNE04</caption>
-<thead><tr><th scope="col">Detector</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">mAP@0.5</th></tr></thead>
-<tbody><tr><th scope="row">Faster R-CNN</th><td>13.9%</td><td>62.1%</td><td>28.8%</td></tr>
-<tr><th scope="row">YOLOv8n</th><td>42.5%</td><td>41.0%</td><td>35.4%</td></tr></tbody>
-</table></div>
-<p>For someone reviewing the output, these are different kinds of work. Faster R-CNN found more of the annotated lesions, but at the reported settings most of its boxes were false positives, so a reviewer would spend their time dismissing boxes. YOLOv8n’s boxes were more often correct and its mAP@0.5 was higher, but it missed more lesions, so a reviewer would need to look for what it left out.</p>
-<p>Annotated prediction examples will replace the schematic when public-safe outputs from both runs are available.</p>
-</section>
+          <section class="cs-sec reveal" aria-labelledby="d-h">
+            <h2 id="d-h">Two detectors, two kinds of mistakes</h2>
+            <figure class="chart reveal">
+              <figcaption class="chart-title">
+                Detector results on ACNE04, as reported
+              </figcaption>
+              <p class="legend">
+                <span><i style="background: #3b64a8"></i>Faster R-CNN</span
+                ><span><i style="background: #c0862f"></i>YOLOv8n</span>
+              </p>
+              <svg
+                viewBox="0 0 640 300"
+                role="img"
+                aria-label="Bar chart. Precision: Faster R-CNN 13.9%, YOLOv8n 42.5%. Recall: Faster R-CNN 62.1%, YOLOv8n 41.0%. mAP at 0.5: Faster R-CNN 28.8%, YOLOv8n 35.4%. The same values are in the table below."
+              >
+                <path d="M44 252.0H630" class="grid" />
+                <text x="36" y="256.0" text-anchor="end" class="tick">0%</text>
+                <path d="M44 185.7H630" class="grid" />
+                <text x="36" y="189.7" text-anchor="end" class="tick">20%</text>
+                <path d="M44 119.4H630" class="grid" />
+                <text x="36" y="123.4" text-anchor="end" class="tick">40%</text>
+                <path d="M44 53.1H630" class="grid" />
+                <text x="36" y="57.1" text-anchor="end" class="tick">60%</text>
+                <g class="bar">
+                  <title>Faster R-CNN, Precision: 13.9%</title>
+                  <path
+                    d="M96.7 252V209.9a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z"
+                    fill="#3b64a8"
+                  />
+                  <text x="118.7" y="199.9" text-anchor="middle" class="v">13.9%</text>
+                </g>
+                <g class="bar">
+                  <title>YOLOv8n, Precision: 42.5%</title>
+                  <path
+                    d="M142.7 252V115.1a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z"
+                    fill="#c0862f"
+                  />
+                  <text x="164.7" y="105.1" text-anchor="middle" class="v">42.5%</text>
+                </g>
+                <text x="141.7" y="274" text-anchor="middle" class="ax">Precision</text>
+                <g class="bar">
+                  <title>Faster R-CNN, Recall: 62.1%</title>
+                  <path
+                    d="M292.0 252V50.2a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z"
+                    fill="#3b64a8"
+                  />
+                  <text x="314.0" y="40.2" text-anchor="middle" class="v">62.1%</text>
+                </g>
+                <g class="bar">
+                  <title>YOLOv8n, Recall: 41.0%</title>
+                  <path
+                    d="M338.0 252V120.1a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z"
+                    fill="#c0862f"
+                  />
+                  <text x="360.0" y="110.1" text-anchor="middle" class="v">41.0%</text>
+                </g>
+                <text x="337.0" y="274" text-anchor="middle" class="ax">Recall</text>
+                <g class="bar">
+                  <title>Faster R-CNN, mAP@0.5: 28.8%</title>
+                  <path
+                    d="M487.3 252V160.5a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z"
+                    fill="#3b64a8"
+                  />
+                  <text x="509.3" y="150.5" text-anchor="middle" class="v">28.8%</text>
+                </g>
+                <g class="bar">
+                  <title>YOLOv8n, mAP@0.5: 35.4%</title>
+                  <path
+                    d="M533.3 252V138.7a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4V252Z"
+                    fill="#c0862f"
+                  />
+                  <text x="555.3" y="128.7" text-anchor="middle" class="v">35.4%</text>
+                </g>
+                <text x="532.3" y="274" text-anchor="middle" class="ax">mAP@0.5</text>
+              </svg>
+            </figure>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr">
+                  Detector results on ACNE04
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Detector</th>
+                    <th scope="col">Precision</th>
+                    <th scope="col">Recall</th>
+                    <th scope="col">mAP@0.5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Faster R-CNN</th>
+                    <td>13.9%</td>
+                    <td>62.1%</td>
+                    <td>28.8%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">YOLOv8n</th>
+                    <td>42.5%</td>
+                    <td>41.0%</td>
+                    <td>35.4%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              For someone reviewing the output, these are different kinds of work. Faster
+              R-CNN found more of the annotated lesions, but at the reported settings most
+              of its boxes were false positives, so a reviewer would spend their time
+              dismissing boxes. YOLOv8n’s boxes were more often correct and its mAP@0.5
+              was higher, but it missed more lesions, so a reviewer would need to look for
+              what it left out.
+            </p>
+            <p>
+              Annotated prediction examples will replace the schematic when public-safe
+              outputs from both runs are available.
+            </p>
+          </section>
 
-<section class="cs-sec cs-key reveal" aria-labelledby="k-h">
-<h2 id="k-h">What changed and what I learned</h2>
-<div class="table-wrap"><table>
-<caption class="sr">Patch classifier evaluation</caption>
-<thead><tr><th scope="col">Patch classifier evaluation</th><th scope="col">Accuracy</th><th scope="col">F1 score</th><th scope="col">AUROC</th></tr></thead>
-<tbody><tr><th scope="row">ACNE04 validation</th><td>90.93%</td><td>—</td><td>—</td></tr>
-<tr><th scope="row">DermNet test</th><td>63.53%</td><td>0.1176</td><td>0.5712</td></tr></tbody>
-</table></div>
-<p>The strong ACNE04 validation accuracy told me little about how the classifier would do on another source of images. On DermNet, an F1 of 0.12 and an AUROC of 0.57, barely above chance, showed that it struggled even with augmentation and color normalization in training.</p>
-<p>I don’t yet know which difference matters most. Lighting, framing (close lesion patches in training, whole photos in the DermNet test), and how each dataset was collected and labeled are all possibilities to investigate.</p>
-</section>
+          <section class="cs-sec cs-key reveal" aria-labelledby="k-h">
+            <h2 id="k-h">What changed and what I learned</h2>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr">
+                  Patch classifier evaluation
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Patch classifier evaluation</th>
+                    <th scope="col">Accuracy</th>
+                    <th scope="col">F1 score</th>
+                    <th scope="col">AUROC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">ACNE04 validation</th>
+                    <td>90.93%</td>
+                    <td>—</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">DermNet test</th>
+                    <td>63.53%</td>
+                    <td>0.1176</td>
+                    <td>0.5712</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              The strong ACNE04 validation accuracy told me little about how the
+              classifier would do on another source of images. On DermNet, an F1 of 0.12
+              and an AUROC of 0.57, barely above chance, showed that it struggled even
+              with augmentation and color normalization in training.
+            </p>
+            <p>
+              I don’t yet know which difference matters most. Lighting, framing (close
+              lesion patches in training, whole photos in the DermNet test), and how each
+              dataset was collected and labeled are all possibilities to investigate.
+            </p>
+          </section>
 
-<section class="cs-sec reveal" aria-labelledby="n-h">
-<h2 id="n-h">Next steps</h2>
-<p>Possible next steps:</p>
-<ul class="cs-list">
-<li><strong>Error analysis.</strong> Sort DermNet mistakes by lighting, framing, and skin condition to see where they cluster.</li>
-<li><strong>Separate preprocessing comparisons.</strong> Test color normalization, test-time cropping, and augmentation one at a time instead of together.</li>
-<li><strong>Independent evaluation.</strong> Hold out a test set from a third source before tuning anything.</li>
-</ul>
-</section>
+          <section class="cs-sec reveal" aria-labelledby="n-h">
+            <h2 id="n-h">Future improvements</h2>
+            <p>Possible next steps:</p>
+            <ul class="cs-list">
+              <li>
+                <strong>Broader datasets.</strong> Train and test on more varied data
+                across skin tones, acne types, lighting, camera quality, framing, and
+                collection sources to improve accuracy and generalization.
+              </li>
+              <li>
+                <strong>Error analysis.</strong> Sort DermNet mistakes by lighting,
+                framing, and skin condition to see where they cluster.
+              </li>
+              <li>
+                <strong>Separate preprocessing comparisons.</strong> Test color
+                normalization, test-time cropping, and augmentation one at a time instead
+                of together.
+              </li>
+              <li>
+                <strong>Independent evaluation.</strong> Hold out a test set from a third
+                source before tuning anything.
+              </li>
+            </ul>
+          </section>
 
-<details class="methods reveal">
-<summary>Methods and detailed results</summary>
-<div class="methods-body">
-<h3>Data and annotations</h3>
-<p>ACNE04 boxes come in YOLO format (normalized center, width, height). For Faster R-CNN I converted them to pixel corner coordinates and shifted class IDs by one to leave room for the background class.</p>
-<h3>Detectors</h3>
-<ul>
-<li>Faster R-CNN with a ResNet-50 FPN backbone, starting from torchvision’s pretrained weights, with a new box predictor for the acne classes. Trained for 10 epochs on CPU with batch size 1 and SGD (learning rate 0.0005, momentum 0.9).</li>
-<li>YOLOv8n from Ultralytics’ pretrained <code>yolov8n.pt</code>, trained for 10 epochs at 640-pixel images. The version comes from the training script; an earlier report draft mentioned YOLOv5.</li>
-<li>A detection counted as correct at IoU ≥ 0.5. Faster R-CNN was scored with my own evaluation script (11-point interpolated AP). YOLOv8n was scored with Ultralytics’ <code>yolo val</code>. Because the two tools differ, treat the comparison as approximate.</li>
-</ul>
-<h3>Patch classifier</h3>
-<ul>
-<li>Patch sampling: each annotated lesion was cropped with 5 pixels of context and resized to 64×64. For every lesion, one random background patch that overlaps no lesion box was taken from the same photo.</li>
-<li>Model: ResNet-18 with ImageNet pretrained weights and a two-class output, trained for 20 epochs with Adam and a class-weighted loss.</li>
-<li>Training used random crops, flips, rotation, blur, and color jitter, plus a gamma adjustment as color normalization.</li>
-<li>Training accuracy reached 91.03%; the best ACNE04 validation accuracy was 90.93%.</li>
-<li>On DermNet, images from folders labeled acne counted as positives and all others as negatives. Whole images were resized to 64×64. The classifier labeled 5,589 of 15,557 images as acne.</li>
-</ul>
-<h3>Per-category YOLO results</h3>
-<p>Per-category values are omitted until the run’s validation output is available.</p>
-</div>
-</details>
-</div>
-<nav class="cs-next" aria-label="Next case study"><a href="streamind-health.html" data-nav data-cursor="explore"><span class="label">Next case study</span><span class="cs-next-title">Streamind Health <span aria-hidden="true">→</span></span></a></nav>
-</article>
-</main>
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
-<button class="lightbox-close" type="button">Close <span aria-hidden="true">×</span></button>
-<figure><img alt=""><figcaption></figcaption></figure>
-</div>
-<footer class="site-footer">
-<div class="bar">
-<span>© 2026 Vincy Huang · UC Berkeley</span>
-<ul>
-<li><a href="mailto:vincyh07@berkeley.edu">vincyh07@berkeley.edu</a></li>
-<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn<span class="sr"> (opens in a new tab)</span></a></li>
-</ul>
-</div>
-</footer>
-<div class="cres" aria-hidden="true">
-<svg class="cres-shape" viewBox="0 0 144 100" preserveAspectRatio="none" focusable="false"><path d="M0 0H122Q166 50 122 100H0Q44 50 0 0Z"/></svg>
-<span class="cres-v"><svg viewBox="0 0 80 80" focusable="false"><circle cx="40" cy="40" r="37" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="40" y="54" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="44" font-weight="500" fill="currentColor">V</text></svg></span>
-</div>
-<script src="../assets/js/site.js"></script>
-</body>
+          <details class="methods reveal">
+            <summary>Methods and detailed results</summary>
+            <div class="methods-body">
+              <h3>Data and annotations</h3>
+              <p>
+                ACNE04 boxes come in YOLO format (normalized center, width, height). For
+                Faster R-CNN I converted them to pixel corner coordinates and shifted
+                class IDs by one to leave room for the background class.
+              </p>
+              <h3>Detectors</h3>
+              <ul>
+                <li>
+                  Faster R-CNN with a ResNet-50 FPN backbone, starting from torchvision’s
+                  pretrained weights, with a new box predictor for the acne classes.
+                  Trained for 10 epochs on CPU with batch size 1 and SGD (learning rate
+                  0.0005, momentum 0.9).
+                </li>
+                <li>
+                  YOLOv8n from Ultralytics’ pretrained <code>yolov8n.pt</code>, trained
+                  for 10 epochs at 640-pixel images. The version comes from the training
+                  script; an earlier report draft mentioned YOLOv5.
+                </li>
+                <li>
+                  A detection counted as correct at IoU ≥ 0.5. Faster R-CNN was scored
+                  with my own evaluation script (11-point interpolated AP). YOLOv8n was
+                  scored with Ultralytics’
+                  <code>yolo val</code>. Because the two tools differ, treat the
+                  comparison as approximate.
+                </li>
+              </ul>
+              <h3>Patch classifier</h3>
+              <ul>
+                <li>
+                  Patch sampling: each annotated lesion was cropped with 5 pixels of
+                  context and resized to 64×64. For every lesion, one random background
+                  patch that overlaps no lesion box was taken from the same photo.
+                </li>
+                <li>
+                  Model: ResNet-18 with ImageNet pretrained weights and a two-class
+                  output, trained for 20 epochs with Adam and a class-weighted loss.
+                </li>
+                <li>
+                  Training used random crops, flips, rotation, blur, and color jitter,
+                  plus a gamma adjustment as color normalization.
+                </li>
+                <li>
+                  Training accuracy reached 91.03%; the best ACNE04 validation accuracy
+                  was 90.93%.
+                </li>
+                <li>
+                  On DermNet, images from folders labeled acne counted as positives and
+                  all others as negatives. Whole images were resized to 64×64. The
+                  classifier labeled 5,589 of 15,557 images as acne.
+                </li>
+              </ul>
+              <h3>Per-category YOLO results</h3>
+              <p>
+                Per-category values are omitted until the run’s validation output is
+                available.
+              </p>
+            </div>
+          </details>
+        </div>
+        <nav class="cs-next" aria-label="Next case study">
+          <a href="streamind-health.html" data-nav data-cursor="explore"
+            ><span class="label">Next case study</span
+            ><span class="cs-next-title"
+              >Streamind Health <span aria-hidden="true">→</span></span
+            ></a
+          >
+        </nav>
+      </article>
+    </main>
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Enlarged image"
+      hidden
+    >
+      <button class="lightbox-close" type="button">
+        Close <span aria-hidden="true">×</span>
+      </button>
+      <figure>
+        <img alt="" />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+    <footer class="site-footer">
+      <div class="bar">
+        <span>© 2026 Vincy Huang · UC Berkeley</span>
+        <ul>
+          <li>
+            <a href="mailto:vincyh07@berkeley.edu">vincyh07@berkeley.edu</a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/vincyhuang7"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn<span class="sr"> (opens in a new tab)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <div class="cres" aria-hidden="true">
+      <svg
+        class="cres-shape"
+        viewBox="0 0 144 100"
+        preserveAspectRatio="none"
+        focusable="false"
+      >
+        <path d="M0 0H122Q166 50 122 100H0Q44 50 0 0Z" />
+      </svg>
+      <span class="cres-v"
+        ><svg viewBox="0 0 80 80" focusable="false">
+          <circle
+            cx="40"
+            cy="40"
+            r="37"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+          <text
+            x="40"
+            y="54"
+            text-anchor="middle"
+            font-family="Newsreader, Georgia, serif"
+            font-size="44"
+            font-weight="500"
+            fill="currentColor"
+          >
+            V
+          </text>
+        </svg></span
+      >
+    </div>
+    <script src="../assets/js/site.js"></script>
+  </body>
 </html>

@@ -1,56 +1,495 @@
 <!doctype html>
 <html lang="en" class="no-js">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vincy Huang · UC Berkeley · Product, research and data</title>
-<meta name="description" content="Vincy Huang studies data science and cognitive science at UC Berkeley and uses research and data to figure out what is worth building.">
-<meta name="theme-color" content="#5A1F2E">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&amp;family=Inter:wght@400;500;600&amp;display=swap">
-<link rel="stylesheet" href="assets/css/reference.css">
-<script>(function(){var d=document.documentElement;d.className='js';var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;try{if(!sessionStorage.getItem('vh-visited')&&!location.hash&&!calm)d.className+=' intro-on';}catch(e){}})();</script>
-</head>
-<body>
-<div class="intro" id="intro" aria-label="Welcome"><p class="intro-greeting"><span>Hi,</span> <span>I’m<br> Vincy Huang.</span></p><button class="intro-skip" type="button">Skip intro</button></div>
-<a class="skip-link" href="#main">Skip to main content</a>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="#home" data-nav aria-label="Vincy Huang, home"><span class="brand-mark" aria-hidden="true">V</span><span>Vincy Huang</span></a>
-  <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span></button>
-  <div class="header-actions" id="primary-nav"><nav class="nav-pill" aria-label="Primary">
-    <a href="#home" data-nav data-section="home" aria-current="page">Home</a><a href="#experience" data-nav data-section="experience">Experience</a><a href="#projects" data-nav data-section="projects">Projects</a><a href="#about" data-nav data-section="about">About</a><a href="#contact" data-nav data-section="contact">Contact</a>
-  </nav><a class="resume-button" href="assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Open résumé</a></div>
-</div></header>
-<main id="main">
-<section class="hero section-spy" id="home" aria-labelledby="hero-title">
-  <div class="hero-copy"><div class="hero-heading"><p class="eyebrow">Hi, I’m</p><h1 id="hero-title">Vincy<br>Huang.</h1></div>
-    <p class="hero-bio">I study data science and cognitive science at UC Berkeley. I’m interested in how people use AI and technology, and I use research and data to figure out what’s worth building.</p>
-    <div class="lens-picker" role="group" aria-label="Pick a lens"><span>Pick a lens:</span><button type="button" data-lens="product" aria-pressed="true">Product</button><button type="button" data-lens="research" aria-pressed="false">Research</button><button type="button" data-lens="data" aria-pressed="false">Data</button></div>
-    <p class="lens-line" id="lens-line" aria-live="polite">I like designing tools people can actually operate.</p>
-    <div class="hero-buttons"><a class="button button-primary" href="#projects" data-nav>Explore my work <span aria-hidden="true">→</span></a><a class="button button-outline" href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn</a></div>
-  </div>
-  <div class="hero-feature"><svg class="spin-badge" width="150" height="150" viewBox="0 0 150 150" aria-hidden="true"><defs><path id="ring" d="M75,75 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"></path></defs><text><textPath href="#ring">UC BERKELEY · DATA + COG SCI · </textPath></text></svg>
-    <article class="feature-card lift-card"><span class="feature-chip" id="lens-chip">Product lens</span><h2 id="lens-work">CTRL Robotics</h2><p id="lens-sub">Select a robot, inspect battery and route history, then send it from X to Y.</p><a id="lens-link" href="projects/ctrl-robotics.html" data-nav>Open case study <span aria-hidden="true">↗</span></a></article>
-  </div>
-</section>
-<section class="featured-band" aria-label="Featured research"><div class="featured-inner"><div><p class="band-label">Featured</p><h2>My research supports a California Department of Education project.</h2></div><div class="band-actions"><a class="button button-cream" href="https://www.linkedin.com/posts/california-education-learning-lab_aiineducation-ailiteracy-criticalthinking-activity-7508981214205120512-ao9a" target="_blank" rel="noopener">Read the public project post <span aria-hidden="true">↗</span></a><a class="button button-cream-outline" href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn</a></div></div></section>
-<section class="experience content-section section-spy" id="experience" aria-labelledby="experience-title">
-  <p class="eyebrow">Experience</p><h2 class="section-title" id="experience-title">Pick a bookmark.</h2><p class="section-subtitle">Each ribbon opens a different chapter.</p>
-  <div class="experience-tabs" role="tablist" aria-label="Experience"><button id="exp-tab-ctl" type="button" role="tab" aria-selected="true" aria-controls="experience-panel" data-exp="ctl">Berkeley CTL</button><button id="exp-tab-third" type="button" role="tab" aria-selected="false" aria-controls="experience-panel" data-exp="third" tabindex="-1">UCSF Radiology</button><button id="exp-tab-streamind" type="button" role="tab" aria-selected="false" aria-controls="experience-panel" data-exp="streamind" tabindex="-1">Streamind Health</button><button id="exp-tab-ctrl" type="button" role="tab" aria-selected="false" aria-controls="experience-panel" data-exp="ctrl" tabindex="-1">CTRL Robotics</button></div>
-  <article class="experience-panel" id="experience-panel" role="tabpanel" aria-labelledby="exp-tab-ctl" tabindex="0"><div class="experience-identity"><span id="exp-dates">October 2026 – present</span><h3 id="exp-role">Undergraduate Research Assistant</h3><p id="exp-org">UC Berkeley Center for Teaching &amp; Learning</p></div><div class="experience-detail"><div class="experience-problem"><strong>Problem to solve</strong><p id="exp-problem">Professors and students are making decisions about AI without clear evidence about when it improves learning, when it gets in the way, or how much use is appropriate. Separate course research also asks why students drop classes—including Korean and physics courses—and what instructors can change to support retention.</p></div><p id="exp-summary">I turn student and educator feedback about AI into evidence that can shape teaching priorities, including work aligned with the California Education Learning Lab and public LinkedIn updates.</p><ul id="exp-points"><li>Contribution: I helped frame research questions, led 6 focus groups, and analyzed a 250+ response Qualtrics survey across 5 departments.</li><li>Influence: I translated qualitative themes and quantitative patterns into 4 stakeholder memos used by 20+ educators and to inform the Center’s priorities.</li><li>Public project: I contributed to work highlighted by the California Education Learning Lab on LinkedIn and in Berkeley’s public research channels.</li><li>What I learned: useful research needs a traceable path from a person’s comment to a coded theme, supporting data, and a recommendation—without overstating work still in progress.</li></ul></div></article>
-  <figure class="experience-visual"><img id="exp-image" src="assets/img/illustrations/ctl-feedback-themes.svg" alt="Survey and focus-group feedback flowing into coded themes and recommendations for educators" width="900" height="520"><figcaption id="exp-caption">Berkeley CTL · Turning feedback into themes and evidence-based recommendations</figcaption></figure>
-</section>
-<section class="projects section-spy" id="projects" aria-labelledby="projects-title"><div class="projects-inner">
-  <p class="eyebrow eyebrow-light">Project books</p><h2 class="section-title" id="projects-title">Open a project notebook.</h2><p class="projects-subtitle">Click a cover to open it, then turn the pages.</p>
-  <div class="book-covers" role="group" aria-label="Choose a project book"><div class="book-wrap"><button class="book-cover book-streamind is-selected" type="button" data-book="streamind" aria-pressed="true"><span class="book-number">Project 01</span><span class="book-title">Streamind Health</span><span class="book-blurb">Facial video to pulse signal</span><span class="book-state">Reading now</span></button></div><div class="book-wrap"><button class="book-cover book-jarvis" type="button" data-book="jarvis" aria-pressed="false"><span class="book-number">Project 02</span><span class="book-title">Jarvis</span><span class="book-blurb">Live decisions, Meet to Slack</span><span class="book-state">Open book</span></button></div><div class="book-wrap"><button class="book-cover book-acne" type="button" data-book="acne" aria-pressed="false"><span class="book-number">Project 03</span><span class="book-title">Acne project</span><span class="book-blurb">Where it started</span><span class="book-state">Open book</span></button></div></div>
-  <article class="book-viewer"><div class="book-left-page"><span class="book-view-number" id="book-number">Project 01</span><h3 id="book-title">Streamind Health</h3><span class="book-tag" id="book-tag">Software Engineer Intern · October 2025 – May 2026</span><p id="book-blurb">Facial video to pulse signal</p><div class="chapter-list" id="chapter-list" role="group" aria-label="Chapters"></div></div><div class="book-right-page"><span class="page-label" id="page-label">Page 1 of 3</span><h4 id="page-heading">Overview</h4><figure class="book-page-media" id="page-media"><img id="page-image" src="assets/img/work/streamind-browser-and-mobile.jpg" alt="Streamind browser biofeedback experience beside its mobile heart-rate monitor" width="1400" height="609"><figcaption id="page-caption">Browser biofeedback beside the mobile heart-rate monitor</figcaption></figure><p id="page-copy">Streamind Health builds biofeedback for therapists and patients. I worked on extracting a pulse signal from facial video and moving the workflow from laptops toward iOS.</p><div class="page-links" id="page-links"></div><div class="page-actions"><button type="button" id="previous-page">Previous page</button><button type="button" id="next-page">Next page</button></div></div></article>
-</div></section>
-<section class="about content-section section-spy" id="about" aria-labelledby="about-title"><div class="about-copy"><p class="eyebrow">About</p><h2 class="section-title" id="about-title">A little more about me.</h2><p>I’m studying data science and cognitive science at UC Berkeley, a mix that lets me look at both the numbers and the people behind them. I’m especially interested in health technology and AI tools, and I want to build products grounded in evidence, human behavior, and careful evaluation.</p></div><div class="about-facts"><p><strong>Studying:</strong> Data science and cognitive science, UC Berkeley</p><p><strong>Curious about:</strong> How people use AI and technology</p><p><strong>Outside of work:</strong> I lead recruitment and operations for Computational Biology Club’s 90+ members, and I enjoy tennis and painting.</p></div><a class="award-card lift-card" href="https://alumni.berkeley.edu/get-involved/scholarships/the-leadership-award/" target="_blank" rel="noopener"><span>Honor · Cal Alumni Association</span><strong>The Leadership Award (TLA) Scholar</strong><p>Established in 1934, TLA is a multi-year scholarship recognizing visionary, innovative, and community-minded Berkeley leaders. CAA describes it as the largest non-academic scholarship on campus; across CAA’s broader Alumni Scholars Program, about 17% of applicants are typically selected.</p><b>Explore the official award ↗</b></a></section>
-<section class="contact section-spy" id="contact" aria-labelledby="contact-title"><div class="contact-inner"><p class="eyebrow">Contact</p><h2 class="section-title" id="contact-title">Say hello.</h2><div class="postcards"><a class="postcard postcard-featured lift-card" href="https://www.linkedin.com/posts/california-education-learning-lab_aiineducation-ailiteracy-criticalthinking-activity-7508981214205120512-ao9a" target="_blank" rel="noopener"><span>Featured</span><strong>Research supporting a California Department of Education project</strong><b>Read the public post ↗</b></a><a class="postcard postcard-linkedin lift-card" href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener"><span>Connect</span><strong>LinkedIn</strong><b>Open profile ↗</b></a><a class="postcard postcard-resume lift-card" href="assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener"><span>Résumé</span><strong>Open résumé</strong><b>PDF ↗</b></a><a class="postcard postcard-email lift-card" href="mailto:vincyh07@berkeley.edu"><span>Email</span><strong>vincyh07@berkeley.edu</strong><b>Write me ↗</b></a><a class="postcard postcard-github lift-card" href="https://github.com/vincyh07-dev" target="_blank" rel="noopener"><span>Code</span><strong>GitHub</strong><b>View my repositories ↗</b></a></div><p class="footer-line">Vincy Huang · UC Berkeley · 2026</p></div></section>
-</main>
-<div class="screen-transition" aria-hidden="true"><span>V</span></div>
-<script src="assets/js/reference.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vincy Huang · UC Berkeley · Product, research and data</title>
+    <meta
+      name="description"
+      content="Vincy Huang studies data science and cognitive science at UC Berkeley and uses research and data to figure out what is worth building."
+    />
+    <meta name="theme-color" content="#5A1F2E" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/reference.css" />
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.className = "js";
+        var calm =
+          window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        try {
+          if (!sessionStorage.getItem("vh-visited") && !location.hash && !calm)
+            d.className += " intro-on";
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="intro" id="intro" aria-label="Welcome">
+      <p class="intro-greeting">
+        <span>Hi,</span>
+        <span
+          >I’m<br />
+          Vincy Huang.</span
+        >
+      </p>
+      <button class="intro-skip" type="button">Skip intro</button>
+    </div>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#home" data-nav aria-label="Vincy Huang, home"
+          ><span class="brand-mark" aria-hidden="true">V</span><span>Vincy Huang</span></a
+        >
+        <button
+          class="menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span>Menu</span>
+        </button>
+        <div class="header-actions" id="primary-nav">
+          <nav class="nav-pill" aria-label="Primary">
+            <a href="#home" data-nav data-section="home" aria-current="page">Home</a
+            ><a href="#experience" data-nav data-section="experience">Experience</a
+            ><a href="#projects" data-nav data-section="projects">Projects</a
+            ><a href="#about" data-nav data-section="about">About</a
+            ><a href="#contact" data-nav data-section="contact">Contact</a>
+          </nav>
+          <a
+            class="resume-button"
+            href="assets/docs/Vincy_Huang_Resume.pdf"
+            target="_blank"
+            rel="noopener"
+            >Open résumé</a
+          >
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <!-- HOME / HERO -->
+      <section class="hero section-spy" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="hero-heading">
+            <p class="eyebrow">Hi, I’m</p>
+            <h1 id="hero-title">Vincy<br />Huang.</h1>
+          </div>
+          <p class="hero-bio">
+            I study data science and cognitive science at UC Berkeley. I’m interested in
+            how people use AI and technology, and I use research and data to figure out
+            what’s worth building.
+          </p>
+          <div class="lens-picker" role="group" aria-label="Pick a lens">
+            <span>Pick a lens:</span
+            ><button type="button" data-lens="product" aria-pressed="true">Product</button
+            ><button type="button" data-lens="research" aria-pressed="false">
+              Research</button
+            ><button type="button" data-lens="data" aria-pressed="false">Data</button>
+          </div>
+          <p class="lens-line" id="lens-line" aria-live="polite">
+            I turn messy workflows into tools people can operate.
+          </p>
+          <div class="hero-buttons">
+            <a class="button button-primary" href="#projects" data-nav
+              >Explore my work <span aria-hidden="true">→</span></a
+            ><a
+              class="button button-outline"
+              href="https://www.linkedin.com/in/vincyhuang7"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+        <div class="hero-feature">
+          <svg
+            class="spin-badge"
+            width="150"
+            height="150"
+            viewBox="0 0 150 150"
+            aria-hidden="true"
+          >
+            <defs>
+              <path
+                id="ring"
+                d="M75,75 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"
+              ></path>
+            </defs>
+            <text>
+              <textPath href="#ring">UC BERKELEY · DATA + COG SCI ·</textPath>
+            </text>
+          </svg>
+          <article class="feature-card lift-card">
+            <span class="feature-chip" id="lens-chip">Product lens</span>
+            <h2 id="lens-work">CTRL Robotics</h2>
+            <p id="lens-sub">
+              A clearer hospital robot map: location, battery, route history, and X-to-Y
+              navigation.
+            </p>
+            <a id="lens-link" href="projects/ctrl-robotics.html" data-nav
+              >Open case study <span aria-hidden="true">↗</span></a
+            >
+          </article>
+        </div>
+      </section>
+      <!-- FEATURED RESEARCH -->
+      <section class="featured-band" aria-label="Featured research">
+        <div class="featured-inner">
+          <div>
+            <p class="band-label">Featured</p>
+            <h2>My research supports a California Department of Education project.</h2>
+          </div>
+          <div class="band-actions">
+            <a
+              class="button button-cream"
+              href="https://www.linkedin.com/posts/california-education-learning-lab_aiineducation-ailiteracy-criticalthinking-activity-7508981214205120512-ao9a"
+              target="_blank"
+              rel="noopener"
+              >Read the public project post <span aria-hidden="true">↗</span></a
+            ><a
+              class="button button-cream-outline"
+              href="https://www.linkedin.com/in/vincyhuang7"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
+      <!-- EXPERIENCE -->
+      <section
+        class="experience content-section section-spy"
+        id="experience"
+        aria-labelledby="experience-title"
+      >
+        <p class="eyebrow">Experience</p>
+        <h2 class="section-title" id="experience-title">Pick a bookmark.</h2>
+        <p class="section-subtitle">
+          Your Product, Research, or Data lens brings the most relevant chapter forward.
+        </p>
+        <div class="experience-tabs" role="tablist" aria-label="Experience">
+          <button
+            id="exp-tab-ctl"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="experience-panel"
+            data-exp="ctl"
+          >
+            Berkeley CTL</button
+          ><button
+            id="exp-tab-third"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="experience-panel"
+            data-exp="third"
+            tabindex="-1"
+          >
+            UCSF Radiology</button
+          ><button
+            id="exp-tab-streamind"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="experience-panel"
+            data-exp="streamind"
+            tabindex="-1"
+          >
+            Streamind Health</button
+          ><button
+            id="exp-tab-ctrl"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="experience-panel"
+            data-exp="ctrl"
+            tabindex="-1"
+          >
+            CTRL Robotics
+          </button>
+        </div>
+        <article
+          class="experience-panel"
+          id="experience-panel"
+          role="tabpanel"
+          aria-labelledby="exp-tab-ctl"
+          tabindex="0"
+        >
+          <div class="experience-identity">
+            <span id="exp-dates">July 2026 – present</span>
+            <h3 id="exp-role">Undergraduate Research Assistant</h3>
+            <p id="exp-org">UC Berkeley Center for Teaching &amp; Learning</p>
+          </div>
+          <div class="experience-detail">
+            <div class="experience-problem">
+              <strong>Problem to solve</strong>
+              <p id="exp-problem">
+                Professors need evidence—not hype—to decide when AI supports learning.
+                Course teams also need to understand motivation, format and schedule
+                preferences, retention, and dropout.
+              </p>
+            </div>
+            <p id="exp-summary">
+              <strong class="experience-key">My role:</strong> Combine focus groups,
+              surveys, quantitative analysis, and qualitative coding to create findings
+              educators can act on.
+            </p>
+            <ul id="exp-points">
+              <li>
+                <strong>Research:</strong> 6 focus groups and 250+ survey responses across
+                5 departments.
+              </li>
+              <li>
+                <strong>Analysis:</strong> Clean and filter data, code themes, build
+                visualizations, and compare patterns.
+              </li>
+              <li>
+                <strong>Influence:</strong> Translate evidence into 4 stakeholder memos
+                supporting 20+ educators.
+              </li>
+              <li>
+                <strong>Gained:</strong> Stronger mixed-methods research judgment and
+                stakeholder communication.
+              </li>
+            </ul>
+            <div class="experience-published">
+              <span>Published online</span>
+              <div class="experience-links" id="exp-links">
+                <a href="projects/ctl-llm-research.html"
+                  >Explore Berkeley CTL research details →</a
+                ><a
+                  href="https://www.linkedin.com/posts/california-education-learning-lab_aiineducation-ailiteracy-criticalthinking-activity-7508981214205120512-ao9a"
+                  target="_blank"
+                  rel="noopener"
+                  >California Department of Education project ↗</a
+                ><a
+                  href="https://calearninglab.org/project/creating-a-framework-for-valued-learning-outcomes-in-2030/"
+                  target="_blank"
+                  rel="noopener"
+                  >Learning Lab project page ↗</a
+                ><a
+                  href="https://teaching.berkeley.edu/programs/presidential-chair-fellows-grant-program/pcf-fellows"
+                  target="_blank"
+                  rel="noopener"
+                  >Physics 111B public description ↗</a
+                ><a
+                  href="https://teaching.berkeley.edu/research/creating-framework-valued-learning-outcomes-2030"
+                  target="_blank"
+                  rel="noopener"
+                  >Learning Outcomes 2030 ↗</a
+                >
+              </div>
+            </div>
+          </div>
+        </article>
+        <figure class="experience-visual">
+          <img
+            id="exp-image"
+            src="assets/img/illustrations/ctl-feedback-themes.svg"
+            alt="Survey and focus-group feedback flowing into coded themes and recommendations for educators"
+            width="900"
+            height="520"
+          />
+          <figcaption id="exp-caption">
+            Berkeley CTL · Turning feedback into themes and evidence-based recommendations
+          </figcaption>
+        </figure>
+      </section>
+      <!-- PROJECT BOOKS -->
+      <section
+        class="projects section-spy"
+        id="projects"
+        aria-labelledby="projects-title"
+      >
+        <div class="projects-inner">
+          <p class="eyebrow eyebrow-light">Project books</p>
+          <h2 class="section-title" id="projects-title">Open a project notebook.</h2>
+          <p class="projects-subtitle">Click a cover to open it, then turn the pages.</p>
+          <div class="book-covers" role="group" aria-label="Choose a project book">
+            <div class="book-wrap">
+              <button
+                class="book-cover book-streamind is-selected"
+                type="button"
+                data-book="streamind"
+                aria-pressed="true"
+              >
+                <span class="book-number">Project 01</span
+                ><span class="book-title">Streamind Health</span
+                ><span class="book-blurb">Facial video to pulse signal</span
+                ><span class="book-state">Reading now</span>
+              </button>
+            </div>
+            <div class="book-wrap">
+              <button
+                class="book-cover book-jarvis"
+                type="button"
+                data-book="jarvis"
+                aria-pressed="false"
+              >
+                <span class="book-number">Project 02</span
+                ><span class="book-title">Jarvis</span
+                ><span class="book-blurb">Live decisions, Meet to Slack</span
+                ><span class="book-state">Open book</span>
+              </button>
+            </div>
+            <div class="book-wrap">
+              <button
+                class="book-cover book-acne"
+                type="button"
+                data-book="acne"
+                aria-pressed="false"
+              >
+                <span class="book-number">Project 03</span
+                ><span class="book-title">Acne project</span
+                ><span class="book-blurb">Where it started</span
+                ><span class="book-state">Open book</span>
+              </button>
+            </div>
+          </div>
+          <article class="book-viewer">
+            <div class="book-left-page">
+              <span class="book-view-number" id="book-number">Project 01</span>
+              <h3 id="book-title">Streamind Health</h3>
+              <span class="book-tag" id="book-tag"
+                >Software Engineer Intern · October 2025 – May 2026</span
+              >
+              <p id="book-blurb">Facial video to pulse signal</p>
+              <a
+                class="book-case-link"
+                id="book-case-link"
+                href="projects/streamind-health.html"
+                >Read full case study ↗</a
+              >
+              <div
+                class="chapter-list"
+                id="chapter-list"
+                role="group"
+                aria-label="Chapters"
+              ></div>
+            </div>
+            <div class="book-right-page">
+              <span class="page-label" id="page-label">Page 1 of 5</span>
+              <h4 id="page-heading">Overview</h4>
+              <figure class="book-page-media" id="page-media">
+                <img
+                  id="page-image"
+                  src="assets/img/work/streamind-browser-and-mobile.jpg"
+                  alt="Streamind browser biofeedback experience beside its mobile heart-rate monitor"
+                  width="1400"
+                  height="609"
+                />
+                <figcaption id="page-caption">
+                  Browser biofeedback beside the mobile heart-rate monitor
+                </figcaption>
+              </figure>
+              <p id="page-copy">
+                Camera-based biofeedback for remote therapist and patient sessions, moved
+                from laptop toward iOS.
+              </p>
+              <div class="page-links" id="page-links"></div>
+              <div class="page-actions">
+                <button type="button" id="previous-page">Previous page</button
+                ><button type="button" id="next-page">Next page</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- ABOUT -->
+      <section
+        class="about content-section section-spy"
+        id="about"
+        aria-labelledby="about-title"
+      >
+        <div class="about-copy">
+          <p class="eyebrow">About</p>
+          <h2 class="section-title" id="about-title">A little more about me.</h2>
+          <p>
+            I’m studying data science and cognitive science at UC Berkeley, a mix that
+            lets me look at both the numbers and the people behind them. I’m especially
+            interested in health technology and AI tools, and I want to build products
+            grounded in evidence, human behavior, and careful evaluation.
+          </p>
+        </div>
+        <div class="about-facts">
+          <p>
+            <strong>Studying:</strong> Data science and cognitive science, UC Berkeley
+          </p>
+          <p><strong>Curious about:</strong> How people use AI and technology</p>
+          <p>
+            <strong>Outside of work:</strong> I lead recruitment and operations for
+            Computational Biology Club’s 90+ members, and I enjoy tennis and painting.
+          </p>
+        </div>
+        <a
+          class="award-card lift-card"
+          href="https://alumni.berkeley.edu/get-involved/scholarships/the-leadership-award/"
+          target="_blank"
+          rel="noopener"
+          ><span>Honor · Cal Alumni Association</span
+          ><strong>The Leadership Award (TLA) Scholar</strong>
+          <p>
+            Established in 1934, TLA is a multi-year scholarship recognizing visionary,
+            innovative, and community-minded Berkeley leaders. CAA describes it as the
+            largest non-academic scholarship on campus; across CAA’s broader Alumni
+            Scholars Program, about 17% of applicants are typically selected.
+          </p>
+          <b>Explore the official award ↗</b></a
+        >
+      </section>
+      <!-- CONTACT -->
+      <section class="contact section-spy" id="contact" aria-labelledby="contact-title">
+        <div class="contact-inner">
+          <p class="eyebrow">Contact</p>
+          <h2 class="section-title" id="contact-title">Say hello.</h2>
+          <div class="postcards">
+            <a
+              class="postcard postcard-featured lift-card"
+              href="https://www.linkedin.com/posts/california-education-learning-lab_aiineducation-ailiteracy-criticalthinking-activity-7508981214205120512-ao9a"
+              target="_blank"
+              rel="noopener"
+              ><span>Featured</span
+              ><strong
+                >Research supporting a California Department of Education project</strong
+              ><b>Read the public post ↗</b></a
+            ><a
+              class="postcard postcard-linkedin lift-card"
+              href="https://www.linkedin.com/in/vincyhuang7"
+              target="_blank"
+              rel="noopener"
+              ><span>Connect</span><strong>LinkedIn</strong><b>Open profile ↗</b></a
+            ><a
+              class="postcard postcard-resume lift-card"
+              href="assets/docs/Vincy_Huang_Resume.pdf"
+              target="_blank"
+              rel="noopener"
+              ><span>Résumé</span><strong>Open résumé</strong><b>PDF ↗</b></a
+            ><a
+              class="postcard postcard-email lift-card"
+              href="mailto:vincyh07@berkeley.edu"
+              ><span>Email</span><strong>vincyh07@berkeley.edu</strong
+              ><b>Write me ↗</b></a
+            ><a
+              class="postcard postcard-github lift-card"
+              href="https://github.com/vincyh07-dev"
+              target="_blank"
+              rel="noopener"
+              ><span>Code</span><strong>GitHub</strong><b>View my repositories ↗</b></a
+            >
+          </div>
+          <p class="footer-line">Vincy Huang · UC Berkeley · 2026</p>
+        </div>
+      </section>
+    </main>
+    <div class="screen-transition" aria-hidden="true"><span>V</span></div>
+    <script src="assets/js/reference.js"></script>
+  </body>
 </html>

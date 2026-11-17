@@ -1,129 +1,678 @@
 <!doctype html>
 <html lang="en" class="no-js">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Streamind Health case study · Vincy Huang</title>
-<meta name="description" content="How Vincy Huang worked on facial region selection, RGB signal extraction, and the mobile version of a camera-based biofeedback tool.">
-<meta property="og:title" content="Streamind Health case study · Vincy Huang">
-<meta property="og:description" content="How Vincy Huang worked on facial region selection, RGB signal extraction, and the mobile version of a camera-based biofeedback tool.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#14243A">
-<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="../assets/css/style.css">
-<script>
-(function(){var d=document.documentElement;d.className='js';
-var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-// Arriving through the maroon crescent: start covered, then uncover once the page is ready.
-try{if(sessionStorage.getItem('vh-cres')){sessionStorage.removeItem('vh-cres');if(!calm)d.className+=' cres-arrive';}}catch(e){}
-})();
-</script>
-</head>
-<body>
-<a class="skip" href="#main">Skip to main content</a>
-<header class="site-header">
-<div class="bar">
-<a class="brand" href="../index.html#home" data-nav aria-label="Vincy Huang, home"><span class="mono" aria-hidden="true">V</span><span class="brand-name">Vincy Huang</span></a>
-<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-<nav class="nav" id="site-nav" aria-label="Primary">
-<div class="nav-pill"><a href="../index.html#home" data-nav data-section="home">Home</a><a href="../index.html#experience" data-nav data-section="experience">Experience</a><a href="../index.html#projects" data-nav data-section="projects" aria-current="true">Projects</a><a href="../index.html#about" data-nav data-section="about">About</a><a href="../index.html#contact" data-nav data-section="contact">Contact</a></div>
-<a class="nav-resume" href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Open résumé<span class="sr"> (PDF, opens in a new tab)</span></a>
-</nav>
-</div>
-</header>
-<main id="main">
-<article class="cs cs-aqua">
-<header class="cs-hero">
-<p class="back"><a class="tlink" href="../index.html#projects" data-nav><span aria-hidden="true">←</span> All projects</a></p>
-<p class="eyebrow">Case study · Software Engineer Intern</p>
-<h1 class="cs-title">Streamind Health</h1>
-<p class="cs-lede">Camera-based biofeedback on a phone: reading a pulse from the tiny color changes in a face.</p>
-<dl class="cs-facts"><div><dt>Role</dt><dd>Software Engineer Intern</dd></div><div><dt>When</dt><dd>October 2025 – May 2026</dd></div><div><dt>Company</dt><dd>Streamind Health</dd></div><div><dt>Focus</dt><dd>rPPG signal extraction, iOS</dd></div></dl>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Streamind Health case study · Vincy Huang</title>
+    <meta
+      name="description"
+      content="How Vincy Huang worked on facial region selection, RGB signal extraction, and the mobile version of a camera-based biofeedback tool."
+    />
+    <meta property="og:title" content="Streamind Health case study · Vincy Huang" />
+    <meta
+      property="og:description"
+      content="How Vincy Huang worked on facial region selection, RGB signal extraction, and the mobile version of a camera-based biofeedback tool."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#14243A" />
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.className = "js";
+        var calm =
+          window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        // Arriving through the maroon crescent: start covered, then uncover once the page is ready.
+        try {
+          if (sessionStorage.getItem("vh-cres")) {
+            sessionStorage.removeItem("vh-cres");
+            if (!calm) d.className += " cres-arrive";
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="bar">
+        <a class="brand" href="../index.html#home" data-nav aria-label="Vincy Huang, home"
+          ><span class="mono" aria-hidden="true">V</span
+          ><span class="brand-name">Vincy Huang</span></a
+        >
+        <button
+          class="menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
+        </button>
+        <nav class="nav" id="site-nav" aria-label="Primary">
+          <div class="nav-pill">
+            <a href="../index.html#home" data-nav data-section="home">Home</a
+            ><a href="../index.html#experience" data-nav data-section="experience"
+              >Experience</a
+            ><a
+              href="../index.html#projects"
+              data-nav
+              data-section="projects"
+              aria-current="true"
+              >Projects</a
+            ><a href="../index.html#about" data-nav data-section="about">About</a
+            ><a href="../index.html#contact" data-nav data-section="contact">Contact</a>
+          </div>
+          <a
+            class="nav-resume"
+            href="../assets/docs/Vincy_Huang_Resume.pdf"
+            target="_blank"
+            rel="noopener"
+            >Open résumé<span class="sr"> (PDF, opens in a new tab)</span></a
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <article class="cs cs-aqua">
+        <header class="cs-hero">
+          <p class="back">
+            <a class="tlink" href="../index.html#projects" data-nav
+              ><span aria-hidden="true">←</span> All projects</a
+            >
+          </p>
+          <p class="eyebrow">Case study · Software Engineer Intern</p>
+          <h1 class="cs-title">Streamind Health</h1>
+          <p class="cs-lede">
+            Camera-based biofeedback on a phone: reading a pulse from the tiny color
+            changes in a face.
+          </p>
+          <dl class="cs-facts">
+            <div>
+              <dt>Role</dt>
+              <dd>Software Engineer Intern</dd>
+            </div>
+            <div>
+              <dt>When</dt>
+              <dd>October 2025 – May 2026</dd>
+            </div>
+            <div>
+              <dt>Company</dt>
+              <dd>Streamind Health</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>rPPG signal extraction, iOS</dd>
+            </div>
+          </dl>
+        </header>
 
-<figure class="cs-full reveal"><button class="zoom" type="button" data-cap="Screenshot · The browser app beside the mobile heart-rate monitor" aria-label="Enlarge image: The browser app beside the mobile heart-rate monitor"><img src="../assets/img/work/streamind-browser-and-mobile.jpg" alt="Streamind Health browser app on a laptop beside the mobile heart-rate monitor" width="1400" height="609" loading="lazy" decoding="async"></button><figcaption><span>Guided breathing in the browser app, beside the mobile heart-rate monitor</span><span>Screenshot</span></figcaption></figure>
+        <figure class="cs-full reveal">
+          <button
+            class="zoom"
+            type="button"
+            data-cap="Screenshot · The browser app beside the mobile heart-rate monitor"
+            aria-label="Enlarge image: The browser app beside the mobile heart-rate monitor"
+          >
+            <img
+              src="../assets/img/work/streamind-browser-and-mobile.jpg"
+              alt="Streamind Health browser app on a laptop beside the mobile heart-rate monitor"
+              width="1400"
+              height="609"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <figcaption>
+            <span
+              >Guided breathing in the browser app, beside the mobile heart-rate
+              monitor</span
+            ><span>Screenshot</span>
+          </figcaption>
+        </figure>
 
-<div class="cs-body">
-<section class="cs-sec reveal" aria-labelledby="c-h"><h2 id="c-h">Problem</h2><p>Remote health sessions make it harder for a therapist to notice the physical signals they would normally pick up in person. A video call shows a face and voice, but it does not automatically give the therapist a simple physiological reading such as heart rate.</p><p>Streamind explores whether the patient’s camera can provide that extra signal during a session. The technical challenge is that lighting, motion, device differences, skin tone, and other visible skin conditions can overwhelm the tiny pulse-related color changes in facial video. The product already worked on laptops; my work moved capture and visualization toward iOS.</p></section>
+        <div class="cs-body">
+          <section class="cs-sec reveal" aria-labelledby="c-h">
+            <h2 id="c-h">Problem</h2>
+            <p>
+              Remote health sessions make it harder for a therapist to notice the physical
+              signals they would normally pick up in person. A video call shows a face and
+              voice, but it does not automatically give the therapist a simple
+              physiological reading such as heart rate.
+            </p>
+            <p>
+              Streamind explores whether the patient’s camera can provide that extra
+              signal during a session. The technical challenge is that lighting, motion,
+              device differences, skin tone, and other visible skin conditions can
+              overwhelm the tiny pulse-related color changes in facial video. The product
+              already worked on laptops; my work moved capture and visualization toward
+              iOS.
+            </p>
+          </section>
 
-<section class="cs-contrib reveal" aria-labelledby="u-h"><h2 id="u-h">What I did</h2><p>I worked on how the app gets a pulse signal out of camera video and on bringing that workflow from laptop to iOS.</p><ul><li><strong>Facial region selection.</strong> I tested different shapes and combinations of forehead and cheek regions, placed using facial landmarks.</li><li><strong>RGB signal extraction.</strong> I tracked average RGB values over time and tested CHROM, a chrominance-based method that combines color-channel information to help isolate pulse-related changes.</li><li><strong>Adapting for mobile.</strong> I helped adapt the workflow for phones, evaluated camera performance and signal-quality tradeoffs, and built real-time data capture and visualization.</li></ul></section>
+          <section class="cs-contrib reveal" aria-labelledby="u-h">
+            <h2 id="u-h">What I did</h2>
+            <p>
+              I worked on how the app gets a pulse signal out of camera video and on
+              bringing that workflow from laptop to iOS.
+            </p>
+            <ul>
+              <li>
+                <strong>Facial region selection.</strong> I tested different shapes and
+                combinations of forehead and cheek regions, placed using facial landmarks.
+              </li>
+              <li>
+                <strong>RGB signal extraction.</strong> I tracked average RGB values over
+                time and tested CHROM, a chrominance-based method that combines
+                color-channel information to help isolate pulse-related changes.
+              </li>
+              <li>
+                <strong>Adapting for mobile.</strong> I helped adapt the workflow for
+                phones, evaluated camera performance and signal-quality tradeoffs, and
+                built real-time data capture and visualization.
+              </li>
+            </ul>
+          </section>
 
-<section class="cs-sec reveal" aria-labelledby="w-h">
-<h2 id="w-h">Why the signal is hard to get</h2>
-<p>The pulse is a very small change hidden in noise. Head movement, talking, room light, automatic exposure, device cameras, skin tone, and skin conditions such as acne can all affect the signal. Reliability across these conditions remains an evaluation question rather than a claim.</p>
-</section>
-</div>
+          <section class="cs-sec reveal" aria-labelledby="w-h">
+            <h2 id="w-h">Why the signal is hard to get</h2>
+            <p>
+              The pulse is a very small change hidden in noise. Head movement, talking,
+              room light, automatic exposure, device cameras, skin tone, and skin
+              conditions such as acne can all affect the signal. Reliability across these
+              conditions remains an evaluation question rather than a claim.
+            </p>
+          </section>
+        </div>
 
-<section class="seq" aria-labelledby="seq-h">
-<div class="seq-inner">
-<h2 class="seq-title reveal" id="seq-h">From camera to heart rate</h2>
-<div class="seq-grid">
-<ol class="seq-steps" role="list"><li class="seq-step" data-step="0">
-<p class="seq-n">01</p><h3>Camera frames</h3><p>The phone’s front camera records the face, frame after frame. Each heartbeat changes skin color very slightly, far too little to see.</p>
-<figure class="seq-inline"><button class="zoom" type="button" data-cap="Illustration · Camera frames captured over time" aria-label="Enlarge image: Camera frames captured over time"><img src="../assets/img/illustrations/streamind-frames.svg" alt="Illustration of a stack of camera frames of a face" width="800" height="600" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-illustration">Illustration</span> Camera frames captured over time</figcaption></figure>
-</li><li class="seq-step" data-step="1">
-<p class="seq-n">02</p><h3>Facial regions</h3><p>Facial landmarks locate the forehead and cheeks in every frame, so we keep sampling the same patches of skin as the head moves.</p>
-<figure class="seq-inline"><button class="zoom" type="button" data-cap="Presentation slide · Landmarks and sampling regions, from our final presentation" aria-label="Enlarge image: Landmarks and sampling regions, from our final presentation"><img src="../assets/img/work/streamind-facial-regions.jpg" alt="Face with landmark dots and the forehead and both cheeks highlighted" width="1500" height="1280" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-presentation">Presentation slide</span> Landmarks and sampling regions, from our final presentation</figcaption></figure>
-</li><li class="seq-step" data-step="2">
-<p class="seq-n">03</p><h3>Color signal</h3><p>Averaging the RGB values inside each region, frame by frame, turns video into a color signal. The pulse is a small ripple inside it, mixed with motion and lighting changes.</p>
-<figure class="seq-inline"><button class="zoom" type="button" data-cap="Illustration · A color signal over time, with noise" aria-label="Enlarge image: A color signal over time, with noise"><img src="../assets/img/illustrations/streamind-signal.svg" alt="Illustration of an average skin color signal rippling with each heartbeat over frames" width="800" height="600" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-illustration">Illustration</span> A color signal over time, with noise</figcaption></figure>
-</li><li class="seq-step" data-step="3">
-<p class="seq-n">04</p><h3>Heart-rate estimate</h3><p>CHROM combines color-channel information to help isolate pulse-related changes. Band-pass filtering keeps plausible heart-rate frequencies, and frequency analysis picks the strongest rhythm as the beats-per-minute estimate.</p>
-<figure class="seq-inline"><button class="zoom" type="button" data-cap="Illustration · The strongest rhythm becomes the estimate" aria-label="Enlarge image: The strongest rhythm becomes the estimate"><img src="../assets/img/illustrations/streamind-estimate.svg" alt="Illustration of a frequency peak inside the heart-rate band becoming a beats-per-minute estimate" width="800" height="600" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-illustration">Illustration</span> The strongest rhythm becomes the estimate</figcaption></figure>
-</li></ol>
-<div class="seq-sticky" aria-hidden="true"><div class="seq-stage"><figure class="seq-frame is-on" data-step="0"><img src="../assets/img/illustrations/streamind-frames.svg" alt="Illustration of a stack of camera frames of a face" width="800" height="600" loading="lazy" decoding="async"><figcaption><span class="kind kind-illustration">Illustration</span> Camera frames captured over time</figcaption></figure><figure class="seq-frame" data-step="1"><img src="../assets/img/work/streamind-facial-regions.jpg" alt="Face with landmark dots and the forehead and both cheeks highlighted" width="1500" height="1280" loading="lazy" decoding="async"><figcaption><span class="kind kind-presentation">Presentation slide</span> Landmarks and sampling regions, from our final presentation</figcaption></figure><figure class="seq-frame" data-step="2"><img src="../assets/img/illustrations/streamind-signal.svg" alt="Illustration of an average skin color signal rippling with each heartbeat over frames" width="800" height="600" loading="lazy" decoding="async"><figcaption><span class="kind kind-illustration">Illustration</span> A color signal over time, with noise</figcaption></figure><figure class="seq-frame" data-step="3"><img src="../assets/img/illustrations/streamind-estimate.svg" alt="Illustration of a frequency peak inside the heart-rate band becoming a beats-per-minute estimate" width="800" height="600" loading="lazy" decoding="async"><figcaption><span class="kind kind-illustration">Illustration</span> The strongest rhythm becomes the estimate</figcaption></figure></div></div>
-</div>
-</div>
-</section>
+        <section class="seq" aria-labelledby="seq-h">
+          <div class="seq-inner">
+            <h2 class="seq-title reveal" id="seq-h">From camera to heart rate</h2>
+            <div class="seq-grid">
+              <ol class="seq-steps" role="list">
+                <li class="seq-step" data-step="0">
+                  <p class="seq-n">01</p>
+                  <h3>Camera frames</h3>
+                  <p>
+                    The phone’s front camera records the face, frame after frame. Each
+                    heartbeat changes skin color very slightly, far too little to see.
+                  </p>
+                  <figure class="seq-inline">
+                    <button
+                      class="zoom"
+                      type="button"
+                      data-cap="Illustration · Camera frames captured over time"
+                      aria-label="Enlarge image: Camera frames captured over time"
+                    >
+                      <img
+                        src="../assets/img/illustrations/streamind-frames.svg"
+                        alt="Illustration of a stack of camera frames of a face"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <span class="kind kind-illustration">Illustration</span>
+                      Camera frames captured over time
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="seq-step" data-step="1">
+                  <p class="seq-n">02</p>
+                  <h3>Facial regions</h3>
+                  <p>
+                    Facial landmarks locate the forehead and cheeks in every frame, so we
+                    keep sampling the same patches of skin as the head moves.
+                  </p>
+                  <figure class="seq-inline">
+                    <button
+                      class="zoom"
+                      type="button"
+                      data-cap="Presentation slide · Landmarks and sampling regions, from our final presentation"
+                      aria-label="Enlarge image: Landmarks and sampling regions, from our final presentation"
+                    >
+                      <img
+                        src="../assets/img/work/streamind-facial-regions.jpg"
+                        alt="Face with landmark dots and the forehead and both cheeks highlighted"
+                        width="1500"
+                        height="1280"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <span class="kind kind-presentation">Presentation slide</span>
+                      Landmarks and sampling regions, from our final presentation
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="seq-step" data-step="2">
+                  <p class="seq-n">03</p>
+                  <h3>Color signal</h3>
+                  <p>
+                    Averaging the RGB values inside each region, frame by frame, turns
+                    video into a color signal. The pulse is a small ripple inside it,
+                    mixed with motion and lighting changes.
+                  </p>
+                  <figure class="seq-inline">
+                    <button
+                      class="zoom"
+                      type="button"
+                      data-cap="Illustration · A color signal over time, with noise"
+                      aria-label="Enlarge image: A color signal over time, with noise"
+                    >
+                      <img
+                        src="../assets/img/illustrations/streamind-signal.svg"
+                        alt="Illustration of an average skin color signal rippling with each heartbeat over frames"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <span class="kind kind-illustration">Illustration</span> A color
+                      signal over time, with noise
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="seq-step" data-step="3">
+                  <p class="seq-n">04</p>
+                  <h3>Heart-rate estimate</h3>
+                  <p>
+                    CHROM combines color-channel information to help isolate pulse-related
+                    changes. Band-pass filtering keeps plausible heart-rate frequencies,
+                    and frequency analysis picks the strongest rhythm as the
+                    beats-per-minute estimate.
+                  </p>
+                  <figure class="seq-inline">
+                    <button
+                      class="zoom"
+                      type="button"
+                      data-cap="Illustration · The strongest rhythm becomes the estimate"
+                      aria-label="Enlarge image: The strongest rhythm becomes the estimate"
+                    >
+                      <img
+                        src="../assets/img/illustrations/streamind-estimate.svg"
+                        alt="Illustration of a frequency peak inside the heart-rate band becoming a beats-per-minute estimate"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <span class="kind kind-illustration">Illustration</span>
+                      The strongest rhythm becomes the estimate
+                    </figcaption>
+                  </figure>
+                </li>
+              </ol>
+              <div class="seq-sticky" aria-hidden="true">
+                <div class="seq-stage">
+                  <figure class="seq-frame is-on" data-step="0">
+                    <img
+                      src="../assets/img/illustrations/streamind-frames.svg"
+                      alt="Illustration of a stack of camera frames of a face"
+                      width="800"
+                      height="600"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <figcaption>
+                      <span class="kind kind-illustration">Illustration</span>
+                      Camera frames captured over time
+                    </figcaption>
+                  </figure>
+                  <figure class="seq-frame" data-step="1">
+                    <img
+                      src="../assets/img/work/streamind-facial-regions.jpg"
+                      alt="Face with landmark dots and the forehead and both cheeks highlighted"
+                      width="1500"
+                      height="1280"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <figcaption>
+                      <span class="kind kind-presentation">Presentation slide</span>
+                      Landmarks and sampling regions, from our final presentation
+                    </figcaption>
+                  </figure>
+                  <figure class="seq-frame" data-step="2">
+                    <img
+                      src="../assets/img/illustrations/streamind-signal.svg"
+                      alt="Illustration of an average skin color signal rippling with each heartbeat over frames"
+                      width="800"
+                      height="600"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <figcaption>
+                      <span class="kind kind-illustration">Illustration</span> A color
+                      signal over time, with noise
+                    </figcaption>
+                  </figure>
+                  <figure class="seq-frame" data-step="3">
+                    <img
+                      src="../assets/img/illustrations/streamind-estimate.svg"
+                      alt="Illustration of a frequency peak inside the heart-rate band becoming a beats-per-minute estimate"
+                      width="800"
+                      height="600"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <figcaption>
+                      <span class="kind kind-illustration">Illustration</span>
+                      The strongest rhythm becomes the estimate
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-<div class="cs-body">
-<section class="cs-sec reveal" aria-labelledby="t-h">
-<h2 id="t-h">A tradeoff: where to sample</h2>
-<p>Every sampling region is a compromise. A larger region averages more pixels, which smooths out camera noise, but it is more likely to catch hair, eyebrows, or shadow, which carry no pulse. The forehead is broad and fairly flat but is often partly covered by hair. The cheeks show color change well but move when someone talks or smiles. Shape matters too: a region tied to the landmarks keeps sampling the same skin as the head turns, while a fixed box drifts.</p>
-<p>I compared forehead and cheek regions and region shapes as part of testing. The current draft does not claim that one region won because the exact comparison conditions and result still need confirmation.</p>
-</section>
+        <div class="cs-body">
+          <section class="cs-sec reveal" aria-labelledby="t-h">
+            <h2 id="t-h">A tradeoff: where to sample</h2>
+            <p>
+              Every sampling region is a compromise. A larger region averages more pixels,
+              which smooths out camera noise, but it is more likely to catch hair,
+              eyebrows, or shadow, which carry no pulse. The forehead is broad and fairly
+              flat but is often partly covered by hair. The cheeks show color change well
+              but move when someone talks or smiles. Shape matters too: a region tied to
+              the landmarks keeps sampling the same skin as the head turns, while a fixed
+              box drifts.
+            </p>
+            <p>
+              I compared forehead and cheek regions and region shapes as part of testing.
+              The current draft does not claim that one region won because the exact
+              comparison conditions and result still need confirmation.
+            </p>
+          </section>
 
-<section class="cs-sec reveal" aria-labelledby="b-h">
-<h2 id="b-h">What we chose to build</h2>
-<p>On mobile, the heart-rate monitor runs from the front camera, alongside history, guided breathing, and mood tabs. The team also built a webcam prototype that runs the same idea in a browser.</p>
-<div class="strip" role="region" aria-label="Streamind screens and slides">
-<div class="strip-head"><p class="label">Streamind screens and slides</p><div class="strip-btns"><button class="strip-btn strip-prev" type="button" aria-label="Previous image"><span aria-hidden="true">←</span></button><button class="strip-btn strip-next" type="button" aria-label="Next image"><span aria-hidden="true">→</span></button></div></div>
-<ul class="strip-track" role="list" tabindex="0" aria-label="Streamind screens and slides. Scroll sideways, drag, or use the arrow buttons."><li class="strip-item"><figure><button class="zoom" type="button" data-cap="Screenshot · Heart-rate monitor on mobile" aria-label="Enlarge image: Heart-rate monitor on mobile"><img src="../assets/img/work/streamind-mobile-app.jpg" alt="Streamind Health mobile Heart Rate Monitor screen with camera preview" width="673" height="1400" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-screenshot">Screenshot</span> Heart-rate monitor on mobile</figcaption></figure></li><li class="strip-item"><figure><button class="zoom" type="button" data-cap="Screenshot · Browser breathing exercise and mobile monitor" aria-label="Enlarge image: Browser breathing exercise and mobile monitor"><img src="../assets/img/work/streamind-browser-and-mobile.jpg" alt="Browser app with breathing exercises next to the mobile app" width="1400" height="609" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-screenshot">Screenshot</span> Browser breathing exercise and mobile monitor</figcaption></figure></li><li class="strip-item"><figure><button class="zoom" type="button" data-cap="Presentation slide · Band-pass filtering keeps 0.87–3.0 Hz" aria-label="Enlarge image: Band-pass filtering keeps 0.87–3.0 Hz"><img src="../assets/img/work/streamind-rppg-bandpass.jpg" alt="Presentation slide on band-pass filtering, with a heart-rate passband between 0.87 and 3.0 hertz" width="1400" height="787" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-presentation">Presentation slide</span> Band-pass filtering keeps 0.87–3.0 Hz</figcaption></figure></li><li class="strip-item"><figure><button class="zoom" type="button" data-cap="Presentation slide · Frequency analysis refines the peak" aria-label="Enlarge image: Frequency analysis refines the peak"><img src="../assets/img/work/streamind-rppg-frequency.jpg" alt="Presentation slide on frequency analysis with parabolic interpolation" width="1400" height="787" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-presentation">Presentation slide</span> Frequency analysis refines the peak</figcaption></figure></li></ul>
-</div>
-<p class="cs-links"><a class="tlink" href="https://github.com/streamind-health/streamind-rppg-demo" target="_blank" rel="noopener">The team’s browser demo: webcam rPPG prototype on GitHub<span class="sr"> (opens in a new tab)</span></a></p>
-</section>
+          <section class="cs-sec reveal" aria-labelledby="b-h">
+            <h2 id="b-h">What we chose to build</h2>
+            <p>
+              On mobile, the heart-rate monitor runs from the front camera, alongside
+              history, guided breathing, and mood tabs. The team also built a webcam
+              prototype that runs the same idea in a browser.
+            </p>
+            <div class="strip" role="region" aria-label="Streamind screens and slides">
+              <div class="strip-head">
+                <p class="label">Streamind screens and slides</p>
+                <div class="strip-btns">
+                  <button
+                    class="strip-btn strip-prev"
+                    type="button"
+                    aria-label="Previous image"
+                  >
+                    <span aria-hidden="true">←</span></button
+                  ><button
+                    class="strip-btn strip-next"
+                    type="button"
+                    aria-label="Next image"
+                  >
+                    <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </div>
+              <ul
+                class="strip-track"
+                role="list"
+                tabindex="0"
+                aria-label="Streamind screens and slides. Scroll sideways, drag, or use the arrow buttons."
+              >
+                <li class="strip-item">
+                  <figure>
+                    <button
+                      class="zoom"
+                      type="button"
+                      data-cap="Screenshot · Heart-rate monitor on mobile"
+                      aria-label="Enlarge image: Heart-rate monitor on mobile"
+                    >
+                      <img
+                        src="../assets/img/work/streamind-mobile-app.jpg"
+                        alt="Streamind Health mobile Heart Rate Monitor screen with camera preview"
+                        width="673"
+                        height="1400"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <span class="kind kind-screenshot">Screenshot</span>
+                      Heart-rate monitor on mobile
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="strip-item">
+                  <figure>
+                    <button
+                      class="zoom"
+                      type="button"
+                      data-cap="Screenshot · Browser breathing exercise and mobile monitor"
+                      aria-label="Enlarge image: Browser breathing exercise and mobile monitor"
+                    >
+                      <img
+                        src="../assets/img/work/streamind-browser-and-mobile.jpg"
+                        alt="Browser app with breathing exercises next to the mobile app"
+                        width="1400"
+                        height="609"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <span class="kind kind-screenshot">Screenshot</span>
+                      Browser breathing exercise and mobile monitor
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="strip-item">
+                  <figure>
+                    <button
+                      class="zoom"
+                      type="button"
+                      data-cap="Presentation slide · Band-pass filtering keeps 0.87–3.0 Hz"
+                      aria-label="Enlarge image: Band-pass filtering keeps 0.87–3.0 Hz"
+                    >
+                      <img
+                        src="../assets/img/work/streamind-rppg-bandpass.jpg"
+                        alt="Presentation slide on band-pass filtering, with a heart-rate passband between 0.87 and 3.0 hertz"
+                        width="1400"
+                        height="787"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <span class="kind kind-presentation">Presentation slide</span>
+                      Band-pass filtering keeps 0.87–3.0 Hz
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="strip-item">
+                  <figure>
+                    <button
+                      class="zoom"
+                      type="button"
+                      data-cap="Presentation slide · Frequency analysis refines the peak"
+                      aria-label="Enlarge image: Frequency analysis refines the peak"
+                    >
+                      <img
+                        src="../assets/img/work/streamind-rppg-frequency.jpg"
+                        alt="Presentation slide on frequency analysis with parabolic interpolation"
+                        width="1400"
+                        height="787"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <span class="kind kind-presentation">Presentation slide</span>
+                      Frequency analysis refines the peak
+                    </figcaption>
+                  </figure>
+                </li>
+              </ul>
+            </div>
+            <p class="cs-links">
+              <a
+                class="tlink"
+                href="https://github.com/streamind-health/streamind-rppg-demo"
+                target="_blank"
+                rel="noopener"
+                >The team’s browser demo: webcam rPPG prototype on GitHub<span class="sr">
+                  (opens in a new tab)</span
+                ></a
+              >
+            </p>
+          </section>
 
-<section class="cs-sec reveal" aria-labelledby="e-h">
-<h2 id="e-h">What changed and what I learned</h2>
-<div class="metric-row"><span><b>20+</b> phones and computers<br><small>Résumé-reported devices evaluated</small></span><span><b>Within 5 BPM</b> of an Apple Watch<br><small>Résumé-reported test result; conditions to confirm</small></span></div><p>The comparison conditions, number of readings, lighting, motion, and device breakdown are not yet documented in this public draft, so the figures are not generalized beyond the reported testing.</p>
-</section>
+          <section class="cs-sec reveal" aria-labelledby="e-h">
+            <h2 id="e-h">What changed and what I learned</h2>
+            <div class="metric-row">
+              <span
+                ><b>20+</b> phones and computers<br /><small
+                  >Devices evaluated</small
+                ></span
+              ><span
+                ><b>Within 5 BPM</b> of an Apple Watch<br /><small
+                  >Heart-rate difference in testing</small
+                ></span
+              >
+            </div>
+            <p>
+              Testing across phones and computers showed how strongly camera hardware,
+              lighting, motion, and sampling choices affect signal quality.
+            </p>
+          </section>
 
-<section class="cs-sec reveal" aria-labelledby="n-h">
-<h2 id="n-h">Next steps</h2>
-<p>I would stratify testing by device, lighting, motion, skin tone, and visible skin conditions such as acne, then choose regions frame by frame using a signal-quality score. I would also give users immediate guidance when lighting or motion makes a reading unreliable.</p><p class="cs-links"><a class="tlink" href="https://www.streamindhealth.com/" target="_blank" rel="noopener">Streamind Health</a> · <a class="tlink" href="https://github.com/streamind-health/streamind-rppg-demo" target="_blank" rel="noopener">Team browser prototype</a> · <a class="tlink" href="https://pubmed.ncbi.nlm.nih.gov/23744659/" target="_blank" rel="noopener">CHROM method reference</a> · <a class="tlink" href="https://chatgpt.com/library?file_id=libfile_8cd8f15a70c4819184a5e363d0734280&amp;account_id=personal" target="_blank" rel="noopener">Project presentation</a></p>
-</section>
-</div>
-<nav class="cs-next" aria-label="Next case study"><a href="jarvis.html" data-nav data-cursor="explore"><span class="label">Next case study</span><span class="cs-next-title">Jarvis <span aria-hidden="true">→</span></span></a></nav>
-</article>
-</main>
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
-<button class="lightbox-close" type="button">Close <span aria-hidden="true">×</span></button>
-<figure><img alt=""><figcaption></figcaption></figure>
-</div>
-<footer class="site-footer">
-<div class="bar">
-<span>© 2026 Vincy Huang · UC Berkeley</span>
-<ul>
-<li><a href="mailto:vincyh07@berkeley.edu">vincyh07@berkeley.edu</a></li>
-<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn<span class="sr"> (opens in a new tab)</span></a></li>
-</ul>
-</div>
-</footer>
-<div class="cres" aria-hidden="true">
-<svg class="cres-shape" viewBox="0 0 144 100" preserveAspectRatio="none" focusable="false"><path d="M0 0H122Q166 50 122 100H0Q44 50 0 0Z"/></svg>
-<span class="cres-v"><svg viewBox="0 0 80 80" focusable="false"><circle cx="40" cy="40" r="37" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="40" y="54" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="44" font-weight="500" fill="currentColor">V</text></svg></span>
-</div>
-<script src="../assets/js/site.js"></script>
-</body>
+          <section class="cs-sec reveal" aria-labelledby="n-h">
+            <h2 id="n-h">Future direction</h2>
+            <p>
+              I would expand training and evaluation across a wider range of skin tones,
+              visible skin conditions such as acne, lighting environments, motion levels,
+              and camera hardware. That broader, more representative data would help
+              expose where accuracy drops and guide improvements to facial-region
+              selection, filtering, and the overall signal-quality model.
+            </p>
+            <p>
+              I would also improve output quality by scoring each reading in real time and
+              giving users clear guidance when lighting, motion, or framing makes the
+              estimate unreliable.
+            </p>
+            <p class="cs-links">
+              <a
+                class="tlink"
+                href="https://www.streamindhealth.com/"
+                target="_blank"
+                rel="noopener"
+                >Streamind Health</a
+              >
+              ·
+              <a
+                class="tlink"
+                href="https://github.com/streamind-health/streamind-rppg-demo"
+                target="_blank"
+                rel="noopener"
+                >Team browser prototype</a
+              >
+              ·
+              <a
+                class="tlink"
+                href="https://pubmed.ncbi.nlm.nih.gov/23744659/"
+                target="_blank"
+                rel="noopener"
+                >CHROM method reference</a
+              >
+            </p>
+          </section>
+        </div>
+        <nav class="cs-next" aria-label="Next case study">
+          <a href="jarvis.html" data-nav data-cursor="explore"
+            ><span class="label">Next case study</span
+            ><span class="cs-next-title"
+              >Jarvis <span aria-hidden="true">→</span></span
+            ></a
+          >
+        </nav>
+      </article>
+    </main>
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Enlarged image"
+      hidden
+    >
+      <button class="lightbox-close" type="button">
+        Close <span aria-hidden="true">×</span>
+      </button>
+      <figure>
+        <img alt="" />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+    <footer class="site-footer">
+      <div class="bar">
+        <span>© 2026 Vincy Huang · UC Berkeley</span>
+        <ul>
+          <li>
+            <a href="mailto:vincyh07@berkeley.edu">vincyh07@berkeley.edu</a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/vincyhuang7"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn<span class="sr"> (opens in a new tab)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <div class="cres" aria-hidden="true">
+      <svg
+        class="cres-shape"
+        viewBox="0 0 144 100"
+        preserveAspectRatio="none"
+        focusable="false"
+      >
+        <path d="M0 0H122Q166 50 122 100H0Q44 50 0 0Z" />
+      </svg>
+      <span class="cres-v"
+        ><svg viewBox="0 0 80 80" focusable="false">
+          <circle
+            cx="40"
+            cy="40"
+            r="37"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+          <text
+            x="40"
+            y="54"
+            text-anchor="middle"
+            font-family="Newsreader, Georgia, serif"
+            font-size="44"
+            font-weight="500"
+            fill="currentColor"
+          >
+            V
+          </text>
+        </svg></span
+      >
+    </div>
+    <script src="../assets/js/site.js"></script>
+  </body>
 </html>
