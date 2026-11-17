@@ -9,58 +9,51 @@
 <meta property="og:description" content="Page not found.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#14243A">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/vincyhuang/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="/vincyhuang/assets/css/style.css">
 <script>
-document.documentElement.className='js';
+(function(){var d=document.documentElement;d.className='js';
+var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Arriving through the maroon crescent: start covered, then uncover once the page is ready.
+try{if(sessionStorage.getItem('vh-cres')){sessionStorage.removeItem('vh-cres');if(!calm)d.className+=' cres-arrive';}}catch(e){}
+})();
 </script>
 </head>
-<body class="">
+<body>
 <a class="skip" href="#main">Skip to main content</a>
 <header class="site-header">
-<div class="wrap">
-<a class="brand" href="index.html" aria-label="Vincy Huang, home">
-<span class="mono" aria-hidden="true">VH</span><span class="brand-name">Vincy Huang</span>
-</a>
+<div class="bar">
+<a class="brand" href="/vincyhuang/index.html#home" data-nav aria-label="Vincy Huang, home"><span class="mono" aria-hidden="true">V</span><span class="brand-name">Vincy Huang</span></a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav class="nav" id="site-nav" aria-label="Primary">
-<a href="index.html">Home</a>
-<a href="experience.html">Experience</a>
-<a href="projects.html">Projects</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a class="nav-resume" href="assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF, opens in a new tab)">Résumé</a>
+<div class="nav-pill"><a href="/vincyhuang/index.html#home" data-nav data-section="home">Home</a><a href="/vincyhuang/index.html#experience" data-nav data-section="experience">Experience</a><a href="/vincyhuang/index.html#projects" data-nav data-section="projects">Projects</a><a href="/vincyhuang/index.html#about" data-nav data-section="about">About</a><a href="/vincyhuang/index.html#contact" data-nav data-section="contact">Contact</a></div>
+<a class="nav-resume" href="/vincyhuang/assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Open résumé<span class="sr"> (PDF, opens in a new tab)</span></a>
 </nav>
 </div>
 </header>
 <main id="main">
-
-<section class="page-intro">
+<section class="sec nf">
 <div class="wrap">
-<p class="eyebrow">404</p>
-<h1 class="h-serif" style="margin:0">That page isn't here.</h1>
-<p class="lead">Try one of these instead.</p>
-<div class="btn-row" style="margin-top:28px">
-<a class="btn btn-primary" href="index.html">Home</a>
-<a class="btn btn-ghost" href="projects.html">Projects</a>
-<a class="btn btn-ghost" href="contact.html">Contact</a>
-</div>
+<p class="sec-num" aria-hidden="true">404</p>
+<h1 class="display">That page isn’t here.</h1>
+<p class="sec-cap">Try the <a class="tlink" href="/vincyhuang/index.html#projects" data-nav>projects</a> or go <a class="tlink" href="/vincyhuang/index.html#home" data-nav>home</a>.</p>
 </div>
 </section>
-
 </main>
 <footer class="site-footer">
-<div class="wrap">
+<div class="bar">
 <span>© 2026 Vincy Huang · UC Berkeley</span>
 <ul>
-<li><a href="mailto:vhuang0707@gmail.com">Email</a></li>
-<li><a href="mailto:vincyh07@berkeley.edu">UC Berkeley email</a></li>
-<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn</a></li>
-<li><a href="assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+<li><a href="mailto:vincyh07@berkeley.edu">vincyh07@berkeley.edu</a></li>
+<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn<span class="sr"> (opens in a new tab)</span></a></li>
 </ul>
 </div>
 </footer>
-<script src="assets/js/site.js"></script>
+<div class="cres" aria-hidden="true">
+<svg class="cres-shape" viewBox="0 0 144 100" preserveAspectRatio="none" focusable="false"><path d="M0 0H122Q166 50 122 100H0Q44 50 0 0Z"/></svg>
+<span class="cres-v"><svg viewBox="0 0 80 80" focusable="false"><circle cx="40" cy="40" r="37" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="40" y="54" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="44" font-weight="500" fill="currentColor">V</text></svg></span>
+</div>
+<script src="/vincyhuang/assets/js/site.js"></script>
 </body>
 </html>

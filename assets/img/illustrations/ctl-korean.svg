@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="t"><title id="t">Sequence: students consider enrolling in Korean, start the course, then continue or drop; each step lists what the focus groups investigate</title>
+<rect width="960" height="420" fill="#faf8f4"/>
+<g font-family="Helvetica, Arial, sans-serif" fill="#14243a">
+<path d="M150 120H810" stroke="#d9d4ca" stroke-width="4"/>
+<g><circle cx="150" cy="120" r="34" fill="#14243a"/><text x="150" y="127" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+<circle cx="480" cy="120" r="34" fill="#702638"/><text x="480" y="127" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+<circle cx="810" cy="120" r="34" fill="#b4924b"/><text x="810" y="127" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">3</text></g>
+<g font-size="19" font-weight="700" text-anchor="middle"><text x="150" y="196">Consider enrolling</text><text x="480" y="196">Start the course</text><text x="810" y="196">Continue or drop</text></g>
+<g font-size="13" font-weight="700" letter-spacing="1.2" fill="#702638" text-anchor="middle"><text x="150" y="238">WE ASK</text><text x="480" y="238">WE ASK</text><text x="810" y="238">WE ASK</text></g>
+<g font-size="15" fill="#4a5363" text-anchor="middle">
+<text x="150" y="268">Why do students</text><text x="150" y="290">consider taking Korean?</text>
+<text x="480" y="268">What is the experience</text><text x="480" y="290">like once they start?</text>
+<text x="810" y="268">Why do some drop, and</text><text x="810" y="290">what might help them stay?</text></g>
+</g></svg>

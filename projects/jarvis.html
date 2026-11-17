@@ -3,68 +3,133 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jarvis · Cal Hacks 13.0 · Vincy Huang</title>
-<meta name="description" content="My team built an AI meeting assistant that joins Google Meet, answers questions out loud, and keeps track of what the team decides.">
-<meta property="og:title" content="Jarvis · Cal Hacks 13.0 · Vincy Huang">
-<meta property="og:description" content="My team built an AI meeting assistant that joins Google Meet, answers questions out loud, and keeps track of what the team decides.">
+<title>Jarvis case study · Vincy Huang</title>
+<meta name="description" content="Jarvis lets an absent teammate take part in a live Google Meet decision from Slack. Vincy Huang worked on product, user testing, design, and the demo.">
+<meta property="og:title" content="Jarvis case study · Vincy Huang">
+<meta property="og:description" content="Jarvis lets an absent teammate take part in a live Google Meet decision from Slack. Vincy Huang worked on product, user testing, design, and the demo.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#14243A">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script>
-document.documentElement.className='js';
+(function(){var d=document.documentElement;d.className='js';
+var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Arriving through the maroon crescent: start covered, then uncover once the page is ready.
+try{if(sessionStorage.getItem('vh-cres')){sessionStorage.removeItem('vh-cres');if(!calm)d.className+=' cres-arrive';}}catch(e){}
+})();
 </script>
 </head>
-<body class="">
+<body>
 <a class="skip" href="#main">Skip to main content</a>
 <header class="site-header">
-<div class="wrap">
-<a class="brand" href="../index.html" aria-label="Vincy Huang, home">
-<span class="mono" aria-hidden="true">VH</span><span class="brand-name">Vincy Huang</span>
-</a>
+<div class="bar">
+<a class="brand" href="../index.html#home" data-nav aria-label="Vincy Huang, home"><span class="mono" aria-hidden="true">V</span><span class="brand-name">Vincy Huang</span></a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav class="nav" id="site-nav" aria-label="Primary">
-<a href="../index.html">Home</a>
-<a href="../experience.html">Experience</a>
-<a href="../projects.html" aria-current="page">Projects</a>
-<a href="../about.html">About</a>
-<a href="../contact.html">Contact</a>
-<a class="nav-resume" href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF, opens in a new tab)">Résumé</a>
+<div class="nav-pill"><a href="../index.html#home" data-nav data-section="home">Home</a><a href="../index.html#experience" data-nav data-section="experience">Experience</a><a href="../index.html#projects" data-nav data-section="projects" aria-current="true">Projects</a><a href="../index.html#about" data-nav data-section="about">About</a><a href="../index.html#contact" data-nav data-section="contact">Contact</a></div>
+<a class="nav-resume" href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Open résumé<span class="sr"> (PDF, opens in a new tab)</span></a>
 </nav>
 </div>
 </header>
 <main id="main">
-
-<article class="detail">
-<p class="back"><a class="tlink" href="../projects.html">← Back to Projects</a></p>
-<header class="detail-head">
-<h1 class="h-serif">Jarvis</h1>
-<p class="detail-meta"><span>Cal Hacks 13.0</span><span>Team project</span></p>
-<p class="lead">My team built an AI meeting assistant that joins Google Meet, answers questions out loud, and keeps track of what the team decides.</p>
-<div class="btn-row">
-<a class="btn btn-primary" href="https://www.youtube.com/watch?v=nSr2VdiGU2E" target="_blank" rel="noopener">Watch demo<span class="sr"> (YouTube, opens in a new tab)</span></a>
-<a class="btn btn-ghost" href="https://devpost.com/software/jarvis-ai-9gvid0" target="_blank" rel="noopener">View on Devpost<span class="sr"> (opens in a new tab)</span></a>
-</div>
+<article class="cs cs-lavender">
+<header class="cs-hero">
+<p class="back"><a class="tlink" href="../index.html#projects" data-nav><span aria-hidden="true">←</span> All projects</a></p>
+<p class="eyebrow">Case study · Cal Hacks 13.0 · Team project</p>
+<h1 class="cs-title">Jarvis</h1>
+<p class="cs-lede">Student teams make decisions live. Jarvis lets a teammate who can’t join still weigh in while it matters.</p>
+<dl class="cs-facts"><div><dt>My role</dt><dd>Product and user testing; design and demo</dd></div><div><dt>Format</dt><dd>Hackathon team project</dd></div><div><dt>Event</dt><dd>Cal Hacks 13.0</dd></div><div><dt>Built with</dt><dd>Google Meet, Slack, Claude, Convex, Next.js</dd></div></dl>
 </header>
-<section aria-labelledby="why"><h2 id="why">Why we built it</h2><p>My team built Jarvis for student clubs planning events. We wanted teams to keep track of decisions and bring absent teammates into the conversation while the meeting was still happening.</p></section>
-<section aria-labelledby="what"><h2 id="what">How it works in the meeting</h2><p>Jarvis joins Google Meet, answers questions out loud, and keeps a live whiteboard of decisions and action items.</p></section>
-<section aria-labelledby="slack"><h2 id="slack">For teammates who miss the call</h2><p>Teammates who miss the call can ask for a recap on Slack or send a message back to the group.</p></section>
-<section aria-labelledby="learned"><h2 id="learned">What we learned</h2><p>When we demoed Jarvis, people started imagining how they’d use it in their own work meetings. They asked about automatic joining, asking questions through chat, and whether Jarvis could follow a screen share. That gave us ideas for what to build next.</p></section>
-</article>
 
+<div class="video reveal" data-yt="nSr2VdiGU2E">
+<img src="../assets/img/work/jarvis-video-poster.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+<button class="video-play" type="button"><span class="video-icon" aria-hidden="true"></span><span>Play the Jarvis demo<span class="sr"> (YouTube video, plays here)</span></span></button>
+</div>
+<p class="video-meta"><a class="tlink" href="https://devpost.com/software/jarvis-ai-9gvid0" target="_blank" rel="noopener">Devpost write-up and screenshots<span class="sr"> (opens in a new tab)</span></a> · <a class="tlink" href="https://www.youtube.com/watch?v=nSr2VdiGU2E" target="_blank" rel="noopener">Watch on YouTube<span class="sr"> (opens in a new tab)</span></a></p>
+
+<div class="cs-body">
+<section class="cs-sec reveal" aria-labelledby="c-h"><h2 id="c-h">Problem</h2><p>Meetings lose momentum when someone has to leave the call to search another tab, type every decision into notes, or reconstruct what the group was discussing. Important pivots and open questions are easy to forget while the team is focused on talking.</p><p>The problem becomes larger when someone cannot attend. People inside the meeting have to keep switching to messaging apps to update them, while a transcript gives the absent teammate many words but not always a clear overview of what changed, what was decided, or where their input is still useful. We built Jarvis as a live AI participant that can answer aloud, track the meeting, and let an absent teammate participate through Slack while the decision is still open.</p></section>
+
+<section class="cs-contrib reveal" aria-labelledby="u-h"><h2 id="u-h">What I did</h2><p>My confirmed contributions are <strong>product and user testing</strong> and <strong>design and demo</strong>. The team built the system together; I have not claimed ownership of a more specific interaction until one decision or flow is confirmed.</p></section>
+
+<section class="cs-sec reveal" aria-labelledby="w-h">
+<h2 id="w-h">Why it mattered</h2>
+<p>Every late joiner costs the group a few minutes of catching up, and every missing teammate is a voice that isn’t in the decision. We wanted a teammate that keeps people in the conversation whether they’re in the room or not.</p>
+</section>
+
+<section class="cs-sec reveal" aria-labelledby="b-h">
+<h2 id="b-h">What we chose to build</h2>
+<ul class="trio" role="list">
+<li><h3>Spoken answers in Meet</h3><p>Say “Hey Jarvis” and ask a question. Jarvis answers out loud in a few sentences and posts the source on the board.</p></li>
+<li><h3>A live decision board</h3><p>Jarvis shares a whiteboard that fills in decided, open, and to-do notes for each agenda topic as the team talks.</p></li>
+<li><h3>Two-way Slack participation</h3><p>An absent teammate can ask for a recap, send a message into the meeting, and get the team’s reply back in Slack.</p></li>
+</ul>
+</section>
+</div>
+
+<section class="walk" aria-labelledby="walk-h">
+<div class="walk-inner">
+<h2 class="seq-title reveal" id="walk-h">One exchange, from Slack to the meeting and back</h2>
+<ol class="walk-steps" role="list">
+<li class="reveal"><p class="seq-n">01</p><h3>Ask from Slack</h3><p>A teammate who couldn’t join asks Jarvis for a rundown, then types a message for the group: they know someone at a possible sponsor.</p>
+<figure class="walk-fig reveal"><button class="zoom" type="button" data-cap="Screenshot · The teammate gets a recap and writes a message for the team" aria-label="Enlarge image: The teammate gets a recap and writes a message for the team"><img src="../assets/img/work/jarvis-slack-relay-desktop.jpg" alt="Slack direct message where a teammate asks Jarvis for a rundown and types a message for the team" width="1600" height="900" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-screenshot">Screenshot</span> The teammate gets a recap and writes a message for the team</figcaption></figure></li>
+<li class="reveal"><p class="seq-n">02</p><h3>Raised in the meeting</h3><p>Jarvis raises its hand on the board instead of interrupting. When someone says “Go ahead, Jarvis,” it reads the message aloud.</p>
+<figure class="walk-fig reveal"><button class="zoom" type="button" data-cap="Screenshot · Jarvis waits with its hand raised until the team says go ahead" aria-label="Enlarge image: Jarvis waits with its hand raised until the team says go ahead"><img src="../assets/img/work/jarvis-meet-hand-raised.jpg" alt="Google Meet call with the Jarvis whiteboard showing a raised hand and a message about a sponsor contact" width="1600" height="900" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-screenshot">Screenshot</span> Jarvis waits with its hand raised until the team says go ahead</figcaption></figure></li>
+<li class="reveal"><p class="seq-n">03</p><h3>Reply back in Slack</h3><p>The team answers out loud, and Jarvis sends that reply back to the teammate in Slack.</p>
+<figure class="walk-fig reveal"><button class="zoom" type="button" data-cap="Illustration · The full loop, Slack to Meet and back" aria-label="Enlarge image: The full loop, Slack to Meet and back"><img src="../assets/img/illustrations/jarvis-relay.svg" alt="Illustration of the relay loop from Slack into Google Meet and the reply back to Slack" width="900" height="520" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-illustration">Illustration</span> The full loop, Slack to Meet and back</figcaption></figure></li>
+</ol>
+</div>
+</section>
+
+<div class="cs-body">
+<section class="cs-sec reveal" aria-labelledby="e-h">
+<h2 id="e-h">What changed and what I learned</h2>
+<div class="split3">
+<div><h3 class="label">What shipped</h3><p>A working end-to-end flow at the hackathon: Jarvis joins from a Meet link, answers by voice, keeps the board, relays both ways with Slack, and posts notes and proposed memory updates after the call.</p></div>
+<div><h3 class="label">What we measured</h3><p>In our test calls, the hand went up about 1.5 seconds after a Slack message arrived. Answers that needed no tools took about 2 seconds, and web-backed answers took 8 to 11 seconds.</p></div>
+<div><h3 class="label">What we learned</h3><p>Voice changes the design problem: latency and who is allowed to speak matter as much as answer quality. Sheng Rui Leom’s public team post records demo requests for automatic joining, chat input, and screen-share awareness; these are feedback and future ideas, not shipped features.</p></div>
+</div>
+<div class="strip" role="region" aria-label="More Jarvis screens">
+<div class="strip-head"><p class="label">More Jarvis screens</p><div class="strip-btns"><button class="strip-btn strip-prev" type="button" aria-label="Previous image"><span aria-hidden="true">←</span></button><button class="strip-btn strip-next" type="button" aria-label="Next image"><span aria-hidden="true">→</span></button></div></div>
+<ul class="strip-track" role="list" tabindex="0" aria-label="More Jarvis screens. Scroll sideways, drag, or use the arrow buttons."><li class="strip-item"><figure><button class="zoom" type="button" data-cap="Screenshot · Asking Jarvis to raise a question from a phone" aria-label="Enlarge image: Asking Jarvis to raise a question from a phone"><img src="../assets/img/work/jarvis-slack-raise-mobile.jpg" alt="Slack on a phone: a teammate asks what the meeting is discussing and asks Jarvis to raise a question" width="642" height="1400" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-screenshot">Screenshot</span> Asking Jarvis to raise a question from a phone</figcaption></figure></li><li class="strip-item"><figure><button class="zoom" type="button" data-cap="Screenshot · A recap for a teammate who missed the call" aria-label="Enlarge image: A recap for a teammate who missed the call"><img src="../assets/img/work/jarvis-slack-recap.jpg" alt="Slack on a phone where Jarvis replies with a recap of what was discussed, decided and still open" width="643" height="1400" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-screenshot">Screenshot</span> A recap for a teammate who missed the call</figcaption></figure></li><li class="strip-item"><figure><button class="zoom" type="button" data-cap="Screenshot · The live whiteboard in Meet" aria-label="Enlarge image: The live whiteboard in Meet"><img src="../assets/img/work/jarvis-google-meet.jpg" alt="Google Meet call with the live whiteboard" width="1400" height="787" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-screenshot">Screenshot</span> The live whiteboard in Meet</figcaption></figure></li><li class="strip-item"><figure><button class="zoom" type="button" data-cap="Screenshot · Send Jarvis into a meeting from the dashboard" aria-label="Enlarge image: Send Jarvis into a meeting from the dashboard"><img src="../assets/img/work/jarvis-dashboard-meetings.jpg" alt="Jarvis dashboard listing recent meetings" width="1600" height="775" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-screenshot">Screenshot</span> Send Jarvis into a meeting from the dashboard</figcaption></figure></li><li class="strip-item"><figure><button class="zoom" type="button" data-cap="Screenshot · Team memory, proposed for people to accept" aria-label="Enlarge image: Team memory, proposed for people to accept"><img src="../assets/img/work/jarvis-dashboard-memory.jpg" alt="Jarvis dashboard Memory tab with proposed changes" width="1600" height="777" loading="lazy" decoding="async"></button><figcaption><span class="kind kind-screenshot">Screenshot</span> Team memory, proposed for people to accept</figcaption></figure></li></ul>
+</div>
+</section>
+
+<section class="cs-sec reveal" aria-labelledby="three-weeks-h">
+<p class="seq-n">Three weeks later</p>
+<h2 id="three-weeks-h">A related industry signal</h2>
+<p>Three weeks after our team presented Jarvis at Cal Hacks 13.0, Anthropic published the linked post. The timing stood out because we had just spent the hackathon exploring how an AI teammate could move context between the tools where a team already works.</p>
+<p>Jarvis was our own hackathon prototype: it joined Google Meet, kept a live record of decisions and open questions, carried an absent teammate’s message in from Slack, returned the group’s spoken reply, and proposed team-memory updates for a person to review. I’m treating Anthropic’s post as related context—not as a claim that the products are identical, or that anyone copied anyone.</p>
+<figure class="cs-fig"><button class="zoom" type="button" data-cap="Screenshot · Jarvis connects a live meeting, decision board, and team participation" aria-label="Enlarge Jarvis in Google Meet with its decision board"><img src="../assets/img/work/jarvis-google-meet.jpg" alt="Google Meet call with Jarvis and a live decision board" width="1400" height="787" loading="lazy" decoding="async"></button><figcaption>Jarvis in Google Meet with the live decision board.</figcaption></figure>
+<p class="cs-links"><a class="tlink" href="https://devpost.com/software/jarvis-ai-9gvid0" target="_blank" rel="noopener">Jarvis on Devpost</a> · <a class="tlink" href="https://x.com/claudeai/status/2120973994191094179?a=M587ykzi32x_aruLvpk&amp;s=46" target="_blank" rel="noopener">Related: Anthropic’s post</a></p>
+</section>
+
+<section class="cs-sec reveal" aria-labelledby="n-h">
+<h2 id="n-h">Next steps</h2>
+<p>The three public feedback directions are automatic joining, asking Jarvis through Meet chat, and screen-share awareness. My priority is intentionally left open until I can tie it to one specific user-testing observation or product decision.</p><p class="cs-links"><a class="tlink" href="https://www.linkedin.com/feed/update/urn:li:activity:7521468994386550784/" target="_blank" rel="noopener">Sheng Rui Leom’s team demo post</a> · <a class="tlink" href="https://devpost.com/software/jarvis-ai-9gvid0" target="_blank" rel="noopener">Devpost</a></p>
+</section>
+</div>
+<nav class="cs-next" aria-label="Next case study"><a href="acne-detection.html" data-nav data-cursor="explore"><span class="label">Next case study</span><span class="cs-next-title">Acne detection across image datasets <span aria-hidden="true">→</span></span></a></nav>
+</article>
 </main>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
+<button class="lightbox-close" type="button">Close <span aria-hidden="true">×</span></button>
+<figure><img alt=""><figcaption></figcaption></figure>
+</div>
 <footer class="site-footer">
-<div class="wrap">
+<div class="bar">
 <span>© 2026 Vincy Huang · UC Berkeley</span>
 <ul>
-<li><a href="mailto:vhuang0707@gmail.com">Email</a></li>
-<li><a href="mailto:vincyh07@berkeley.edu">UC Berkeley email</a></li>
-<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn</a></li>
-<li><a href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+<li><a href="mailto:vincyh07@berkeley.edu">vincyh07@berkeley.edu</a></li>
+<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn<span class="sr"> (opens in a new tab)</span></a></li>
 </ul>
 </div>
 </footer>
+<div class="cres" aria-hidden="true">
+<svg class="cres-shape" viewBox="0 0 144 100" preserveAspectRatio="none" focusable="false"><path d="M0 0H122Q166 50 122 100H0Q44 50 0 0Z"/></svg>
+<span class="cres-v"><svg viewBox="0 0 80 80" focusable="false"><circle cx="40" cy="40" r="37" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="40" y="54" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="44" font-weight="500" fill="currentColor">V</text></svg></span>
+</div>
 <script src="../assets/js/site.js"></script>
 </body>
 </html>

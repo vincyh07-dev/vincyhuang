@@ -4,63 +4,70 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Machine Learning Intern, UCSF Radiology Department · Vincy Huang</title>
-<meta name="description" content="I use machine learning to assess MRI quality.">
+<meta name="description" content="I build and evaluate deep-learning models that check MRI quality, then use error analysis and Dice scores to decide what the next iteration should fix.">
 <meta property="og:title" content="Machine Learning Intern, UCSF Radiology Department · Vincy Huang">
-<meta property="og:description" content="I use machine learning to assess MRI quality.">
+<meta property="og:description" content="I build and evaluate deep-learning models that check MRI quality, then use error analysis and Dice scores to decide what the next iteration should fix.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#14243A">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script>
-document.documentElement.className='js';
+(function(){var d=document.documentElement;d.className='js';
+var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Arriving through the maroon crescent: start covered, then uncover once the page is ready.
+try{if(sessionStorage.getItem('vh-cres')){sessionStorage.removeItem('vh-cres');if(!calm)d.className+=' cres-arrive';}}catch(e){}
+})();
 </script>
 </head>
-<body class="">
+<body>
 <a class="skip" href="#main">Skip to main content</a>
 <header class="site-header">
-<div class="wrap">
-<a class="brand" href="../index.html" aria-label="Vincy Huang, home">
-<span class="mono" aria-hidden="true">VH</span><span class="brand-name">Vincy Huang</span>
-</a>
+<div class="bar">
+<a class="brand" href="../index.html#home" data-nav aria-label="Vincy Huang, home"><span class="mono" aria-hidden="true">V</span><span class="brand-name">Vincy Huang</span></a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav class="nav" id="site-nav" aria-label="Primary">
-<a href="../index.html">Home</a>
-<a href="../experience.html" aria-current="page">Experience</a>
-<a href="../projects.html">Projects</a>
-<a href="../about.html">About</a>
-<a href="../contact.html">Contact</a>
-<a class="nav-resume" href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF, opens in a new tab)">Résumé</a>
+<div class="nav-pill"><a href="../index.html#home" data-nav data-section="home">Home</a><a href="../index.html#experience" data-nav data-section="experience" aria-current="true">Experience</a><a href="../index.html#projects" data-nav data-section="projects">Projects</a><a href="../index.html#about" data-nav data-section="about">About</a><a href="../index.html#contact" data-nav data-section="contact">Contact</a></div>
+<a class="nav-resume" href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Open résumé<span class="sr"> (PDF, opens in a new tab)</span></a>
 </nav>
 </div>
 </header>
 <main id="main">
-
-<article class="detail">
-<p class="back"><a class="tlink" href="../experience.html">← Back to Experience</a></p>
-<header class="detail-head">
-<h1 class="h-serif">Machine Learning Intern</h1>
-<p class="detail-meta"><span>UCSF Radiology Department</span><span>May 2026 – Present</span></p>
-<p class="lead">I use machine learning to assess MRI quality.</p>
+<article class="cs detail">
+<header class="cs-hero">
+<p class="back"><a class="tlink" href="../index.html#experience" data-nav><span aria-hidden="true">←</span> All experience</a></p>
+<p class="eyebrow">UCSF Radiology Department</p>
+<h1 class="cs-title">Debugging MRI models and labels</h1>
+<p class="cs-lede">I build a prostate MRI image-quality classifier and test liver-segmentation models, using visual review to find whether an error comes from the image, the mask, or the model.</p>
+<p class="detail-dates">May 2026 – present <span class="now">Current</span></p>
 </header>
-<section aria-labelledby="on"><h2 id="on">What I worked on</h2><p>Ongoing work in the radiology department, using machine learning to support consistent MRI assessment.</p></section>
-<section class="contrib" aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Built a deep-learning pipeline on prostate MRI scans to classify diagnostic image quality.</li><li>Trained and evaluated a liver segmentation model, using Dice scores to measure performance across patient data.</li><li>Analyzed failure cases and performance distributions to find model limitations and set priorities for the next iteration.</li></ul></section>
-<section aria-labelledby="mt"><h2 id="mt">Methods and tools</h2><ul class="tags"><li><span class="tag">Deep learning</span></li><li><span class="tag">Model evaluation</span></li><li><span class="tag">Error analysis</span></li></ul></section>
+<figure class="cs-full detail-vis reveal"><button class="zoom" type="button" data-cap="Illustration · Synthetic comparison used to explain the liver-mask review rubric" aria-label="Enlarge the synthetic liver-mask review comparison"><img src="../assets/img/illustrations/ucsf-mask-review.svg" alt="Three-column schematic showing an aligned mask, a misplaced mask, and an image with no predicted mask" width="900" height="520" loading="lazy" decoding="async"></button><figcaption><span>Synthetic, de-identified comparison of the review rubric; no patient imagery is shown.</span><span>Illustration</span></figcaption></figure>
+<div class="cs-body">
+<section class="cs-sec reveal" aria-labelledby="p-h"><h2 id="p-h">Problem</h2><p>When an MRI scan is too unclear for diagnosis, the problem may not be discovered until a radiologist reviews it later. That delay can mean contacting the patient, rescheduling, and asking them to return for another scan—an inefficient and stressful outcome for both patients and clinical teams.</p><p>Earlier automated quality checks could help flag unusable images sooner. In the segmentation work, a second issue appeared: two different questions were getting mixed together—is the original MRI usable, and does a predicted mask line up with the anatomy? A single score could not explain which part had failed.</p></section>
+<section class="cs-contrib reveal" aria-labelledby="d-h"><h2 id="d-h">What I did</h2><h3>Prostate MRI image-quality classification</h3><p>I built and trained a PyTorch pipeline to classify diagnostic image quality. The review draft carries two résumé-reported figures—5,000+ prostate MRI scans and 92% accuracy—but the scan-count definition and evaluation split still need confirmation before publication.</p><div class="metric-row"><span><b>5,000+</b> prostate MRI scans<br><small>Résumé-reported; count scope to confirm</small></span><span><b>92%</b> accuracy<br><small>Résumé-reported; evaluation split to confirm</small></span></div><h3>Liver segmentation</h3><ol class="cs-list"><li>I began with a U-Net baseline. Performance was lower than expected, and overlay review showed that I needed a clearer rubric.</li><li>I defined <strong>Good</strong> as a usable original image whose mask lines up, <strong>Bad</strong> as a mask in the wrong location, and <strong>Uncertain</strong> as an image with no predicted mask.</li><li>I labeled more examples and moved to nnU-Net. In my tests, runs were faster and segmentations looked better; exact gains are withheld until the runs are verified.</li><li>The additional labels support error analysis and the next round of training instead of treating every low score as the same failure.</li></ol><p class="tools-line">PyTorch · U-Net · nnU-Net · visual overlay review</p></section>
+<section class="cs-sec cs-key reveal" aria-labelledby="l-h"><h2 id="l-h">What changed and what I learned</h2><p>The rubric separates image quality from mask placement. Dice measures overlap between a predicted mask and a reference mask: 1 is complete overlap and 0 is none. The résumé reports <strong>0.89 mean Dice</strong>, but I am not tying that number to nnU-Net until the run and evaluation set are confirmed.</p></section>
+<section class="cs-sec reveal" aria-labelledby="n-h"><h2 id="n-h">Next steps</h2><p>I would split misplaced masks from missing masks, then test each group separately. Misplaced masks point toward localization errors; missing masks point toward detection or pipeline failures. That makes the next experiment more specific than simply adding more data.</p></section>
 
+</div>
 </article>
-
 </main>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
+<button class="lightbox-close" type="button">Close <span aria-hidden="true">×</span></button>
+<figure><img alt=""><figcaption></figcaption></figure>
+</div>
 <footer class="site-footer">
-<div class="wrap">
+<div class="bar">
 <span>© 2026 Vincy Huang · UC Berkeley</span>
 <ul>
-<li><a href="mailto:vhuang0707@gmail.com">Email</a></li>
-<li><a href="mailto:vincyh07@berkeley.edu">UC Berkeley email</a></li>
-<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn</a></li>
-<li><a href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+<li><a href="mailto:vincyh07@berkeley.edu">vincyh07@berkeley.edu</a></li>
+<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn<span class="sr"> (opens in a new tab)</span></a></li>
 </ul>
 </div>
 </footer>
+<div class="cres" aria-hidden="true">
+<svg class="cres-shape" viewBox="0 0 144 100" preserveAspectRatio="none" focusable="false"><path d="M0 0H122Q166 50 122 100H0Q44 50 0 0Z"/></svg>
+<span class="cres-v"><svg viewBox="0 0 80 80" focusable="false"><circle cx="40" cy="40" r="37" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="40" y="54" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="44" font-weight="500" fill="currentColor">V</text></svg></span>
+</div>
 <script src="../assets/js/site.js"></script>
 </body>
 </html>

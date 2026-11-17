@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="t"><title id="t">Illustration: a teammate's Slack message goes to Jarvis, Jarvis raises its hand and reads it in the Google Meet, and the team's spoken reply returns to Slack</title>
+<rect width="900" height="520" fill="#f6f1fd"/>
+<g font-family="Helvetica, Arial, sans-serif" fill="#14243a">
+<!-- phone left -->
+<g transform="translate(60 90)"><rect width="180" height="320" rx="24" fill="#14243a"/><rect x="10" y="14" width="160" height="292" rx="14" fill="#fff"/>
+<text x="90" y="44" font-size="14" text-anchor="middle" font-weight="700">Slack</text>
+<rect x="22" y="62" width="136" height="54" rx="10" fill="#e8dcfb"/><text x="32" y="84" font-size="12.5">I know a sponsor</text><text x="32" y="102" font-size="12.5">contact. Tell the team?</text>
+<rect x="22" y="128" width="120" height="34" rx="10" fill="#f1f1f4"/><text x="32" y="150" font-size="12.5">Got it, I'll raise it.</text>
+<rect x="22" y="220" width="136" height="54" rx="10" fill="#f1f1f4" stroke="#6233bf" stroke-width="2"/><text x="32" y="242" font-size="12.5">Team: yes, please</text><text x="32" y="260" font-size="12.5">introduce us.</text></g>
+<!-- meet center -->
+<g transform="translate(330 110)"><rect width="260" height="190" rx="14" fill="#1e2433"/>
+<rect x="14" y="14" width="150" height="130" rx="8" fill="#fbf5e6"/><text x="26" y="36" font-size="11" font-weight="700">Live whiteboard</text><rect x="24" y="48" width="40" height="40" fill="#cdeccd"/><rect x="70" y="48" width="40" height="40" fill="#fbe7b6"/><rect x="116" y="48" width="40" height="40" fill="#cfe5f6"/>
+<rect x="24" y="100" width="132" height="30" rx="6" fill="#f8d9cf"/><text x="32" y="119" font-size="10.5">✋ Message from Slack</text>
+<rect x="176" y="14" width="70" height="60" rx="8" fill="#2e3a52"/><text x="211" y="50" font-size="22" fill="#fff" text-anchor="middle">J</text>
+<rect x="176" y="84" width="70" height="60" rx="8" fill="#3a4660"/><circle cx="211" cy="106" r="11" fill="#c9a98e"/><path d="M193 136q18-22 36 0" fill="#702638"/>
+<rect x="90" y="158" width="80" height="20" rx="10" fill="#e5484d"/></g>
+<text x="460" y="340" font-size="16" text-anchor="middle" font-weight="600">Google Meet</text>
+<text x="460" y="362" font-size="13.5" text-anchor="middle">Jarvis raises its hand, then reads</text><text x="460" y="380" font-size="13.5" text-anchor="middle">the message once the team says “go ahead”</text>
+<!-- arrows -->
+<path d="M248 170C290 150 300 160 322 170" fill="none" stroke="#6233bf" stroke-width="3"/><path d="M322 162l12 10-14 6z" fill="#6233bf"/>
+<path d="M596 250C700 300 700 470 470 470S290 440 250 370" fill="none" stroke="#702638" stroke-width="3" stroke-dasharray="6 6"/><path d="M243 378l2-16 14 8z" fill="#702638"/>
+<text x="630" y="140" font-size="15" font-weight="600">1  Message in</text><text x="630" y="162" font-size="13.5">sent from Slack</text>
+<text x="712" y="330" font-size="15" font-weight="600">2  Reply out</text><text x="712" y="352" font-size="13.5">the team's spoken</text><text x="712" y="370" font-size="13.5">answer goes back</text><text x="712" y="388" font-size="13.5">to Slack</text>
+</g></svg>

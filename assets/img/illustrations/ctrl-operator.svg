@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="t"><title id="t">Schematic: an operator selects a robot on a floor map, checks its battery, recent activity and route history in a details panel, then sends it from point X to point Y</title>
+<rect width="960" height="600" fill="#faf8f4"/>
+<g font-family="Helvetica, Arial, sans-serif" fill="#14243a">
+<rect x="30" y="30" width="580" height="540" rx="10" fill="#fff" stroke="#d9d4ca" stroke-width="2"/>
+<g fill="#f3efe6" stroke="#c9c2b3" stroke-width="2">
+<rect x="60" y="60" width="150" height="150"/><rect x="230" y="60" width="160" height="150"/><rect x="410" y="60" width="170" height="150"/>
+<rect x="60" y="390" width="200" height="150"/><rect x="280" y="390" width="140" height="150"/><rect x="440" y="390" width="140" height="150"/></g>
+<rect x="60" y="230" width="520" height="140" fill="#fbfaf7" stroke="#e4dfd4" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="320" y="306" font-size="15" fill="#8a8578" text-anchor="middle">corridor</text>
+<path d="M140 210V300H500V390" fill="none" stroke="#702638" stroke-width="5" stroke-dasharray="12 9" stroke-linecap="round"/>
+<circle cx="140" cy="150" r="22" fill="#b4924b"/><text x="140" y="157" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">X</text>
+<circle cx="500" cy="465" r="22" fill="#702638"/><text x="500" y="472" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">Y</text>
+<circle cx="300" cy="300" r="30" fill="none" stroke="#702638" stroke-width="3"/>
+<rect x="284" y="284" width="32" height="32" rx="8" fill="#14243a"/><circle cx="294" cy="298" r="3.5" fill="#e3c98e"/><circle cx="306" cy="298" r="3.5" fill="#e3c98e"/>
+
+<g transform="translate(640 60)"><rect width="290" height="480" rx="12" fill="#14243a"/>
+<text x="24" y="44" font-size="13" fill="#e3c98e" font-weight="700" letter-spacing="1.5">SELECTED ROBOT</text>
+<text x="24" y="76" font-size="24" fill="#fff" font-family="Georgia, serif">Robot 2</text>
+<text x="24" y="122" font-size="14" fill="#c9d0db">Battery</text>
+<rect x="24" y="132" width="242" height="14" rx="7" fill="#2b3d5a"/><rect x="24" y="132" width="170" height="14" rx="7" fill="#7cc4a8"/>
+<text x="266" y="122" font-size="14" fill="#fff" text-anchor="end">70%</text>
+<text x="24" y="186" font-size="14" fill="#c9d0db">Recent activity</text>
+<g font-size="13.5" fill="#fff"><text x="24" y="212">• Delivered to Room B</text><text x="24" y="234">• Returned to dock</text></g>
+<text x="24" y="280" font-size="14" fill="#c9d0db">Route history</text>
+<path d="M30 320l50-20 50 14 60-30 60 18" fill="none" stroke="#e3c98e" stroke-width="2.5"/>
+<g fill="#e3c98e"><circle cx="30" cy="320" r="4"/><circle cx="80" cy="300" r="4"/><circle cx="130" cy="314" r="4"/><circle cx="190" cy="284" r="4"/><circle cx="250" cy="302" r="4"/></g>
+<rect x="24" y="360" width="242" height="40" rx="8" fill="#22344f"/><text x="40" y="386" font-size="14" fill="#fff">From X  →  To Y</text>
+<rect x="24" y="414" width="242" height="44" rx="22" fill="#702638"/><text x="145" y="442" font-size="15" fill="#fff" text-anchor="middle" font-weight="600">Send robot</text></g>
+</g></svg>

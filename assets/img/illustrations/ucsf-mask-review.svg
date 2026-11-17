@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" role="img" aria-labelledby="t"><title id="t">Synthetic schematic of the mask-review rubric: Good means a usable image with a mask that lines up with the liver; Bad means the mask is in the wrong place; Uncertain means no mask was predicted</title>
+<rect width="960" height="470" fill="#faf8f4"/>
+<defs><g id="slice"><rect width="260" height="260" rx="10" fill="#141a24"/><ellipse cx="130" cy="135" rx="108" ry="92" fill="#4d5566"/><path d="M60 110c20-38 80-44 112-30 22 10 26 34 10 54-24 30-80 46-110 32-18-8-22-34-12-56z" fill="#8e96a6"/><ellipse cx="190" cy="150" rx="22" ry="30" fill="#6b7384"/><circle cx="130" cy="200" r="12" fill="#a7aebb"/></g></defs>
+<g font-family="Helvetica, Arial, sans-serif">
+<g transform="translate(40 40)"><use href="#slice"/><path d="M60 110c20-38 80-44 112-30 22 10 26 34 10 54-24 30-80 46-110 32-18-8-22-34-12-56z" fill="#3fbf8f" fill-opacity=".45" stroke="#3fbf8f" stroke-width="3"/></g>
+<g transform="translate(350 40)"><use href="#slice"/><path d="M118 150c20-38 80-44 112-30 22 10 26 34 10 54-24 30-80 46-110 32-18-8-22-34-12-56z" fill="#e0566b" fill-opacity=".45" stroke="#e0566b" stroke-width="3"/></g>
+<g transform="translate(660 40)"><use href="#slice"/><text x="130" y="248" font-size="13" fill="#e3c98e" text-anchor="middle">no mask predicted</text></g>
+<g text-anchor="middle"><text x="170" y="340" font-size="22" font-weight="700" fill="#08705f">Good</text><text x="480" y="340" font-size="22" font-weight="700" fill="#702638">Bad</text><text x="790" y="340" font-size="22" font-weight="700" fill="#8a6a22">Uncertain</text>
+<g font-size="15" fill="#14243a"><text x="170" y="372">Usable original image;</text><text x="170" y="394">the mask lines up</text>
+<text x="480" y="372">The mask is in the wrong</text><text x="480" y="394">place relative to the image</text>
+<text x="790" y="372">The image has no</text><text x="790" y="394">predicted mask</text></g></g>
+<text x="480" y="448" font-size="13" fill="#586170" text-anchor="middle">Synthetic schematic, not patient data</text>
+</g></svg>

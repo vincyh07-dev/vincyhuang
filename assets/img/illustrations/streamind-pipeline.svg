@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 360" role="img" aria-labelledby="t"><title id="t">Pipeline: camera frames, facial regions on the forehead and cheeks, RGB values over time, a pulse signal (we tested the CHROM method), band-pass filtering from 0.87 to 3.0 hertz, and a heart-rate estimate in beats per minute</title>
+<rect width="980" height="360" fill="#eef8f5"/>
+<g font-family="Helvetica, Arial, sans-serif" fill="#14243a">
+<g font-size="13" font-weight="700" fill="#08705f" letter-spacing="1" text-anchor="middle"><text x="95" y="60">1</text><text x="255" y="60">2</text><text x="415" y="60">3</text><text x="575" y="60">4</text><text x="735" y="60">5</text><text x="895" y="60">6</text></g>
+<g fill="#fff" stroke="#9fcfc4" stroke-width="2"><rect x="30" y="80" width="130" height="150" rx="10"/><rect x="190" y="80" width="130" height="150" rx="10"/><rect x="350" y="80" width="130" height="150" rx="10"/><rect x="510" y="80" width="130" height="150" rx="10"/><rect x="670" y="80" width="130" height="150" rx="10"/><rect x="830" y="80" width="130" height="150" rx="10" stroke="#702638"/></g>
+<g fill="none" stroke="#08705f" stroke-width="2"><rect x="62" y="106" width="70" height="86" rx="6"/><rect x="54" y="114" width="70" height="86" rx="6" stroke-opacity=".5"/></g>
+<ellipse cx="255" cy="152" rx="40" ry="50" fill="#f1d3bd"/><rect x="232" y="114" width="46" height="18" rx="4" fill="#7fb36b" fill-opacity=".8"/><ellipse cx="232" cy="164" rx="10" ry="14" fill="#6e93d6" fill-opacity=".8"/><ellipse cx="278" cy="164" rx="10" ry="14" fill="#e0707a" fill-opacity=".8"/>
+<g fill="none" stroke-width="2.2"><path d="M362 130c12-6 22 6 34 0s22 6 34 0 22 6 34 0" stroke="#d24b4b"/><path d="M362 156c12-6 22 6 34 0s22 6 34 0 22 6 34 0" stroke="#3a9a5b"/><path d="M362 182c12-6 22 6 34 0s22 6 34 0 22 6 34 0" stroke="#3b64a8"/></g>
+<path d="M522 156c10-22 20 22 30 0s20 22 30 0 20 22 30 0 10 10 6 0" fill="none" stroke="#08705f" stroke-width="2.5"/>
+<rect x="696" y="110" width="78" height="80" fill="#c9e6df"/><path d="M682 190h104" stroke="#14243a" stroke-opacity=".4"/><path d="M684 186c20 0 26-2 32-30s14-40 22-40 14 30 22 54 10 16 26 16" fill="none" stroke="#08705f" stroke-width="2.5"/>
+<text x="895" y="166" font-family="Georgia, serif" font-size="34" fill="#702638" text-anchor="middle">BPM</text>
+<g font-size="14" font-weight="700" text-anchor="middle"><text x="95" y="262">Camera frames</text><text x="255" y="262">Facial regions</text><text x="415" y="262">RGB over time</text><text x="575" y="262">Pulse signal</text><text x="735" y="262">Band-pass</text><text x="895" y="262">Heart rate</text></g>
+<g font-size="12.5" fill="#4a5363" text-anchor="middle"><text x="95" y="284">front camera</text><text x="255" y="284">forehead, cheeks</text><text x="415" y="284">average per frame</text><text x="575" y="284">we tested CHROM</text><text x="735" y="284">0.87–3.0 Hz</text><text x="895" y="284">strongest peak</text></g>
+<g fill="#b4924b"><path d="M164 150l18 5-18 5z"/><path d="M324 150l18 5-18 5z"/><path d="M484 150l18 5-18 5z"/><path d="M644 150l18 5-18 5z"/><path d="M804 150l18 5-18 5z"/></g>
+</g></svg>

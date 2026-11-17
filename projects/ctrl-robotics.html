@@ -13,54 +13,61 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script>
-document.documentElement.className='js';
+(function(){var d=document.documentElement;d.className='js';
+var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Arriving through the maroon crescent: start covered, then uncover once the page is ready.
+try{if(sessionStorage.getItem('vh-cres')){sessionStorage.removeItem('vh-cres');if(!calm)d.className+=' cres-arrive';}}catch(e){}
+})();
 </script>
 </head>
-<body class="">
+<body>
 <a class="skip" href="#main">Skip to main content</a>
 <header class="site-header">
-<div class="wrap">
-<a class="brand" href="../index.html" aria-label="Vincy Huang, home">
-<span class="mono" aria-hidden="true">VH</span><span class="brand-name">Vincy Huang</span>
-</a>
+<div class="bar">
+<a class="brand" href="../index.html#home" data-nav aria-label="Vincy Huang, home"><span class="mono" aria-hidden="true">V</span><span class="brand-name">Vincy Huang</span></a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav class="nav" id="site-nav" aria-label="Primary">
-<a href="../index.html">Home</a>
-<a href="../experience.html" aria-current="page">Experience</a>
-<a href="../projects.html">Projects</a>
-<a href="../about.html">About</a>
-<a href="../contact.html">Contact</a>
-<a class="nav-resume" href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF, opens in a new tab)">Résumé</a>
+<div class="nav-pill"><a href="../index.html#home" data-nav data-section="home">Home</a><a href="../index.html#experience" data-nav data-section="experience" aria-current="true">Experience</a><a href="../index.html#projects" data-nav data-section="projects">Projects</a><a href="../index.html#about" data-nav data-section="about">About</a><a href="../index.html#contact" data-nav data-section="contact">Contact</a></div>
+<a class="nav-resume" href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Open résumé<span class="sr"> (PDF, opens in a new tab)</span></a>
 </nav>
 </div>
 </header>
 <main id="main">
-
-<article class="detail">
-<p class="back"><a class="tlink" href="../experience.html">← Back to Experience</a></p>
-<header class="detail-head">
-<h1 class="h-serif">Software Engineer Intern</h1>
-<p class="detail-meta"><span>CTRL Robotics</span><span>Jan – May 2026</span></p>
-<p class="lead">I turned hospital operators’ needs into product requirements, then redesigned the robot’s mapping and navigation tools.</p>
+<article class="cs detail">
+<header class="cs-hero">
+<p class="back"><a class="tlink" href="../index.html#experience" data-nav><span aria-hidden="true">←</span> All experience</a></p>
+<p class="eyebrow">CTRL Robotics</p>
+<h1 class="cs-title">A clearer map for hospital robot operators</h1>
+<p class="cs-lede">The existing map was slow, did not match the hospital layout closely enough, and made it difficult to tell where a robot was or where it was going.</p>
+<p class="detail-dates">January – May 2026</p>
 </header>
-<section aria-labelledby="on"><h2 id="on">What I worked on</h2><p>CTRL Robotics builds an autonomous robotics platform for hospitals. I worked on the product and operations side, starting from how hospital teams actually work.</p></section>
-<section class="contrib" aria-labelledby="did"><h2 id="did">What I did</h2><ul class="detail-list"><li>Analyzed hospital workflows and turned operator needs into product requirements.</li><li>Redesigned the mapping and navigation tools, improving usability by 25% and reducing navigation errors by 30%.</li><li>Worked with engineers to launch robot-selection and badge-registration features that simplified clinical operations.</li></ul></section>
-<section aria-labelledby="mt"><h2 id="mt">Methods and tools</h2><ul class="tags"><li><span class="tag">Product requirements</span></li><li><span class="tag">Workflow analysis</span></li><li><span class="tag">Cross-functional work</span></li></ul></section>
+<figure class="cs-full detail-vis reveal"><button class="zoom" type="button" data-cap="Illustration · Private-safe operator map with a selected robot, status panel, and route from X to Y" aria-label="Enlarge the CTRL Robotics operator workflow illustration"><img src="../assets/img/illustrations/ctrl-operator.svg" alt="Schematic hospital floor plan with a robot marker, battery and activity panel, route history, and route from X to Y" width="900" height="560" loading="lazy" decoding="async"></button><figcaption><span>Private-safe schematic; it does not reproduce the hospital layout or operational data.</span><span>Illustration</span></figcaption></figure>
+<div class="cs-body">
+<section class="cs-sec reveal" aria-labelledby="p-h"><h2 id="p-h">Problem</h2><p>Hospitals move supplies, medicine, and equipment through busy corridors while nurses and other staff are already stretched. Autonomous delivery robots can reduce some of that workload, but the operator experience has to be clear enough to trust.</p><p>The specific workflow I worked on made it difficult to see where each robot was, check its battery, understand what it had done earlier that day, or send it along the intended route. The map did not match the hospital layout closely enough, and navigation was especially difficult for the nurses and operators expected to use it.</p></section>
+<section class="cs-contrib reveal" aria-labelledby="d-h"><h2 id="d-h">What I did</h2><p>I worked with engineers to translate operator needs into requirements, then rebuilt the map visualization and navigation in React and TypeScript.</p><ol class="cs-list"><li><strong>Select a robot on the map.</strong></li><li><strong>Check battery, recent activity, and route history.</strong></li><li><strong>Send it from point X to point Y.</strong></li></ol><p>I also supported robot selection and badge registration so the map fit the broader operator workflow.</p><p class="tools-line">React · TypeScript · product requirements · operator workflow analysis</p></section>
+<section class="cs-sec cs-key reveal" aria-labelledby="l-h"><h2 id="l-h">What changed and what I learned</h2><p>The résumé reports <strong>25% improved usability</strong> and <strong>30% fewer navigation errors</strong>. They remain review-draft claims until the measurement method, participants, baseline, and comparison period are confirmed.</p><div class="metric-row"><span><b>25%</b> improved usability<br><small>Measurement basis to confirm</small></span><span><b>30%</b> fewer navigation errors<br><small>Measurement basis to confirm</small></span></div><p>The design lesson was simple: operators need the robot’s history and destination in the same place as the map, not as disconnected status screens.</p></section>
+<section class="cs-sec reveal" aria-labelledby="n-h"><h2 id="n-h">Next steps</h2><p>I would validate the workflow with representative navigation tasks, recording completion time, wrong-robot selections, route corrections, and where operators hesitate. That would turn the two outcome claims into reproducible measures.</p></section>
 
+</div>
 </article>
-
 </main>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
+<button class="lightbox-close" type="button">Close <span aria-hidden="true">×</span></button>
+<figure><img alt=""><figcaption></figcaption></figure>
+</div>
 <footer class="site-footer">
-<div class="wrap">
+<div class="bar">
 <span>© 2026 Vincy Huang · UC Berkeley</span>
 <ul>
-<li><a href="mailto:vhuang0707@gmail.com">Email</a></li>
-<li><a href="mailto:vincyh07@berkeley.edu">UC Berkeley email</a></li>
-<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn</a></li>
-<li><a href="../assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+<li><a href="mailto:vincyh07@berkeley.edu">vincyh07@berkeley.edu</a></li>
+<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn<span class="sr"> (opens in a new tab)</span></a></li>
 </ul>
 </div>
 </footer>
+<div class="cres" aria-hidden="true">
+<svg class="cres-shape" viewBox="0 0 144 100" preserveAspectRatio="none" focusable="false"><path d="M0 0H122Q166 50 122 100H0Q44 50 0 0Z"/></svg>
+<span class="cres-v"><svg viewBox="0 0 80 80" focusable="false"><circle cx="40" cy="40" r="37" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="40" y="54" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="44" font-weight="500" fill="currentColor">V</text></svg></span>
+</div>
 <script src="../assets/js/site.js"></script>
 </body>
 </html>

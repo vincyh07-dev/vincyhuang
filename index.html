@@ -3,166 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vincy Huang · UC Berkeley · Product, Research &amp; Data</title>
-<meta name="description" content="Vincy Huang is a UC Berkeley student interested in product management: talking to users, looking at the data, and figuring out what to build next.">
-<meta property="og:title" content="Vincy Huang · UC Berkeley · Product, Research &amp; Data">
-<meta property="og:description" content="Vincy Huang is a UC Berkeley student interested in product management: talking to users, looking at the data, and figuring out what to build next.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#14243A">
+<title>Vincy Huang · UC Berkeley · Product, research and data</title>
+<meta name="description" content="Vincy Huang studies data science and cognitive science at UC Berkeley and uses research and data to figure out what is worth building.">
+<meta name="theme-color" content="#5A1F2E">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="assets/css/style.css">
-<script>
-document.documentElement.className='js';
-// Maroon entrance: first homepage visit of the session only, never with reduced motion or a #link.
-(function(){try{var d=document.documentElement;if(!sessionStorage.getItem('vh-visited')&&!location.hash&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.className+=' intro-on';}}catch(e){}})();
-</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="assets/css/reference.css">
+<script>(function(){var d=document.documentElement;d.className='js';var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;try{if(!sessionStorage.getItem('vh-visited')&&!location.hash&&!calm)d.className+=' intro-on';}catch(e){}})();</script>
 </head>
-<body class="">
-<div class="intro" id="intro">
-<div class="intro-panel intro-top"></div>
-<div class="intro-panel intro-bottom"></div>
-<span class="intro-seam" aria-hidden="true"></span>
-<p class="intro-greeting" aria-hidden="true"><span class="g-hi">Hi,</span> <span class="g-rest">I’m Vincy Huang.</span></p>
-<button class="intro-skip" type="button">Skip intro</button>
-</div>
-<a class="skip" href="#main">Skip to main content</a>
-<header class="site-header">
-<div class="wrap">
-<a class="brand" href="index.html" aria-label="Vincy Huang, home">
-<span class="mono" aria-hidden="true">VH</span><span class="brand-name">Vincy Huang</span>
-</a>
-<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-<nav class="nav" id="site-nav" aria-label="Primary">
-<a href="index.html" aria-current="page">Home</a>
-<a href="experience.html">Experience</a>
-<a href="projects.html">Projects</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a class="nav-resume" href="assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé (PDF, opens in a new tab)">Résumé</a>
-</nav>
-</div>
-</header>
+<body>
+<div class="intro" id="intro" aria-label="Welcome"><p class="intro-greeting"><span>Hi,</span> <span>I’m<br> Vincy Huang.</span></p><button class="intro-skip" type="button">Skip intro</button></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><div class="header-inner">
+  <a class="brand" href="#home" data-nav aria-label="Vincy Huang, home"><span class="brand-mark" aria-hidden="true">V</span><span>Vincy Huang</span></a>
+  <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span></button>
+  <div class="header-actions" id="primary-nav"><nav class="nav-pill" aria-label="Primary">
+    <a href="#home" data-nav data-section="home" aria-current="page">Home</a><a href="#experience" data-nav data-section="experience">Experience</a><a href="#projects" data-nav data-section="projects">Projects</a><a href="#about" data-nav data-section="about">About</a><a href="#contact" data-nav data-section="contact">Contact</a>
+  </nav><a class="resume-button" href="assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Open résumé</a></div>
+</div></header>
 <main id="main">
-
-<section class="hero hero-intro">
-<div class="wrap">
-<div class="hero-copy">
-<h1 class="h-serif">Hi, I’m Vincy Huang.</h1>
-<p class="lead">I’m a UC Berkeley student interested in product management. I like talking to users, looking at the data, and figuring out what to build next.</p>
-<div class="btn-row">
-<a class="btn btn-primary" href="experience.html">View experience</a>
-<a class="btn btn-ghost" href="projects.html">View projects</a>
-</div>
-</div>
-</div>
+<section class="hero section-spy" id="home" aria-labelledby="hero-title">
+  <div class="hero-copy"><div class="hero-heading"><p class="eyebrow">Hi, I’m</p><h1 id="hero-title">Vincy<br>Huang.</h1></div>
+    <p class="hero-bio">I study data science and cognitive science at UC Berkeley. I’m interested in how people use AI and technology, and I use research and data to figure out what’s worth building.</p>
+    <div class="lens-picker" role="group" aria-label="Pick a lens"><span>Pick a lens:</span><button type="button" data-lens="product" aria-pressed="true">Product</button><button type="button" data-lens="research" aria-pressed="false">Research</button><button type="button" data-lens="data" aria-pressed="false">Data</button></div>
+    <p class="lens-line" id="lens-line" aria-live="polite">I like designing tools people can actually operate.</p>
+    <div class="hero-buttons"><a class="button button-primary" href="#projects" data-nav>Explore my work <span aria-hidden="true">→</span></a><a class="button button-outline" href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+  <div class="hero-feature"><svg class="spin-badge" width="150" height="150" viewBox="0 0 150 150" aria-hidden="true"><defs><path id="ring" d="M75,75 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"></path></defs><text><textPath href="#ring">UC BERKELEY · DATA + COG SCI · </textPath></text></svg>
+    <article class="feature-card lift-card"><span class="feature-chip" id="lens-chip">Product lens</span><h2 id="lens-work">CTRL Robotics</h2><p id="lens-sub">Select a robot, inspect battery and route history, then send it from X to Y.</p><a id="lens-link" href="projects/ctrl-robotics.html" data-nav>Open case study <span aria-hidden="true">↗</span></a></article>
+  </div>
 </section>
-
-<section class="books-section" aria-label="Project books">
-<div class="wrap books">
-<article class="book cover-navy book-streamind" id="book-streamind" data-slot="0" aria-labelledby="book-streamind-title">
-<header class="book-head">
-<div>
-<h2 class="book-title" id="book-streamind-title">Streamind Health</h2>
-<p class="book-meta">Software Engineer Intern · Oct 2025 – May 2026</p>
-</div>
-<button class="book-toggle" type="button" aria-expanded="false" aria-controls="book-streamind-body">Open book</button>
-</header>
-<div class="book-body" id="book-streamind-body" tabindex="-1" aria-label="Streamind Health book. Use the left and right arrow keys to turn pages.">
-<button class="book-cover" type="button" aria-label="Open the Streamind Health book"><span class="cover-face"><span class="cover-kicker">Project</span><span class="cover-title">Streamind Health</span><span class="cover-rule" aria-hidden="true"></span><span class="cover-meta">Software Engineer Intern · Oct 2025 – May 2026</span><span class="cover-cta">Open book →</span></span><span class="cover-back" aria-hidden="true"></span></button>
-<div class="book-spread">
-<div class="book-page book-left"><div class="page-inner"><p class="page-num">Page 1</p><h3>From face landmarks to pulse data</h3><p>I worked on how the app extracts pulse data from camera video. Facial landmarks help it track the forehead and cheeks across frames. I tested different shapes and combinations of those skin regions, then averaged their RGB values over time to extract a signal we could use to estimate heart rate.</p></div></div>
-<div class="book-page book-right"><div class="page-inner"><figure><button class="book-zoom" type="button" aria-label="Enlarge image: Annotated visual from our final presentation: facial landmarks, with the forehead and both cheeks highlighted as skin regions."><img src="assets/img/work/streamind-facial-regions.jpg" alt="Illustrated face covered in white landmark dots, with the forehead shaded green, the left cheek blue and the right cheek red, beside a legend" width="1500" height="1280" decoding="async"></button><figcaption>Annotated visual from our final presentation: facial landmarks, with the forehead and both cheeks highlighted as skin regions.</figcaption></figure></div></div>
-<span class="book-spine" aria-hidden="true"></span>
-</div>
-</div>
-<div class="book-controls">
-<button class="book-btn book-prev" type="button" aria-label="Previous page"><span aria-hidden="true">←</span></button>
-<p class="book-count" aria-live="polite">Page <span class="book-n">1</span> of 5</p>
-<button class="book-btn book-next" type="button" aria-label="Next page"><span aria-hidden="true">→</span></button>
-</div>
-<script type="application/json" class="book-data">[{"h": "From face landmarks to pulse data", "p": "I worked on how the app extracts pulse data from camera video. Facial landmarks help it track the forehead and cheeks across frames. I tested different shapes and combinations of those skin regions, then averaged their RGB values over time to extract a signal we could use to estimate heart rate.", "src": "assets/img/work/streamind-facial-regions.jpg", "w": 1500, "ht": 1280, "cap": "Annotated visual from our final presentation: facial landmarks, with the forehead and both cheeks highlighted as skin regions.", "alt": "Illustrated face covered in white landmark dots, with the forehead shaded green, the left cheek blue and the right cheek red, beside a legend"}, {"h": "Cleaning the signal", "p": "From our final presentation: band-pass filtering keeps only the frequencies that match a realistic human heart rate.", "src": "assets/img/work/streamind-rppg-bandpass.jpg", "w": 1400, "ht": 787, "cap": "Band-pass filtering keeps only frequencies in the human heart-rate range.", "alt": "Presentation slide on band-pass filtering, showing a heart-rate passband between 0.87 and 3.0 hertz"}, {"h": "Finding the heart rate", "p": "Frequency analysis with parabolic interpolation refines the peak, giving a more precise heart-rate estimate.", "src": "assets/img/work/streamind-rppg-frequency.jpg", "w": 1400, "ht": 787, "cap": "Frequency analysis with parabolic interpolation refines the heart-rate estimate.", "alt": "Presentation slide on frequency analysis with parabolic interpolation, from windowed signal to a refined peak"}, {"h": "A tool for mobile", "p": "I helped adapt a camera-based biofeedback tool for mobile. The app reads pulse signals from camera video to estimate heart rate.", "src": "assets/img/work/streamind-mobile-app.jpg", "w": 673, "ht": 1400, "cap": "The Streamind heart-rate monitor running on a phone.", "alt": "Streamind Health mobile app showing the Heart Rate Monitor screen with a camera preview and Monitor, History, Breathe and Mood tabs"}, {"h": "Browser and mobile", "p": "The product already worked on laptops. Bringing it to phones meant weighing user needs, feasibility, and signal accuracy.", "src": "assets/img/work/streamind-browser-and-mobile.jpg", "w": 1400, "ht": 612, "cap": "Guided breathing in the browser app, beside the mobile heart-rate monitor.", "alt": "Streamind Health browser app on a laptop showing breathing exercises, next to the mobile app's heart-rate monitor"}]</script>
-</article>
-<article class="book cover-maroon book-jarvis" id="book-jarvis" data-slot="1" aria-labelledby="book-jarvis-title">
-<header class="book-head">
-<div>
-<h2 class="book-title" id="book-jarvis-title">Jarvis</h2>
-<p class="book-meta">Cal Hacks 13.0 · Team project</p>
-</div>
-<button class="book-toggle" type="button" aria-expanded="false" aria-controls="book-jarvis-body">Open book</button>
-</header>
-<div class="book-body" id="book-jarvis-body" tabindex="-1" aria-label="Jarvis book. Use the left and right arrow keys to turn pages.">
-<button class="book-cover" type="button" aria-label="Open the Jarvis book"><span class="cover-face"><span class="cover-kicker">Project</span><span class="cover-title">Jarvis</span><span class="cover-rule" aria-hidden="true"></span><span class="cover-meta">Cal Hacks 13.0 · Team project</span><span class="cover-cta">Open book →</span></span><span class="cover-back" aria-hidden="true"></span></button>
-<div class="book-spread">
-<div class="book-page book-left"><div class="page-inner"><p class="page-num">Page 1</p><h3>Talk to Jarvis live.</h3><p>In a Google Meet, anyone can say “Hey Jarvis,” ask a question out loud, and hear Jarvis answer during the meeting. Alongside the conversation, it keeps a live whiteboard of decisions and action items.</p></div></div>
-<div class="book-page book-right"><div class="page-inner"><figure><button class="book-zoom" type="button" aria-label="Enlarge image: Jarvis in a Google Meet call, with its live whiteboard of decided, open, and to-do items."><img src="assets/img/work/jarvis-google-meet.jpg" alt="Google Meet call with Jarvis as a participant and a live whiteboard of decided, open and to-do items" width="1400" height="787" decoding="async"></button><figcaption>Jarvis in a Google Meet call, with its live whiteboard of decided, open, and to-do items.</figcaption></figure></div></div>
-<span class="book-spine" aria-hidden="true"></span>
-</div>
-</div>
-<div class="book-controls">
-<button class="book-btn book-prev" type="button" aria-label="Previous page"><span aria-hidden="true">←</span></button>
-<p class="book-count" aria-live="polite">Page <span class="book-n">1</span> of 4</p>
-<button class="book-btn book-next" type="button" aria-label="Next page"><span aria-hidden="true">→</span></button>
-</div>
-<script type="application/json" class="book-data">[{"h": "Talk to Jarvis live.", "p": "In a Google Meet, anyone can say “Hey Jarvis,” ask a question out loud, and hear Jarvis answer during the meeting. Alongside the conversation, it keeps a live whiteboard of decisions and action items.", "src": "assets/img/work/jarvis-google-meet.jpg", "w": 1400, "ht": 787, "cap": "Jarvis in a Google Meet call, with its live whiteboard of decided, open, and to-do items.", "alt": "Google Meet call with Jarvis as a participant and a live whiteboard of decided, open and to-do items"}, {"h": "Bring absent teammates in through Slack.", "p": "Someone who misses the call can DM Jarvis for a recap or send a message to the group. Jarvis can relay that message aloud in the meeting and send the team’s reply back to Slack.", "src": "assets/img/work/jarvis-slack-recap.jpg", "w": 643, "ht": 1400, "cap": "A teammate who missed the call asks Jarvis for a recap in Slack.", "alt": "Slack conversation on a phone where Jarvis replies with a recap of what was discussed, decided and still open"}, {"h": "Meetings dashboard", "p": "My team built Jarvis for student clubs planning events. The dashboard lists the meetings Jarvis joined and can send it into a new call.", "src": "assets/img/work/jarvis-dashboard-meetings.jpg", "w": 1600, "ht": 775, "cap": "The Jarvis dashboard: send Jarvis into a Google Meet, and see the meetings it joined.", "alt": "Jarvis web dashboard with a field to send Jarvis to a Google Meet link and a list of recent planning meetings"}, {"h": "Team memory", "p": "We wanted teams to keep track of decisions. The Memory tab collects what was agreed in each meeting as changes the team can accept.", "src": "assets/img/work/jarvis-dashboard-memory.jpg", "w": 1600, "ht": 777, "cap": "The Memory tab: decisions from meetings, proposed as changes the team can accept.", "alt": "Jarvis dashboard Memory tab listing proposed project-state changes from meetings, each with Accept, edit and dismiss controls"}]</script>
-</article>
-</div>
+<section class="featured-band" aria-label="Featured research"><div class="featured-inner"><div><p class="band-label">Featured</p><h2>My research supports a California Department of Education project.</h2></div><div class="band-actions"><a class="button button-cream" href="https://www.linkedin.com/posts/california-education-learning-lab_aiineducation-ailiteracy-criticalthinking-activity-7508981214205120512-ao9a" target="_blank" rel="noopener">Read the public project post <span aria-hidden="true">↗</span></a><a class="button button-cream-outline" href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn</a></div></div></section>
+<section class="experience content-section section-spy" id="experience" aria-labelledby="experience-title">
+  <p class="eyebrow">Experience</p><h2 class="section-title" id="experience-title">Pick a bookmark.</h2><p class="section-subtitle">Each ribbon opens a different chapter.</p>
+  <div class="experience-tabs" role="tablist" aria-label="Experience"><button id="exp-tab-ctl" type="button" role="tab" aria-selected="true" aria-controls="experience-panel" data-exp="ctl">Berkeley CTL</button><button id="exp-tab-third" type="button" role="tab" aria-selected="false" aria-controls="experience-panel" data-exp="third" tabindex="-1">UCSF Radiology</button><button id="exp-tab-streamind" type="button" role="tab" aria-selected="false" aria-controls="experience-panel" data-exp="streamind" tabindex="-1">Streamind Health</button><button id="exp-tab-ctrl" type="button" role="tab" aria-selected="false" aria-controls="experience-panel" data-exp="ctrl" tabindex="-1">CTRL Robotics</button></div>
+  <article class="experience-panel" id="experience-panel" role="tabpanel" aria-labelledby="exp-tab-ctl" tabindex="0"><div class="experience-identity"><span id="exp-dates">October 2026 – present</span><h3 id="exp-role">Undergraduate Research Assistant</h3><p id="exp-org">UC Berkeley Center for Teaching &amp; Learning</p></div><div class="experience-detail"><div class="experience-problem"><strong>Problem to solve</strong><p id="exp-problem">Professors and students are making decisions about AI without clear evidence about when it improves learning, when it gets in the way, or how much use is appropriate. Separate course research also asks why students drop classes—including Korean and physics courses—and what instructors can change to support retention.</p></div><p id="exp-summary">I turn student and educator feedback about AI into evidence that can shape teaching priorities, including work aligned with the California Education Learning Lab and public LinkedIn updates.</p><ul id="exp-points"><li>Contribution: I helped frame research questions, led 6 focus groups, and analyzed a 250+ response Qualtrics survey across 5 departments.</li><li>Influence: I translated qualitative themes and quantitative patterns into 4 stakeholder memos used by 20+ educators and to inform the Center’s priorities.</li><li>Public project: I contributed to work highlighted by the California Education Learning Lab on LinkedIn and in Berkeley’s public research channels.</li><li>What I learned: useful research needs a traceable path from a person’s comment to a coded theme, supporting data, and a recommendation—without overstating work still in progress.</li></ul></div></article>
+  <figure class="experience-visual"><img id="exp-image" src="assets/img/illustrations/ctl-feedback-themes.svg" alt="Survey and focus-group feedback flowing into coded themes and recommendations for educators" width="900" height="520"><figcaption id="exp-caption">Berkeley CTL · Turning feedback into themes and evidence-based recommendations</figcaption></figure>
 </section>
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
-<button class="lightbox-close" type="button">Close <span aria-hidden="true">×</span></button>
-<figure><img alt=""><figcaption></figcaption></figure>
-</div>
-
-<section class="section" aria-labelledby="work-h">
-<div class="wrap">
-<div class="section-head">
-<h2 class="h-serif" id="work-h">Selected Work</h2>
-<p><a class="tlink" href="experience.html">All experience →</a></p>
-</div>
-<ul class="work-rows">
-<li><a class="work-row" href="projects/ctl-llm-research.html"><span class="wr-title">UC Berkeley Center for Teaching &amp; Learning</span><span class="wr-what">I study how students use AI-generated feedback.</span><span class="wr-go" aria-hidden="true">→</span></a></li>
-<li><a class="work-row" href="projects/ucsf-radiology.html"><span class="wr-title">UCSF Radiology</span><span class="wr-what">I use machine learning to assess MRI quality.</span><span class="wr-go" aria-hidden="true">→</span></a></li>
-<li><a class="work-row" href="projects/compbio-berkeley.html"><span class="wr-title">Computational Biology at Berkeley</span><span class="wr-what">I lead internal programming and organize events for members.</span><span class="wr-go" aria-hidden="true">→</span></a></li>
-</ul>
-</div>
-</section>
-
-<section class="band-white section" aria-labelledby="bring-h">
-<div class="wrap">
-<h2 class="h-serif" id="bring-h" style="margin-bottom:36px">What I bring</h2>
-<div class="cols-3">
-<div class="col"><h3>Research</h3><p>Focus groups, surveys, and interviews that turn feedback into clear recommendations.</p></div>
-<div class="col"><h3>Data &amp; ML</h3><p>Python, SQL, and machine learning, from model evaluation to data visualization.</p></div>
-<div class="col"><h3>Product</h3><p>Requirements, rollouts, and tradeoffs, working with engineers and users.</p></div>
-</div>
-</div>
-</section>
-
-<section class="band-navy section" aria-labelledby="cta-h">
-<div class="wrap cta">
-<div>
-<h2 id="cta-h">Want to know more?</h2>
-<p>See where I've worked, or say hello.</p>
-</div>
-<div class="btn-row">
-<a class="btn btn-light" href="experience.html">View my experience</a>
-<a class="btn btn-outline-light" href="contact.html">Contact me</a>
-</div>
-</div>
-</section>
-
+<section class="projects section-spy" id="projects" aria-labelledby="projects-title"><div class="projects-inner">
+  <p class="eyebrow eyebrow-light">Project books</p><h2 class="section-title" id="projects-title">Open a project notebook.</h2><p class="projects-subtitle">Click a cover to open it, then turn the pages.</p>
+  <div class="book-covers" role="group" aria-label="Choose a project book"><div class="book-wrap"><button class="book-cover book-streamind is-selected" type="button" data-book="streamind" aria-pressed="true"><span class="book-number">Project 01</span><span class="book-title">Streamind Health</span><span class="book-blurb">Facial video to pulse signal</span><span class="book-state">Reading now</span></button></div><div class="book-wrap"><button class="book-cover book-jarvis" type="button" data-book="jarvis" aria-pressed="false"><span class="book-number">Project 02</span><span class="book-title">Jarvis</span><span class="book-blurb">Live decisions, Meet to Slack</span><span class="book-state">Open book</span></button></div><div class="book-wrap"><button class="book-cover book-acne" type="button" data-book="acne" aria-pressed="false"><span class="book-number">Project 03</span><span class="book-title">Acne project</span><span class="book-blurb">Where it started</span><span class="book-state">Open book</span></button></div></div>
+  <article class="book-viewer"><div class="book-left-page"><span class="book-view-number" id="book-number">Project 01</span><h3 id="book-title">Streamind Health</h3><span class="book-tag" id="book-tag">Software Engineer Intern · October 2025 – May 2026</span><p id="book-blurb">Facial video to pulse signal</p><div class="chapter-list" id="chapter-list" role="group" aria-label="Chapters"></div></div><div class="book-right-page"><span class="page-label" id="page-label">Page 1 of 3</span><h4 id="page-heading">Overview</h4><figure class="book-page-media" id="page-media"><img id="page-image" src="assets/img/work/streamind-browser-and-mobile.jpg" alt="Streamind browser biofeedback experience beside its mobile heart-rate monitor" width="1400" height="609"><figcaption id="page-caption">Browser biofeedback beside the mobile heart-rate monitor</figcaption></figure><p id="page-copy">Streamind Health builds biofeedback for therapists and patients. I worked on extracting a pulse signal from facial video and moving the workflow from laptops toward iOS.</p><div class="page-links" id="page-links"></div><div class="page-actions"><button type="button" id="previous-page">Previous page</button><button type="button" id="next-page">Next page</button></div></div></article>
+</div></section>
+<section class="about content-section section-spy" id="about" aria-labelledby="about-title"><div class="about-copy"><p class="eyebrow">About</p><h2 class="section-title" id="about-title">A little more about me.</h2><p>I’m studying data science and cognitive science at UC Berkeley, a mix that lets me look at both the numbers and the people behind them. I’m especially interested in health technology and AI tools, and I want to build products grounded in evidence, human behavior, and careful evaluation.</p></div><div class="about-facts"><p><strong>Studying:</strong> Data science and cognitive science, UC Berkeley</p><p><strong>Curious about:</strong> How people use AI and technology</p><p><strong>Outside of work:</strong> I lead recruitment and operations for Computational Biology Club’s 90+ members, and I enjoy tennis and painting.</p></div><a class="award-card lift-card" href="https://alumni.berkeley.edu/get-involved/scholarships/the-leadership-award/" target="_blank" rel="noopener"><span>Honor · Cal Alumni Association</span><strong>The Leadership Award (TLA) Scholar</strong><p>Established in 1934, TLA is a multi-year scholarship recognizing visionary, innovative, and community-minded Berkeley leaders. CAA describes it as the largest non-academic scholarship on campus; across CAA’s broader Alumni Scholars Program, about 17% of applicants are typically selected.</p><b>Explore the official award ↗</b></a></section>
+<section class="contact section-spy" id="contact" aria-labelledby="contact-title"><div class="contact-inner"><p class="eyebrow">Contact</p><h2 class="section-title" id="contact-title">Say hello.</h2><div class="postcards"><a class="postcard postcard-featured lift-card" href="https://www.linkedin.com/posts/california-education-learning-lab_aiineducation-ailiteracy-criticalthinking-activity-7508981214205120512-ao9a" target="_blank" rel="noopener"><span>Featured</span><strong>Research supporting a California Department of Education project</strong><b>Read the public post ↗</b></a><a class="postcard postcard-linkedin lift-card" href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener"><span>Connect</span><strong>LinkedIn</strong><b>Open profile ↗</b></a><a class="postcard postcard-resume lift-card" href="assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener"><span>Résumé</span><strong>Open résumé</strong><b>PDF ↗</b></a><a class="postcard postcard-email lift-card" href="mailto:vincyh07@berkeley.edu"><span>Email</span><strong>vincyh07@berkeley.edu</strong><b>Write me ↗</b></a><a class="postcard postcard-github lift-card" href="https://github.com/vincyh07-dev" target="_blank" rel="noopener"><span>Code</span><strong>GitHub</strong><b>View my repositories ↗</b></a></div><p class="footer-line">Vincy Huang · UC Berkeley · 2026</p></div></section>
 </main>
-<footer class="site-footer">
-<div class="wrap">
-<span>© 2026 Vincy Huang · UC Berkeley</span>
-<ul>
-<li><a href="mailto:vhuang0707@gmail.com">Email</a></li>
-<li><a href="mailto:vincyh07@berkeley.edu">UC Berkeley email</a></li>
-<li><a href="https://www.linkedin.com/in/vincyhuang7" target="_blank" rel="noopener">LinkedIn</a></li>
-<li><a href="assets/docs/Vincy_Huang_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
-</ul>
-</div>
-</footer>
-<script src="assets/js/site.js"></script>
+<div class="screen-transition" aria-hidden="true"><span>V</span></div>
+<script src="assets/js/reference.js"></script>
 </body>
 </html>

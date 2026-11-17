@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="t"><title id="t">Illustration: lesion patches cut from ACNE04 train a binary classifier, which is then tested on DermNet images from a different source</title>
+<rect width="900" height="460" fill="#faf8f4"/>
+<g font-family="Helvetica, Arial, sans-serif" fill="#14243a">
+<text x="150" y="70" font-size="18" text-anchor="middle" font-weight="600">ACNE04</text>
+<g transform="translate(60 100)"><rect width="180" height="140" rx="10" fill="#f1d3bd"/>
+<g fill="none" stroke="#702638" stroke-width="2.5"><rect x="30" y="30" width="26" height="26"/><rect x="100" y="54" width="22" height="22"/><rect x="58" y="92" width="24" height="24"/></g></g>
+<g transform="translate(60 260)"><g stroke="#702638" stroke-width="2"><rect width="40" height="40" fill="#e6b7a2"/><rect x="48" width="40" height="40" fill="#e3ad97"/></g><g stroke="#14243a" stroke-width="2"><rect x="96" width="40" height="40" fill="#f3dcc9"/><rect x="144" width="40" height="40" fill="#f1d6c2"/></g></g>
+<text x="150" y="335" font-size="14" text-anchor="middle">64×64 patches: acne vs. not acne</text>
+<path d="M260 190h70" stroke="#b4924b" stroke-width="3"/><path d="M330 180l14 10-14 10z" fill="#b4924b"/>
+<rect x="360" y="140" width="170" height="100" rx="14" fill="#14243a"/><text x="445" y="185" font-size="16" fill="#fff" text-anchor="middle" font-weight="600">Patch classifier</text><text x="445" y="208" font-size="13.5" fill="#e3c98e" text-anchor="middle">ResNet-18</text>
+<path d="M545 190h70" stroke="#b4924b" stroke-width="3" stroke-dasharray="6 6"/><path d="M615 180l14 10-14 10z" fill="#b4924b"/>
+<text x="750" y="70" font-size="18" text-anchor="middle" font-weight="600">DermNet</text>
+<g transform="translate(650 100)"><rect width="90" height="66" rx="6" fill="#d9b49b"/><rect x="100" width="90" height="66" rx="6" fill="#c99f88"/><rect y="76" width="90" height="66" rx="6" fill="#ead2bf"/><rect x="100" y="76" width="90" height="66" rx="6" fill="#b88c76"/></g>
+<text x="745" y="275" font-size="14" text-anchor="middle">Different photos, lighting</text><text x="745" y="295" font-size="14" text-anchor="middle">and framing</text>
+<text x="450" y="400" font-size="16" text-anchor="middle" font-weight="600">Trained on one source of images, tested on another</text>
+</g></svg>

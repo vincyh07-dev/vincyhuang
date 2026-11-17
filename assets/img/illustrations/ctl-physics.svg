@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="t"><title id="t">Workflow: a Physics 111B lab report gets AI-generated feedback, which students and GSIs review for tone, formatting, usefulness, alignment with human grading, and potential bias</title>
+<rect width="960" height="440" fill="#faf8f4"/>
+<g font-family="Helvetica, Arial, sans-serif" fill="#14243a">
+<g transform="translate(50 70)"><rect width="220" height="200" rx="12" fill="#fff" stroke="#d9d4ca" stroke-width="2"/>
+<text x="20" y="40" font-size="17" font-weight="700">Lab report</text><text x="20" y="64" font-size="13.5" fill="#586170">Physics 111B</text>
+<g fill="#e9e4da"><rect x="20" y="90" width="180" height="12" rx="6"/><rect x="20" y="112" width="150" height="12" rx="6"/><rect x="20" y="134" width="170" height="12" rx="6"/></g>
+<path d="M30 180l30-24 30 10 30-28 30 18 30-14" fill="none" stroke="#3b64a8" stroke-width="2.5"/></g>
+<path d="M285 170h70" stroke="#b4924b" stroke-width="3"/><path d="M355 160l16 10-16 10z" fill="#b4924b"/>
+<g transform="translate(380 70)"><rect width="220" height="200" rx="12" fill="#14243a"/>
+<text x="20" y="40" font-size="17" font-weight="700" fill="#fff">AI feedback</text><text x="20" y="64" font-size="13.5" fill="#e3c98e">grade and comments</text>
+<g fill="#2b3d5a"><rect x="20" y="90" width="180" height="12" rx="6"/><rect x="20" y="112" width="160" height="12" rx="6"/><rect x="20" y="134" width="120" height="12" rx="6"/></g></g>
+<path d="M615 170h70" stroke="#b4924b" stroke-width="3"/><path d="M685 160l16 10-16 10z" fill="#b4924b"/>
+<g transform="translate(710 70)"><rect width="200" height="200" rx="12" fill="#fff" stroke="#702638" stroke-width="2"/>
+<text x="20" y="40" font-size="17" font-weight="700">Student and</text><text x="20" y="62" font-size="17" font-weight="700">GSI review</text><text x="20" y="88" font-size="13.5" fill="#586170">focus groups</text>
+<g fill="#702638"><circle cx="40" cy="140" r="14"/><circle cx="76" cy="140" r="14"/><circle cx="112" cy="140" r="14"/></g><g fill="#14243a"><circle cx="160" cy="140" r="14"/></g>
+<text x="20" y="182" font-size="12.5" fill="#586170">students · GSI</text></g>
+<text x="480" y="335" font-size="14.5" font-weight="700" letter-spacing="1.2" fill="#702638" text-anchor="middle">RESEARCH QUESTIONS</text>
+<g font-size="15" text-anchor="middle"><text x="140" y="372">Tone</text><text x="300" y="372">Formatting</text><text x="460" y="372">Usefulness</text><text x="640" y="372">Alignment with human grading</text><text x="840" y="372">Potential bias</text></g>
+</g></svg>
